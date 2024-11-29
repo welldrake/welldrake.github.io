@@ -14,13 +14,17 @@
 <body>
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <script>
-     function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+        function timestamp() {
+            var response = document.getElementById("g-recaptcha-response");
+            if (response == null || response.value.trim() == "") {
+                var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+                elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+            }
+        }
+        setInterval(timestamp, 500); 
     </script>
-    
-    <!--  ======================================================================  -->
-    <!--  NOTE: Please add the following <FORM> element to your page.             -->
-    <!--  ======================================================================  -->
     
     <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
     
@@ -35,17 +39,32 @@
     <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
     <!--  ======================================================================  -->
     
-    <label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" ><br>
+    <label for="name">Contact Name</label>
+    <input id="name" maxlength="80" name="name" size="20" type="text"><br>
     
-    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" ><br>
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" size="20" type="text"><br>
     
-    <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" ><br>
+    <label for="phone">Phone</label>
+    <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
     
-    <label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" ><br>
+    <label for="subject">Subject</label>
+    <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
     
-    <label for="description">Description</label><textarea id ="description" name="description"></textarea><br>
+    <label for="description">Description</label>
+    <textarea id="description" name="description"></textarea><br>
     
-    <input type="hidden"  id="external" name="external" value="1" ><br>
+    <label for="00N5j00000GqQaq">Severity</label>
+    <select  id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity">
+        <option value="">--None--</option>
+        <option value="N/A">N/A</option>
+        <option value="Severity 1">Severity 1</option>
+        <option value="Severity 2">Severity 2</option>
+        <option value="Severity 3">Severity 3</option>
+        <option value="Red Alert">Red Alert</option>
+    </select><br>
+
+    <input type="hidden"  id="external" name="external" value="1"><br>
     
     <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
     <input type="submit" name="submit">
