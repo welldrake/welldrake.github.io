@@ -30,6 +30,7 @@
         function validate(event) {                   
             var response = grecaptcha.getResponse().length;
             //var rcMessageElem = document.getElementById('grecDiv');
+            console.log('response: ' + response);
             if (typeof(response) == "undefined" || response === 0) {
                 //rcMessageElem.setCustomValidity('Please complete the reCAPTCHA');
                 console.log('grec fail');
