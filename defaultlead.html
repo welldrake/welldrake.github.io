@@ -6,7 +6,19 @@
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
         
     <title>Web-to-Lead</title>
-    <style></style>
+    <style>
+        .rcMessageContainer {
+            margin-top:-20px;
+            margin-left:20px;
+        }
+        .rcMessage {
+            width:1px;
+            height:1px;
+            margin:0;
+            border:0;
+            padding:0;
+        }
+    </style>
 
 </head>
 
@@ -56,7 +68,7 @@
     -->
     <!--  ======================================================================  -->
     
-    <label for="first_name">First Name 4</label>
+    <label for="first_name">First Name 5</label>
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
     
     <label for="last_name">Last Name</label>
@@ -102,7 +114,12 @@
         <option value="WA">WA</option>
     </select><br>
     
-    <div id="grecDiv" class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+    <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
+        <input class="rcMessage" id="rcMessage" tabindex="-1">
+    </div>
+    <br>
+
     <input type="submit" name="submit">
     
     </form>   
