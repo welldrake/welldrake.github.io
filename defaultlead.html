@@ -45,10 +45,7 @@
         setInterval(timestamp, 500); 
     </script>
 
-    <script>
-        //set custom validity upfront so it displays on first submit if captcha not complete
-        document.getElementById('rcMessage').setCustomValidity('Please complete the reCAPTCHA');
-        
+    <script>       
         //Update custom validity onsubmit of form
         function validate(event) {                   
             var response = grecaptcha.getResponse().length;
@@ -63,7 +60,7 @@
     </script>
 
     
-    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0T0000000lof" method="POST" onsubmit='return validate(event);'>
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0T0000000lof" method="POST" >
     
     <input type=hidden name='captcha_settings' value='{"keyname":"TestingKeyNoProtection","fallback":"true","orgId":"00D0T0000000lof","ts":""}'>
     <input type=hidden name="oid" value="00D0T0000000lof">
@@ -79,7 +76,7 @@
     -->
     <!--  ======================================================================  -->
     
-    <label for="first_name">First Name 8</label>
+    <label for="first_name">First Name 9</label>
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
     
     <label for="last_name">Last Name</label>
@@ -131,9 +128,14 @@
     </div>
     <br>
 
-    <input type="submit" name="submit">
+    <input type="submit" name="submit" onclick='return validate(event);'>
     
     </form>   
+
+    <script>
+        //set custom validity upfront so it displays on first submit if captcha not complete
+        //document.getElementById('rcMessage').setCustomValidity('Please complete the reCAPTCHA');
+    </script>
 
 </body>
 
