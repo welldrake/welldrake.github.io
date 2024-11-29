@@ -47,6 +47,9 @@
             display: none;
             content: "\002B"; /* plus sign */
         }
+        details {
+            overflow: hidden;
+        }
         details::details-content {
             /* https://www.youtube.com/watch?v=Vzj3jSUbMtI */
             block-size: 0;
@@ -60,7 +63,6 @@
         }
         details[open] > summary::marker {
             content: "\2212"; /* minus sign */
-            overflow: hidden;
         }
         .summaryTitle {
             font-size:24px; /* customise */
@@ -71,7 +73,7 @@
             margin-left:26px; /* customise to align with summaryTitle */
         }
         form {
-            margin-bottom:20px;
+            padding-bottom:20px;
         }
         input, select,textarea {
             width:100%; /* customise */
