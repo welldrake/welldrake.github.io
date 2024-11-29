@@ -97,17 +97,19 @@
 <body>
 
     <script>
-        var varKeyname = "TestingKeyNoProtection";
+        //Configure variables here
         var varOrgid = "00D0T0000000lof";
+        var varKeyname = "TestingKeyNoProtection";
+        var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
     </script>
     
     <script>
         function onloadCallback() {
             //These must be in the same sequence as the sections on the page
-            grecaptcha.render('RecaptchaQuality', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
-            grecaptcha.render('RecaptchaBecome', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
-            grecaptcha.render('RecaptchaExisting', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
-            grecaptcha.render('RecaptchaCrates', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
+            grecaptcha.render('RecaptchaQuality', {'sitekey' : varSitekey});
+            grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
+            grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
+            grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
         };
     </script>
 
