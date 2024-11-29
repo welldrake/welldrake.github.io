@@ -42,10 +42,10 @@
         function validate(event) {                   
             var response = grecaptcha.getResponse().length;
             if (typeof(response) == "undefined" || response === 0) {
-                document.getElementById('grecDiv').setCustomValidity('Please complete the reCAPTCHA');
+                document.getElementById('rcMessage').setCustomValidity('Please complete the reCAPTCHA');
                 return false;
             } else {
-                document.getElementById('grecDiv').setCustomValidity('');
+                document.getElementById('rcMessage').setCustomValidity('');
                 return true;
             }
         }
@@ -68,7 +68,7 @@
     -->
     <!--  ======================================================================  -->
     
-    <label for="first_name">First Name 5</label>
+    <label for="first_name">First Name 6</label>
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
     
     <label for="last_name">Last Name</label>
