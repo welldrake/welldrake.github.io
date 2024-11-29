@@ -32,8 +32,8 @@
     <script>
         function onloadCallback() {
             //These must be in the same sequence as the sections on the page
-            grecaptcha.render('RecaptchaField0', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
-            grecaptcha.render('RecaptchaField1', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
+            grecaptcha.render('RecaptchaQuality', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
+            grecaptcha.render('RecaptchaBcome', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
         };
     </script>
 
@@ -79,7 +79,7 @@
     <details><!-- Product &amp; Quality Feedback -->
         <summary>
         <span class="summaryTitle">
-            Product &amp; Quality Feedback
+            Product &amp; Quality Feedback v1
         </span>
         <span class="summaryDescription">
             We'd love to hear your feedback and answer any questions regarding quality, products or packaging
@@ -129,7 +129,7 @@
 
                 <input type="hidden"  id="external" name="external" value="1"><br>
                 
-                <div id="RecaptchaField0"></div>
+                <div id="RecaptchaQuality"></div>
 
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageQuality" tabindex="-1">
@@ -228,7 +228,7 @@
                     <option value="WA">WA</option>
                 </select><br>
                 
-                <div id="RecaptchaField1"></div>
+                <div id="RecaptchaBecome"></div>
 
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageBecome" tabindex="-1">
