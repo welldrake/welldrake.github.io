@@ -245,6 +245,61 @@
         
     </details>
 
+
+    <p>OUR ADDRESS<p>
+    <p></p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
+
+        
+    <script>
+        //Automatically close other sections if a new one is opened
+        
+        // Fetch all the details element.
+        const details = document.querySelectorAll("details");
+    
+        // Add the onclick listeners.
+        details.forEach((detail) => {
+            detail.addEventListener("toggle", () => {
+                if (detail.open) setTargetDetail(detail);
+            });
+        });
+    
+        // Close all the details that are not targetDetail.
+        function setTargetDetail(targetDetail) {
+            details.forEach((detail) => {
+                if (detail !== targetDetail) {
+                detail.open = false;
+                }
+            });
+        }
+    </script>
+    
+    <script>
+        //Populates Case Origin URL with the current URL, truncated to 100 characters to meet field specs
+        (function() {
+            //document.getElementById("originurl").value = window.location.href.substring(0,100);
+    
+            const originalUrlString = window.location.href.substring(0,100);
+    
+            for (const originElem of document.getElementsByName("00N5j00000Gq8XC")) {
+                originElem.value = originalUrlString; 
+            }
+    
+        })();
+    </script>
+    
+    
+    <!--
+    <br><br><br>
+    <footer><pre style="color:darkgrey">
+    <i>For more info, see email dated:</i>
+    From: Wilson, Alex <no-reply@gwf.com.au>
+    Date: Wednesday, 3 July 2024 at 9:36 AM
+    To: Wilson, Alex <no-reply@gwf.com.au>
+    Subject: Fixing Contact us Pages
+    </pre></footer>
+    -->
+
+
 </body>
 
 </html>
