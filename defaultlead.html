@@ -25,6 +25,21 @@
         }
         setInterval(timestamp, 500); 
     </script>
+
+    <script>
+        function validate(event) {                   
+            var response = grecaptcha.getResponse().length;
+            var rcMessageElem = document.getElementById('grecDiv');
+            if (typeof(response) == "undefined" || response === 0) {
+                rcMessageElem.setCustomValidity('Please complete the reCAPTCHA');
+                return false;
+            } else {
+                rcMessageElem.setCustomValidity('');
+                return true;
+            }
+        }
+    </script>
+
     
     <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
     
@@ -86,8 +101,8 @@
         <option value="WA">WA</option>
     </select><br>
     
-    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
-    <input type="submit" name="submit">
+    <div id="grecDiv" class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
+    <input type="submit" name="submit" onclick='validate(event);'>
     
     </form>   
 
