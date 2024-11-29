@@ -3,6 +3,9 @@
 
 <head>
     <title>Contact Us</title>
+    
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
+
     <style>
         /*Add red asterisk to all labels that occur before a required input field*/
         label:has(+ input:required)::after, 
@@ -25,6 +28,28 @@
             padding:0;
             opacity:0;
         }
+        summary {
+            color:#FFFFFF!important; /* customise */
+            background-color:#FFBB00; /* customise */
+        }
+        summary::marker {
+            color:#ffffff;
+            display: none;
+            content: "\002B"; /* plus sign */
+        }
+        .summaryDescription {
+            display:block;
+        }
+        details[open] > summary::marker {
+            display: none; /* remove? */
+            content: "\2212"; /* minus sign */
+        }
+        .detailsContent {
+            margin-bottom:20px;
+        }
+        textarea {
+            resize:vertical;
+        }
     </style>
 </head>
 
@@ -34,6 +59,8 @@
             //These must be in the same sequence as the sections on the page
             grecaptcha.render('RecaptchaQuality', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
             grecaptcha.render('RecaptchaBecome', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
+            grecaptcha.render('RecaptchaExisting', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
+            grecaptcha.render('RecaptchaCrates', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
         };
     </script>
 
@@ -105,8 +132,8 @@
                 <label for="name">Contact Name 4</label>
                 <input id="name" maxlength="80" name="name" size="20" type="text"><br>
                 
-                <label for="email">Email</label>
-                <input id="email" maxlength="80" name="email" size="20" type="text"><br>
+                <label for="emailQuality">Email</label>
+                <input id="emailQuality" maxlength="80" name="email" size="20" type="text"><br>
                 
                 <label for="phone">Phone</label>
                 <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
@@ -197,8 +224,8 @@
                 <label for="company_local">Company Name (Local)</label>
                 <input id="company_local" maxlength="40" name="company_local" size="20" type="text"><br>
                 
-                <label for="email">Email</label>
-                <input id="email" maxlength="80" name="email" size="20" type="text"><br>
+                <label for="emailBecome">Email</label>
+                <input id="emailBecome" maxlength="80" name="email" size="20" type="text"><br>
                 
                 <label for="company">Company</label>
                 <input id="company" maxlength="40" name="company" size="20" type="text"><br>
@@ -246,8 +273,219 @@
     </details>
 
 
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+
+    <details><!-- Existing Customers -->
+        <summary>
+        <span class="summaryTitle">
+            Existing Customers
+        </span>
+        <span class="summaryDescription">
+            If you need to contact our Customer Service Team about your Customer Account, Order or Delivery
+        </span>
+        </summary>
+        <div class="detailsContent">
+
+            <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
+            
+                <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
+                <input type=hidden name="orgid" value="00D0T0000000lof">
+                <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
+                
+                <!--  ======================================================================  -->
+                <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                <!--  these lines if you wish to test in debug mode.                          -->
+                <!--
+                <input type="hidden" name="debug" value=1>
+                <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
+                -->
+                <!--  ======================================================================  -->
+                
+                <label for="name">Contact Name 4</label>
+                <input id="name" maxlength="80" name="name" size="20" type="text"><br>
+                
+                <label for="emailExisting">Email</label>
+                <input id="emailExisting" maxlength="80" name="email" size="20" type="text"><br>
+                
+                <label for="phone">Phone</label>
+                <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+                
+                <label for="subject">Subject</label>
+                <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
+                
+                <label for="description">Description</label>
+                <textarea id="description" name="description"></textarea><br>
+                
+                <label for="00N5j00000GqQaq">Severity</label>
+                <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
+                    <option value="">--None--</option>
+                    <option value="N/A">N/A</option>
+                    <option value="Severity 1">Severity 1</option>
+                    <option value="Severity 2">Severity 2</option>
+                    <option value="Severity 3">Severity 3</option>
+                    <option value="Red Alert">Red Alert</option>
+                </select><br>
+
+                <input type="hidden"  id="external" name="external" value="1"><br>
+                
+                <div id="RecaptchaExisting"></div>
+
+                <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
+                    <input class="rcMessage" id="rcMessageExisting" tabindex="-1">
+                </div>
+                <br>
+
+                <!-- validation is done onlick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+                <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Existing', /*sectionIndex*/ 0);"> 
+            
+            </form>
+
+        </div>
+    </details>
+
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <details><!-- Crate Collection -->
+        <summary>
+        <span class="summaryTitle">
+            Crates and Dollies Collection
+        </span>
+        <span class="summaryDescription">
+            If you need Tip Top crates and/or dollies collected
+        </span>
+        </summary>
+        <div class="detailsContent">
+
+            <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
+            
+                <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
+                <input type=hidden name="orgid" value="00D0T0000000lof">
+                <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
+                
+                <!--  ======================================================================  -->
+                <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                <!--  these lines if you wish to test in debug mode.                          -->
+                <!--
+                <input type="hidden" name="debug" value=1>
+                <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
+                -->
+                <!--  ======================================================================  -->
+                
+                <label for="name">Contact Name 4</label>
+                <input id="name" maxlength="80" name="name" size="20" type="text"><br>
+                
+                <label for="emailCrates">Email</label>
+                <input id="emailCrates" maxlength="80" name="email" size="20" type="text"><br>
+                
+                <label for="phone">Phone</label>
+                <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+                
+                <label for="subject">Subject</label>
+                <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
+                
+                <label for="description">Description</label>
+                <textarea id="description" name="description"></textarea><br>
+                
+                <label for="00N5j00000GqQaq">Severity</label>
+                <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
+                    <option value="">--None--</option>
+                    <option value="N/A">N/A</option>
+                    <option value="Severity 1">Severity 1</option>
+                    <option value="Severity 2">Severity 2</option>
+                    <option value="Severity 3">Severity 3</option>
+                    <option value="Red Alert">Red Alert</option>
+                </select><br>
+
+                <input type="hidden"  id="external" name="external" value="1"><br>
+                
+                <div id="RecaptchaCrates"></div>
+
+                <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
+                    <input class="rcMessage" id="rcMessageCrates" tabindex="-1">
+                </div>
+                <br>
+
+                <!-- validation is done onlick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+                <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Crates', /*sectionIndex*/ 0);"> 
+            
+            </form>
+
+        </div>
+    </details>
+
+
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <details><!-- Product Finder -->
+        <summary>
+            <span class="summaryTitle">
+                Product Finder
+            </span>
+            <span class="summaryDescription">
+                If you're looking for a Tip Top product near you.
+            </span>
+        </summary>
+        <div class="detailsContent">
+            Please <a href="https://gwf.my.salesforce-sites.com/p">click here</a> to use out Product Finder tool and search for a product near you.
+        </div>
+    </details>
+    
+    <details><!-- Employment Opportunities -->
+        <summary>
+            <span class="summaryTitle">
+                Employment Opportunities
+            </span>
+            <span class="summaryDescription">
+                Want to join one of George Weston Foods iconic brands.
+            </span>
+        </summary>
+        <div class="detailsContent">
+            Please <a href="https://www.gwf.com.au/careers/">click here</a> to search careers at GWF.
+        </div>
+    </details>
+    
+    <details><!-- Sponsorship &amp; Donations -->
+        <summary>
+            <span class="summaryTitle">
+                Sponsorship &amp; Donations
+            </span>
+            <span class="summaryDescription">
+                TBD
+            </span>
+        </summary>
+        <div class="detailsContent">
+            <span style="color:red;">Jo to provide text</span>
+        </div>
+    </details>
+
+
+
     <p>OUR ADDRESS<p>
-    <p></p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
+    <p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
 
         
     <script>
