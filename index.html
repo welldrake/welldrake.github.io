@@ -36,12 +36,12 @@
             opacity: 0;
         }
         summary {
-            margin-inline-start: 2rem;
+            margin-inline-start: 2rem; /* moved the text and marker to the right */
             list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
         }
         summary::marker {
-            /* font-size:30px; */ /* rmarker size - customise */
             color: #ffffff; /* customise */
+            /* font-size:30px; */ /* rmarker size - customise */
             /* content: "\002B"; */ /* plus sign */
         }
         details[open] > summary::marker {
@@ -95,6 +95,12 @@
 </head>
 
 <body>
+
+    <script>
+        var varKeyname = "TestingKeyNoProtection";
+        var varOrgid = "00D0T0000000lof";
+    </script>
+    
     <script>
         function onloadCallback() {
             //These must be in the same sequence as the sections on the page
@@ -114,8 +120,8 @@
                 var capSettings = document.getElementsByName("captcha_settings");
                 for (const cs of capSettings) {
                     var elems = JSON.parse(cs.value);
-                    elems["keyname"] = "TestingKeyNoProtection"; // *** CUSTOMISE - NEEDS TO MATCH A NAME OF A KEY PAIR FROM SALESFORCE ***
-                    elems["orgId"] = "00D0T0000000lof"; // *** CUSTOMISE - NEEDS TO MATCH THE SALESFORCE ORGID ***
+                    elems["keyname"] = varKeyname; // *** CUSTOMISE - NEEDS TO MATCH A NAME OF A KEY PAIR FROM SALESFORCE ***
+                    elems["orgId"] = varOrgid; // *** CUSTOMISE - NEEDS TO MATCH THE SALESFORCE ORGID ***
                     elems["ts"] = JSON.stringify(new Date().getTime());
                     cs.value = JSON.stringify(elems);
                 }
