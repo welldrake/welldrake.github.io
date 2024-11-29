@@ -8,6 +8,9 @@
 
     <style>
         /*Add red asterisk to all labels that occur before a required input field*/
+        label {
+            display:block; /* labels on own line */
+        }
         label:has(+ input:required)::after, 
         label:has(+ textarea:required)::after, 
         label:has(+ select:required)::after {
@@ -44,7 +47,7 @@
         }
         .summaryDescription {
             font-size:14px; /* customise? */
-            display:block;
+            display:block; /* description on own line */
         }
         details[open] > summary::marker {
             display: none; /* remove? */
@@ -139,7 +142,7 @@
                 -->
                 <!--  ======================================================================  -->
                 
-                <label for="name">Contact Name 4</label>
+                <label for="name">Contact Name</label>
                 <input id="name" maxlength="80" name="name" size="20" type="text"><br>
                 
                 <label for="emailQuality">Email</label>
