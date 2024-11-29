@@ -37,14 +37,21 @@
             display: none;
             content: "\002B"; /* plus sign */
         }
+        .summaryTitle {
+            font-size:24px; /* customise? */
+        }
         .summaryDescription {
+            font-size:14px; /* customise? */
             display:block;
+        }
+        details {
+            margin-top:5px;
         }
         details[open] > summary::marker {
             display: none; /* remove? */
             content: "\2212"; /* minus sign */
         }
-        .detailsContent {
+        form {
             margin-bottom:20px;
         }
         textarea {
@@ -94,6 +101,10 @@
         }
     </script>
 
+
+    <h1>How can we help?</h1>
+
+
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -112,7 +123,7 @@
             We'd love to hear your feedback and answer any questions regarding quality, products or packaging
         </span>
         </summary>
-        <div class="detailsContent">
+        
 
             <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
             
@@ -168,7 +179,7 @@
             
             </form>
 
-        </div>
+
     </details>
 
     
@@ -191,7 +202,7 @@
                 If you are interested in opening an account.
             </span>
         </summary>
-        <div class="detailsContent">
+        
 
             <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0T0000000lof" method="POST" >
             
@@ -267,8 +278,6 @@
 
             
             </form>   
-
-        </div>
         
     </details>
 
@@ -292,7 +301,7 @@
             If you need to contact our Customer Service Team about your Customer Account, Order or Delivery
         </span>
         </summary>
-        <div class="detailsContent">
+        
 
             <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
             
@@ -348,7 +357,6 @@
             
             </form>
 
-        </div>
     </details>
 
 
@@ -370,7 +378,7 @@
             If you need Tip Top crates and/or dollies collected
         </span>
         </summary>
-        <div class="detailsContent">
+        
 
             <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
             
@@ -426,7 +434,7 @@
             
             </form>
 
-        </div>
+
     </details>
 
 
@@ -449,7 +457,7 @@
                 If you're looking for a Tip Top product near you.
             </span>
         </summary>
-        <div class="detailsContent">
+        
             Please <a href="https://gwf.my.salesforce-sites.com/p">click here</a> to use out Product Finder tool and search for a product near you.
         </div>
     </details>
@@ -463,7 +471,7 @@
                 Want to join one of George Weston Foods iconic brands.
             </span>
         </summary>
-        <div class="detailsContent">
+        
             Please <a href="https://www.gwf.com.au/careers/">click here</a> to search careers at GWF.
         </div>
     </details>
@@ -477,7 +485,7 @@
                 TBD
             </span>
         </summary>
-        <div class="detailsContent">
+        
             <span style="color:red;">Jo to provide text</span>
         </div>
     </details>
