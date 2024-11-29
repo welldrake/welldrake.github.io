@@ -1,14 +1,14 @@
 <script type="text/javascript">
-    var CaptchaCallback = function() {
+    function onloadCallback() {
         grecaptcha.render('RecaptchaField1', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
         grecaptcha.render('RecaptchaField2', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
     };
 </script>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
 <form>
-    <h1>Form 1 v3</h1>
+    <h1>Form 1 v4</h1>
     <div><input type="text" name="field1" placeholder="field1"></div>
     <div><input type="text" name="field2" placeholder="field2"></div>
     <div id="RecaptchaField1"></div>
