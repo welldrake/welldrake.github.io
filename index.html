@@ -43,7 +43,6 @@
         function timestamp() {
             var response = document.getElementById("g-recaptcha-response");
             if (response == null || response.value.trim() == "") {
-                console.log('if response: ' + response);
                 var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
                 elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
             }
@@ -86,7 +85,7 @@
         -->
         <!--  ======================================================================  -->
         
-        <label for="name">Contact Name 2</label>
+        <label for="name">Contact Name 3</label>
         <input id="name" maxlength="80" name="name" size="20" type="text"><br>
         
         <label for="email">Email</label>
