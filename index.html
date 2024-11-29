@@ -12,31 +12,31 @@
         }
         /*Add red asterisk to all labels that occur before a required input field*/
         label {
-            display:block; /* labels on own line */
+            display: block; /* labels on own line */
         }
         label:has(+ input:required)::after, 
         label:has(+ textarea:required)::after, 
         label:has(+ select:required)::after {
             content: "*";
-            color:red;
+            color: red;
         }
         .rcMessageContainer {
-            margin-top:-36px;
-            margin-bottom:36px;
-            margin-left:26px;
-            margin-right:-26px;
+            margin-top: -36px;
+            margin-bottom: 36px;
+            margin-left: 26px;
+            margin-right: -26px;
         }
         .rcMessage {
-            width:1px;
-            height:1px;
-            margin:0;
-            border:0;
-            padding:0;
-            opacity:0;
+            width: 1px;
+            height: 1px;
+            margin: 0;
+            border: 0;
+            padding: 0;
+            opacity: 0;
         }
         summary {
-            padding: 0 5px 5px 5px; /* customise */
-            margin-bottom:5px; /* customise */
+            /* padding: 0 5px 5px 5px; */ /* customise */
+            /* margin-bottom: 5px; */ /* customise */
             margin-inline-start: 1rem;
             list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
         }
@@ -51,8 +51,8 @@
         }
         details {
             overflow: hidden;
-            color:#FFFFFF!important; /* customise */
-            background-color:#FFBB00; /* customise */
+            color: #FFFFFF!important; /* customise */
+            background-color: #FFBB00; /* customise */
         }
         details::details-content {
             /* https://www.youtube.com/watch?v=Vzj3jSUbMtI */
@@ -66,27 +66,30 @@
             block-size: auto;
         }
         .summaryTitle {
-            font-size:24px; /* customise */
+            font-size: 24px; /* customise */
         }
         .summaryDescription {
-            font-size:14px; /* customise */
-            display:block; /* description on own line */
-            margin-left:26px; /* customise to align with summaryTitle */
+            font-size: 14px; /* customise */
+            display: block; /* description on own line */
+            /*margin-left: 26px;*/ /* customise to align with summaryTitle */
         }
         form {
-            padding-bottom:20px;
+            padding-bottom: 20px;
+            background-color: white; /* customise */
         }
-        input, select,textarea {
-            width:100%; /* customise */
-            margin-bottom:10px; /* customise */
+        input,
+        select,
+        textarea {
+            width: 100%; /* customise */
+            margin-bottom: 10px; /* customise */
             box-sizing: border-box;  /* sizes within the parent element */
         }
-    
-        input, select {
-            height:40px; /* customise */
+        input,
+        select {
+            height: 40px; /* customise */
         }
         textarea {
-            resize:vertical;
+            resize: vertical;
             height: 8em; /* 8 rows high - customise */
         }
     </style>
