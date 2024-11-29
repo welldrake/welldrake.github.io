@@ -561,7 +561,7 @@
     
     <script>
         //Populates Case Origin URL with the current URL, truncated to 100 characters to meet field specs
-        (function() {
+        //(function() {
             //document.getElementById("originurl").value = window.location.href.substring(0,100);
     
             const originalUrlString = window.location.href.substring(0,100);
@@ -570,13 +570,18 @@
                 originElem.value = originalUrlString; 
             }
     
-        })();
+        //})();
     </script>
 
     <script>
         //Add the orgid to the end of each form action
         for (const frm of document.forms) {
             frm.action = frm.action + varOrgid;
+        }
+
+        //Set the valie of the orgid element in each form
+        for (const orgidElem of document.getElementsByName("orgid")) {
+            orgidElem.value = varOrgid; 
         }
     </script>
     
