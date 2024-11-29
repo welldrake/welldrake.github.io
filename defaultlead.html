@@ -51,10 +51,10 @@
             var response = grecaptcha.getResponse().length;
             if (typeof(response) == "undefined" || response === 0) {
                 document.getElementById('rcMessage').setCustomValidity('Please complete the reCAPTCHA');
-                return false;
+                //return false;
             } else {
                 document.getElementById('rcMessage').setCustomValidity('');
-                return true;
+                //return true;
             }
         }
     </script>
@@ -76,7 +76,7 @@
     -->
     <!--  ======================================================================  -->
     
-    <label for="first_name">First Name 9</label>
+    <label for="first_name">First Name 11</label>
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
     
     <label for="last_name">Last Name</label>
@@ -128,7 +128,7 @@
     </div>
     <br>
 
-    <input type="submit" name="submit" onclick='return validate(event);'>
+    <input type="submit" name="submit" onclick='validate(event);'>
     
     </form>   
 
