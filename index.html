@@ -36,20 +36,21 @@
             opacity: 0;
         }
         summary {
-            margin-inline-start: 1rem;
+            margin-inline-start: 2rem;
             list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
         }
         summary::marker {
-            font-size:30px; /* rmarker size - customise */
+            /* font-size:30px; */ /* rmarker size - customise */
             color: #ffffff; /* customise */
-            content: "\002B"; /* plus sign */
+            /* content: "\002B"; */ /* plus sign */
         }
         details[open] > summary::marker {
-            content: "\2212"; /* minus sign */
+            /* content: "\2212"; */ /* minus sign */
         }
         details {
             overflow: hidden;
             background-color: #FFBB00; /* customise */
+            margin-bottom: 5px;
         }
         details::details-content {
             /* https://www.youtube.com/watch?v=Vzj3jSUbMtI */
