@@ -7,6 +7,9 @@
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
 
     <style>
+        :root {
+            interpolate-size: allow-keywords; /* used to animated the details/summary */
+        }
         /*Add red asterisk to all labels that occur before a required input field*/
         label {
             display:block; /* labels on own line */
@@ -36,6 +39,7 @@
             background-color:#FFBB00; /* customise */
             padding: 0 5px 5px 5px; /* customise */
             margin-bottom:5px; /* customise */
+            list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
         }
         summary::marker {
             font-size:30px; /* rmarker size - customise */
@@ -43,8 +47,19 @@
             display: none;
             content: "\002B"; /* plus sign */
         }
+        details::details-content {
+            block-size: 0;
+            transition:
+                block-size 1s,
+                content-visibility 1s;
+            transition-behavior: allow-discrete;
+        }
+        details[open]::details-content {
+            block-size: auto;
+        }
         details[open] > summary::marker {
             content: "\2212"; /* minus sign */
+            overflow: hidden;
         }
         .summaryTitle {
             font-size:24px; /* customise */
