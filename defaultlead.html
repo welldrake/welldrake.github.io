@@ -44,7 +44,7 @@
     </script>
 
     
-    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0T0000000lof" method="POST" onsubmit='return validate(event);'>
     
     <input type=hidden name='captcha_settings' value='{"keyname":"TestingKeyNoProtection","fallback":"true","orgId":"00D0T0000000lof","ts":""}'>
     <input type=hidden name="oid" value="00D0T0000000lof">
@@ -60,7 +60,7 @@
     -->
     <!--  ======================================================================  -->
     
-    <label for="first_name">First Name 2</label>
+    <label for="first_name">First Name 3</label>
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
     
     <label for="last_name">Last Name</label>
@@ -107,7 +107,7 @@
     </select><br>
     
     <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
-    <input class='button' type="submit" name="submit" onclick='validate(event);'>
+    <input type="submit" name="submit">
     
     </form>   
 
