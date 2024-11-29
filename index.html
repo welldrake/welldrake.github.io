@@ -13,6 +13,7 @@
         /*Add red asterisk to all labels that occur before a required input field*/
         label {
             display: block; /* labels on own line */
+            color: black; /* customise */
         }
         label:has(+ input:required)::after, 
         label:has(+ textarea:required)::after, 
@@ -35,15 +36,12 @@
             opacity: 0;
         }
         summary {
-            /* padding: 0 5px 5px 5px; */ /* customise */
-            /* margin-bottom: 5px; */ /* customise */
             margin-inline-start: 1rem;
             list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
         }
         summary::marker {
             font-size:30px; /* rmarker size - customise */
-            /*color:#ffffff;*/
-            /*display: none;*/
+            color: #ffffff; /* customise */
             content: "\002B"; /* plus sign */
         }
         details[open] > summary::marker {
@@ -51,7 +49,6 @@
         }
         details {
             overflow: hidden;
-            color: #FFFFFF!important; /* customise */
             background-color: #FFBB00; /* customise */
         }
         details::details-content {
@@ -67,11 +64,12 @@
         }
         .summaryTitle {
             font-size: 24px; /* customise */
+            color: #ffffff; /* customise */
         }
         .summaryDescription {
             font-size: 14px; /* customise */
+            color: #ffffff; /* customise */
             display: block; /* description on own line */
-            /*margin-left: 26px;*/ /* customise to align with summaryTitle */
         }
         form {
             padding-bottom: 20px;
