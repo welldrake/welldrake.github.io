@@ -31,6 +31,10 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <script>
+        
+    </script>
+
+    <script>
         function timestamp() {
             var response = document.getElementById("g-recaptcha-response");
             if (response == null || response.value.trim() == "") {
@@ -42,6 +46,10 @@
     </script>
 
     <script>
+        //set custom validity upfront so it displays on first submit if captcha not complete
+        document.getElementById('rcMessage').setCustomValidity('Please complete the reCAPTCHA');
+        
+        //Update custom validity onsubmit of form
         function validate(event) {                   
             var response = grecaptcha.getResponse().length;
             if (typeof(response) == "undefined" || response === 0) {
@@ -71,7 +79,7 @@
     -->
     <!--  ======================================================================  -->
     
-    <label for="first_name">First Name 7</label>
+    <label for="first_name">First Name 8</label>
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
     
     <label for="last_name">Last Name</label>
