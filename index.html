@@ -3,34 +3,209 @@
 
 <head>
     <title>Contact Us</title>
-    <style></style>
+    <style>
+        /*Add red asterisk to all labels that occur before a required input field*/
+        label:has(+ input:required)::after, 
+        label:has(+ textarea:required)::after, 
+        label:has(+ select:required)::after {
+            content: "*";
+            color:red;
+        }
+        .rcMessageContainer {
+            margin-top:-36px;
+            margin-bottom:36px;
+            margin-left:26px;
+            margin-right:-26px;
+        }
+        .rcMessage {
+            width:1px;
+            height:1px;
+            margin:0;
+            border:0;
+            padding:0;
+            opacity:0;
+        }
+    </style>
 </head>
 
 <body>
-<script>
-    function onloadCallback() {
-        grecaptcha.render('RecaptchaField1', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
-        grecaptcha.render('RecaptchaField2', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
-    };
-</script>
+    <script>
+        function onloadCallback() {
+            grecaptcha.render('RecaptchaField0', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
+            grecaptcha.render('RecaptchaField1', {'sitekey' : '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'});
+        };
+    </script>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
-<form>
-    <h1>Form 1 v4</h1>
-    <div><input type="text" name="field1" placeholder="field1"></div>
-    <div><input type="text" name="field2" placeholder="field2"></div>
-    <div id="RecaptchaField1"></div>
-    <div><input type="submit"></div>
-</form>
+    <script>
+        function timestamp() {
+            var response = document.getElementById("g-recaptcha-response");
+            if (response == null || response.value.trim() == "") {
+                var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+                elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+            }
+        }
+        setInterval(timestamp, 500); 
+    </script>
 
-<form>
-    <h1>Form 2</h1>
-    <div><input type="text" name="field3" placeholder="field3"></div>
-    <div><input type="text" name="field4" placeholder="field4"></div>
-    <div id="RecaptchaField2"></div>
-    <div><input type="submit"></div>
-</form>
+    <script>       
+        function validate(event, sectionName) {                   
+            var response = grecaptcha.getResponse().length;
+            if (typeof(response) == "undefined" || response === 0) {
+                document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
+            } else {
+                document.getElementById('rcMessage' + sectionName).setCustomValidity('');
+            }
+        }
+    </script>
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+    <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
+    
+        <input type=hidden name='captcha_settings' value='{"keyname":"TestingKeyNoProtection","fallback":"true","orgId":"00D0T0000000lof","ts":""}'>
+        <input type=hidden name="orgid" value="00D0T0000000lof">
+        <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
+        
+        <!--  ======================================================================  -->
+        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+        <!--  these lines if you wish to test in debug mode.                          -->
+        <!--
+        <input type="hidden" name="debug" value=1>
+        <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
+        -->
+        <!--  ======================================================================  -->
+        
+        <label for="name">Contact Name</label>
+        <input id="name" maxlength="80" name="name" size="20" type="text"><br>
+        
+        <label for="email">Email</label>
+        <input id="email" maxlength="80" name="email" size="20" type="text"><br>
+        
+        <label for="phone">Phone</label>
+        <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+        
+        <label for="subject">Subject</label>
+        <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
+        
+        <label for="description">Description</label>
+        <textarea id="description" name="description"></textarea><br>
+        
+        <label for="00N5j00000GqQaq">Severity</label>
+        <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
+            <option value="">--None--</option>
+            <option value="N/A">N/A</option>
+            <option value="Severity 1">Severity 1</option>
+            <option value="Severity 2">Severity 2</option>
+            <option value="Severity 3">Severity 3</option>
+            <option value="Red Alert">Red Alert</option>
+        </select><br>
+
+        <input type="hidden"  id="external" name="external" value="1"><br>
+        
+        <div id="RecaptchaField0"></div>
+
+        <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
+            <input class="rcMessage" id="rcMessageQuality" tabindex="-1">
+        </div>
+        <br>
+
+        <!-- validation is done onlick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+        <input type="submit" name="submit" onclick="validate(event, 'Quality');">
+    
+    </form>
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+     
+    <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0T0000000lof" method="POST" >
+    
+        <input type=hidden name='captcha_settings' value='{"keyname":"TestingKeyNoProtection","fallback":"true","orgId":"00D0T0000000lof","ts":""}'>
+        <input type=hidden name="oid" value="00D0T0000000lof">
+        <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
+        <input type=hidden name="lead_source" value="Website"> <!-- This is required to allow to bypass duplicate rules -->
+
+        <!--  ======================================================================  -->
+        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+        <!--  these lines if you wish to test in debug mode.                          -->
+        <!--
+        <input type="hidden" name="debug" value=1>
+        <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
+        -->
+        <!--  ======================================================================  -->
+        
+        <label for="first_name">First Name</label>
+        <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required><br>
+        
+        <label for="last_name">Last Name</label>
+        <input id="last_name" maxlength="80" name="last_name" size="20" type="text"><br>
+        
+        <label for="first_name_local">First Name (Local)</label>
+        <input id="first_name_local" maxlength="40" name="first_name_local" size="20" type="text"><br>
+        
+        <label for="last_name_local">Last Name (Local)</label>
+        <input id="last_name_local" maxlength="40" name="last_name_local" size="20" type="text"><br>
+        
+        <label for="company_local">Company Name (Local)</label>
+        <input id="company_local" maxlength="40" name="company_local" size="20" type="text"><br>
+        
+        <label for="email">Email</label>
+        <input id="email" maxlength="80" name="email" size="20" type="text"><br>
+        
+        <label for="company">Company</label>
+        <input id="company" maxlength="40" name="company" size="20" type="text"><br>
+        
+        <label for="city">City</label>
+        <input id="city" maxlength="40" name="city" size="20" type="text"><br>
+        
+        <label for="country_code">Country</label>
+        <select id="country_code" name="country_code">
+            <option value="">--None--</option>
+            <option value="AU">AU</option>
+            <option value="NZ">NZ</option>
+        </select><br>
+        
+        <label for="state_code">State/Province</label>
+        <select id="state_code" name="state_code">
+            <option value="">--None--</option>
+            <option value="ACT">ACT</option>
+            <option value="NSW">NSW</option>
+            <option value="NT">NT</option>
+            <option value="NI">NI</option>
+            <option value="QLD">QLD</option>
+            <option value="SA">SA</option>
+            <option value="SI">SI</option>
+            <option value="TAS">TAS</option>
+            <option value="VIC">VIC</option>
+            <option value="WA">WA</option>
+        </select><br>
+        
+        <div id="RecaptchaField1"></div>
+
+        <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
+            <input class="rcMessage" id="rcMessageBecome" tabindex="-1">
+        </div>
+        <br>
+
+        <!-- validation is done onlick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+        <input type="submit" name="submit" onclick="validate(event, 'Become');">
+    
+    </form>   
+
 </body>
 
 </html>
