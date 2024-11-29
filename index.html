@@ -42,16 +42,17 @@
             display: none;
             content: "\002B"; /* plus sign */
         }
+        details[open] > summary::marker {
+            /*display: none;  remove? */
+            content: "\2212"; /* minus sign */
+        }
         .summaryTitle {
             font-size:24px; /* customise? */
         }
         .summaryDescription {
             font-size:14px; /* customise? */
             display:block; /* description on own line */
-        }
-        details[open] > summary::marker {
-            display: none; /* remove? */
-            content: "\2212"; /* minus sign */
+            margin-left:26px; /* customise to align with summaryTitle */
         }
         form {
             margin-bottom:20px;
