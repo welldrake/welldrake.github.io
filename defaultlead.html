@@ -29,12 +29,14 @@
     <script>
         function validate(event) {                   
             var response = grecaptcha.getResponse().length;
-            var rcMessageElem = document.getElementById('grecDiv');
+            //var rcMessageElem = document.getElementById('grecDiv');
             if (typeof(response) == "undefined" || response === 0) {
-                rcMessageElem.setCustomValidity('Please complete the reCAPTCHA');
+                //rcMessageElem.setCustomValidity('Please complete the reCAPTCHA');
+                console.log('grec fail');
                 return false;
             } else {
-                rcMessageElem.setCustomValidity('');
+                //rcMessageElem.setCustomValidity('');
+                console.log('grec pass');
                 return true;
             }
         }
@@ -51,11 +53,13 @@
     <!--  ======================================================================  -->
     <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
     <!--  these lines if you wish to test in debug mode.                          -->
+    <!--
     <input type="hidden" name="debug" value=1>
     <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
+    -->
     <!--  ======================================================================  -->
     
-    <label for="first_name">First Name</label>
+    <label for="first_name">First Name 1</label>
     <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
     
     <label for="last_name">Last Name</label>
@@ -101,7 +105,7 @@
         <option value="WA">WA</option>
     </select><br>
     
-    <div id="grecDiv" class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
     <input type="submit" name="submit" onclick='validate(event);'>
     
     </form>   
