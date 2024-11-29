@@ -6,7 +6,29 @@
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
         
     <title>Web-to-Case</title>
-    <style></style>
+    <style>
+        /*Add red asterisk to all labels that occur before a required input field*/
+        label:has(+ input:required)::after, 
+        label:has(+ textarea:required)::after, 
+        label:has(+ select:required)::after {
+            content: "*";
+            color:red;
+        }
+        .rcMessageContainer {
+            margin-top:-36px;
+            margin-bottom:36px;
+            margin-left:26px;
+            margin-right:-26px;
+        }
+        .rcMessage {
+            width:1px;
+            height:1px;
+            margin:0;
+            border:0;
+            padding:0;
+            opacity:0;
+        }
+    </style>
 
 </head>
 
@@ -24,6 +46,17 @@
             }
         }
         setInterval(timestamp, 500); 
+    </script>
+
+    <script>       
+        function validate(event) {                   
+            var response = grecaptcha.getResponse().length;
+            if (typeof(response) == "undefined" || response === 0) {
+                document.getElementById('rcMessage').setCustomValidity('Please complete the reCAPTCHA');
+            } else {
+                document.getElementById('rcMessage').setCustomValidity('');
+            }
+        }
     </script>
     
     <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D0T0000000lof" method="POST">
@@ -57,7 +90,7 @@
     <textarea id="description" name="description"></textarea><br>
     
     <label for="00N5j00000GqQaq">Severity</label>
-    <select  id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity">
+    <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
         <option value="">--None--</option>
         <option value="N/A">N/A</option>
         <option value="Severity 1">Severity 1</option>
@@ -68,8 +101,13 @@
 
     <input type="hidden"  id="external" name="external" value="1"><br>
     
-    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
-    <input type="submit" name="submit">
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+    <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
+        <input class="rcMessage" id="rcMessage" tabindex="-1">
+    </div>
+    <br>
+
+    <input type="submit" name="submit" onclick='validate(event);'>
     
     </form>
 

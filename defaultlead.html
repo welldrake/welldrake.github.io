@@ -7,6 +7,13 @@
         
     <title>Web-to-Lead</title>
     <style>
+        /*Add red asterisk to all labels that occur before a required input field*/
+        label:has(+ input:required)::after, 
+        label:has(+ textarea:required)::after, 
+        label:has(+ select:required)::after {
+            content: "*";
+            color:red;
+        }
         .rcMessageContainer {
             margin-top:-36px;
             margin-bottom:36px;
@@ -70,38 +77,38 @@
         <!--  ======================================================================  -->
         
         <label for="first_name">First Name</label>
-        <input  id="first_name" maxlength="40" name="first_name" size="20" type="text"><br>
+        <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required><br>
         
         <label for="last_name">Last Name</label>
-        <input  id="last_name" maxlength="80" name="last_name" size="20" type="text"><br>
+        <input id="last_name" maxlength="80" name="last_name" size="20" type="text"><br>
         
         <label for="first_name_local">First Name (Local)</label>
-        <input  id="first_name_local" maxlength="40" name="first_name_local" size="20" type="text"><br>
+        <input id="first_name_local" maxlength="40" name="first_name_local" size="20" type="text"><br>
         
         <label for="last_name_local">Last Name (Local)</label>
-        <input  id="last_name_local" maxlength="40" name="last_name_local" size="20" type="text"><br>
+        <input id="last_name_local" maxlength="40" name="last_name_local" size="20" type="text"><br>
         
         <label for="company_local">Company Name (Local)</label>
-        <input  id="company_local" maxlength="40" name="company_local" size="20" type="text"><br>
+        <input id="company_local" maxlength="40" name="company_local" size="20" type="text"><br>
         
         <label for="email">Email</label>
-        <input  id="email" maxlength="80" name="email" size="20" type="text"><br>
+        <input id="email" maxlength="80" name="email" size="20" type="text"><br>
         
         <label for="company">Company</label>
-        <input  id="company" maxlength="40" name="company" size="20" type="text"><br>
+        <input id="company" maxlength="40" name="company" size="20" type="text"><br>
         
         <label for="city">City</label>
-        <input  id="city" maxlength="40" name="city" size="20" type="text"><br>
+        <input id="city" maxlength="40" name="city" size="20" type="text"><br>
         
         <label for="country_code">Country</label>
-        <select  id="country_code" name="country_code">
+        <select id="country_code" name="country_code">
             <option value="">--None--</option>
             <option value="AU">AU</option>
             <option value="NZ">NZ</option>
         </select><br>
         
         <label for="state_code">State/Province</label>
-        <select  id="state_code" name="state_code">
+        <select id="state_code" name="state_code">
             <option value="">--None--</option>
             <option value="ACT">ACT</option>
             <option value="NSW">NSW</option>
