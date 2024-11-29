@@ -41,11 +41,14 @@
             margin-bottom:5px; /* customise */
             list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
         }
-        summary::marker {
+        IGNOREsummary::marker {
             font-size:30px; /* rmarker size - customise */
             color:#ffffff;
             display: none;
             content: "\002B"; /* plus sign */
+        }
+        IGNOREdetails[open] > summary::marker {
+            content: "\2212"; /* minus sign */
         }
         details {
             overflow: hidden;
@@ -60,9 +63,6 @@
         }
         details[open]::details-content {
             block-size: auto;
-        }
-        details[open] > summary::marker {
-            content: "\2212"; /* minus sign */
         }
         .summaryTitle {
             font-size:24px; /* customise */
