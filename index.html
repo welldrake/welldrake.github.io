@@ -35,23 +35,24 @@
             opacity:0;
         }
         summary {
-            color:#FFFFFF!important; /* customise */
-            background-color:#FFBB00; /* customise */
             padding: 0 5px 5px 5px; /* customise */
             margin-bottom:5px; /* customise */
+            margin-inline-start: 1rem;
             list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
         }
-        IGNOREsummary::marker {
+        summary::marker {
             font-size:30px; /* rmarker size - customise */
-            color:#ffffff;
-            display: none;
+            /*color:#ffffff;*/
+            /*display: none;*/
             content: "\002B"; /* plus sign */
         }
-        IGNOREdetails[open] > summary::marker {
+        details[open] > summary::marker {
             content: "\2212"; /* minus sign */
         }
         details {
             overflow: hidden;
+            color:#FFFFFF!important; /* customise */
+            background-color:#FFBB00; /* customise */
         }
         details::details-content {
             /* https://www.youtube.com/watch?v=Vzj3jSUbMtI */
