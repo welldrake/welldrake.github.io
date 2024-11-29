@@ -43,8 +43,19 @@
         function timestamp() {
             var response = document.getElementById("g-recaptcha-response");
             if (response == null || response.value.trim() == "") {
+                var capSettings = document.getElementsByName("captcha_settings");
+                for (const cs of capSettings) {
+                    var elems = JSON.parse(cs.value);
+                    elems["ts"] = JSON.stringify(new Date().getTime());
+                    cs.value = JSON.stringify(elems);
+                }
+
+
+                /*
                 var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
-                elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+                elems["ts"] = JSON.stringify(new Date().getTime());
+                document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+                */
             }
         }
         setInterval(timestamp, 500); 
@@ -85,7 +96,7 @@
         -->
         <!--  ======================================================================  -->
         
-        <label for="name">Contact Name 3</label>
+        <label for="name">Contact Name 4</label>
         <input id="name" maxlength="80" name="name" size="20" type="text"><br>
         
         <label for="email">Email</label>
