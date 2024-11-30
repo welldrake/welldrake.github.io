@@ -50,24 +50,6 @@
 
 
         <script>  
-
-        /* Assuming phone number is not mandatory, then need to allow 0 OR valid E.164 numbers - this regex is additional capped in length)*/	
-                /* needs to allow for +61 1300 123 456 which is the longest in AU / NZ	*/
-                let re = /^\+[1-9]\d{1,11}$/; 
-                if (phoneNumberQuality.length == 0 || re.test(phoneNumberQuality)) {
-                    phoneFieldQuality.setCustomValidity('');
-                    /* for testing, set the return to false and uncomment the alert below */
-                    /* alert(phoneNumberQuality); */
-                    /* phoneFieldQuality.value = `${phoneNumberQuality}`; */
-                    return checkCAPTCHA();
-                } else {
-                    phoneFieldQuality.setCustomValidity('Invalid phone number.');
-                    return false;
-                }
-
-
-        
-     
             function validate(event, sectionName, sectionIndex) {                   
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone-raw' + sectionName);
