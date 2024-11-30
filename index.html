@@ -11,11 +11,7 @@
             //Configure variables here
             var varOrgid = "00D0T0000000lof";
             var varIsSandbox = true;
-            var varBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* this is ignored if varIsDandbox is true, otherwise must include https and trailing slash */
-            varBaseUrl = "https://webto.salesforce.com/";
-            //https://webto.salesforce.com/ (PRD WEB-TO-CASE AND WEB-TO-LEAD)
-            //https://test.salesforce.com/ (sandbox WEB-TO-LEAD)
-            //https://gwf--uat.sandbox.my.salesforce.com/ (sanbox WEB-TO-CASE)
+            var varSandboxBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* this is ignored if varIsSandbox is true, otherwise must include https and trailing slash */
             var varKeyname = "TestingKeyNoProtection";
             var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
             var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list */
@@ -623,10 +619,16 @@
                 originElem.value = window.location.href.substring(0,100);
             }
 
-            //Add the baseUrl to the start and orgid to the end of each form action if the action ends with orgId=
+            //Adjust the baseUrl at the start and add orgid to the end of each form action if the action ends with orgId=
             for (const frm of document.forms) {
                 if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
-                    frm.action = frm.action.replace("https://webto.salesforce.com/", varBaseUrl) + varOrgid;
+                    frm.action = frm.action + varOrgid;
+                }
+                if (varIsSandbox && frm.action.includes('servlet.WebToCase') {
+                    frm.action.replace("https://webto.salesforce.com/", varSandboxBaseUrl);
+                }
+                if (varIsSandbox && frm.action.includes('servlet.WebToLead') {
+                    frm.action.replace("https://webto.salesforce.com/", "https://test.salesforce.com/");
                 }
             }
     
