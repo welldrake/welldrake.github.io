@@ -105,6 +105,7 @@
         var varOrgid = "00D0T0000000lof";
         var varKeyname = "TestingKeyNoProtection";
         var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+        var varPhoneCountries = ["nz", "au"]; /* list them in priority ordre */
     </script>
     
     <script>
@@ -557,12 +558,12 @@
         //    phoneInputFieldQuality.setCustomValidity('');
         //};
 
-        for (const phoneElem of document.getElementsByClassName("IntlTel")) {
+        for (const phoneElem of document.getElementsByClassName("intlTel")) {
             phoneElem; /* without this it takes too long to show the placeholder text */
 
             const phoneInputQuality = window.intlTelInput(phoneElem, {
-                initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
-                onlyCountries: ['nz', 'au'], /* ['nz', 'au'] *** CUSTOMISE 14 *** */
+                initialCountry: varPhoneCountries[0],
+                onlyCountries: varPhoneCountries,
                 utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
             });
 
