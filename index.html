@@ -274,8 +274,9 @@
                 <!--  ======================================================================  -->
                 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
                 <!--  these lines if you wish to test in debug mode.                          -->
-                
+                <!--
                 <input type="hidden" name="debug" value=1>
+                -->
                 <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
                 
                 <!--  ======================================================================  -->
@@ -628,8 +629,13 @@
                 }
             }
     
-            //Set the value of the orgid element in each form
+            //Set the value of the orgid element in each form (web-to-case)
             for (const orgidElem of document.getElementsByName("orgid")) {
+                orgidElem.value = varOrgid; 
+            }
+
+            //Set the value of the oid element in each form (web-to-lead)
+            for (const orgidElem of document.getElementsByName("oid")) {
                 orgidElem.value = varOrgid; 
             }
         </script>
