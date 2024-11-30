@@ -5,7 +5,11 @@
     <title>Contact Us</title>
     
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
-
+    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css' >
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js'></script>
+    
     <style>
         :root {
             interpolate-size: allow-keywords; /* used to animated the details/summary */
@@ -188,8 +192,8 @@
                 <label for="emailQuality">Email</label>
                 <input id="emailQuality" maxlength="80" name="email" size="20" type="text"><br>
                 
-                <label for="phone">Phone</label>
-                <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+                <label for="phone-rawQuality">Phone</label>
+                <input id="phone-rawQuality" maxlength="40" name="phone" size="20" type="text"><br>
                 
                 <label for="subject">Subject</label>
                 <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
@@ -537,6 +541,21 @@
     <p>OUR ADDRESS<p>
     <p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
 
+    <script>
+        /* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
+        const phoneInputFieldQuality = document.getElementById('phone-rawQuality');
+        
+        const phoneInputQuality = window.intlTelInput(phoneInputFieldQuality, {
+            initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
+            onlyCountries: ['nz', 'au'], /* ['nz', 'au'] *** CUSTOMISE 14 *** */
+            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
+        });
+
+        /* clear validation warning on phone number whenever user changes value */
+        phoneInputFieldQuality.oninput = function(){
+            phoneInputFieldQuality.setCustomValidity('');
+        };
+    </script>
         
     <script>
         //Automatically close other sections if a new one is opened
