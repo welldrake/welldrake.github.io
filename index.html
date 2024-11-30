@@ -2,6 +2,7 @@
 <html lang="en-AU">
     
     <head>
+        
         <title>Contact Us</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
@@ -154,8 +155,7 @@
     <body>
     
         <h1>How can we help?</h1>
-    
-    
+
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -167,15 +167,14 @@
     
         <details><!-- Product &amp; Quality Feedback -->
             <summary>
-            <span class="summaryTitle">
-                Product &amp; Quality Feedback
-            </span>
-            <span class="summaryDescription">
-                We'd love to hear your feedback and answer any questions regarding quality, products or packaging
-            </span>
+                <span class="summaryTitle">
+                    Product &amp; Quality Feedback
+                </span>
+                <span class="summaryDescription">
+                    We'd love to hear your feedback and answer any questions regarding quality, products or packaging
+                </span>
             </summary>
             
-    
             <form name="formQuality" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
@@ -192,21 +191,21 @@
                 <!--  ======================================================================  -->
                 
                 <label for="name">Contact Name</label>
-                <input id="name" maxlength="80" name="name" size="20" type="text"><br>
+                <input id="name" maxlength="80" name="name" size="20" type="text">
                 
                 <label for="emailQuality">Email</label>
-                <input id="emailQuality" maxlength="80" name="email" size="20" type="text"><br>
+                <input id="emailQuality" maxlength="80" name="email" size="20" type="text">
                 
                 <div class="intlTelWrapper">
-                <label for="phone-rawQuality">Phone</label>
-                <input id="phone-rawQuality" maxlength="40" name="phone" class="intlTel" size="20" type="text">
-                </div><br>
+                    <label for="phone-rawQuality">Phone</label>
+                    <input id="phone-rawQuality" maxlength="40" name="phone" class="intlTel" size="20" type="text">
+                </div>
                 
                 <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
+                <input id="subject" maxlength="80" name="subject" size="20" type="text">
                 
                 <label for="description">Description</label>
-                <textarea id="description" name="description"></textarea><br>
+                <textarea id="description" name="description"></textarea>
                 
                 <label for="00N5j00000GqQaq">Severity</label>
                 <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
@@ -216,27 +215,23 @@
                     <option value="Severity 2">Severity 2</option>
                     <option value="Severity 3">Severity 3</option>
                     <option value="Red Alert">Red Alert</option>
-                </select><br>
+                </select>
     
-                <input type="hidden"  id="external" name="external" value="1"><br>
+                <input type="hidden"  id="external" name="external" value="1">
                 
                 <div id="RecaptchaQuality"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageQuality" tabindex="-1">
                 </div>
-                <br>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
             
             </form>
-    
-    
+            
         </details>
-    
-        
-    
+
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -247,6 +242,7 @@
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         
         <details><!-- Become a Tip Top Customer -->
+            
             <summary>
                 <span class="summaryTitle">
                     Become a Tip Top Customer
@@ -255,8 +251,7 @@
                     If you are interested in opening an account.
                 </span>
             </summary>
-            
-    
+
             <form name="formBecome" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
@@ -274,35 +269,35 @@
                 <!--  ======================================================================  -->
                 
                 <label for="first_name">First Name</label>
-                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required><br>
+                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required>
                 
                 <label for="last_name">Last Name</label>
-                <input id="last_name" maxlength="80" name="last_name" size="20" type="text"><br>
+                <input id="last_name" maxlength="80" name="last_name" size="20" type="text">
                 
                 <label for="first_name_local">First Name (Local)</label>
-                <input id="first_name_local" maxlength="40" name="first_name_local" size="20" type="text"><br>
+                <input id="first_name_local" maxlength="40" name="first_name_local" size="20" type="text">
                 
                 <label for="last_name_local">Last Name (Local)</label>
-                <input id="last_name_local" maxlength="40" name="last_name_local" size="20" type="text"><br>
+                <input id="last_name_local" maxlength="40" name="last_name_local" size="20" type="text">
                 
                 <label for="company_local">Company Name (Local)</label>
-                <input id="company_local" maxlength="40" name="company_local" size="20" type="text"><br>
+                <input id="company_local" maxlength="40" name="company_local" size="20" type="text">
                 
                 <label for="emailBecome">Email</label>
-                <input id="emailBecome" maxlength="80" name="email" size="20" type="text"><br>
+                <input id="emailBecome" maxlength="80" name="email" size="20" type="text">
                 
                 <label for="company">Company</label>
-                <input id="company" maxlength="40" name="company" size="20" type="text"><br>
+                <input id="company" maxlength="40" name="company" size="20" type="text">
                 
                 <label for="city">City</label>
-                <input id="city" maxlength="40" name="city" size="20" type="text"><br>
+                <input id="city" maxlength="40" name="city" size="20" type="text">
                 
                 <label for="country_code">Country</label>
                 <select id="country_code" name="country_code">
                     <option value="">--None--</option>
                     <option value="AU">AU</option>
                     <option value="NZ">NZ</option>
-                </select><br>
+                </select>
                 
                 <label for="state_code">State/Province</label>
                 <select id="state_code" name="state_code">
@@ -317,24 +312,21 @@
                     <option value="TAS">TAS</option>
                     <option value="VIC">VIC</option>
                     <option value="WA">WA</option>
-                </select><br>
+                </select>
                 
                 <div id="RecaptchaBecome"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageBecome" tabindex="-1">
                 </div>
-                <br>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Become', /*sectionIndex*/ 1);"> 
-    
-            
+
             </form>   
         
         </details>
-    
-    
+
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -343,19 +335,20 @@
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    
-    
+
         <details><!-- Existing Customers -->
-            <summary>
-            <span class="summaryTitle">
-                Existing Customers
-            </span>
-            <span class="summaryDescription">
-                If you need to contact our Customer Service Team about your Customer Account, Order or Delivery
-            </span>
-            </summary>
             
-    
+            <summary>
+                
+                <span class="summaryTitle">
+                    Existing Customers
+                </span>
+                <span class="summaryDescription">
+                    If you need to contact our Customer Service Team about your Customer Account, Order or Delivery
+                </span>
+                
+            </summary>
+
             <form name="formExisting" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
@@ -372,19 +365,19 @@
                 <!--  ======================================================================  -->
                 
                 <label for="name">Contact Name 4</label>
-                <input id="name" maxlength="80" name="name" size="20" type="text"><br>
+                <input id="name" maxlength="80" name="name" size="20" type="text">
                 
                 <label for="emailExisting">Email</label>
-                <input id="emailExisting" maxlength="80" name="email" size="20" type="text"><br>
+                <input id="emailExisting" maxlength="80" name="email" size="20" type="text">
                 
                 <label for="phone">Phone</label>
-                <input id="phone" maxlength="40" name="phone" class="intlTel" size="20" type="text"><br>
+                <input id="phone" maxlength="40" name="phone" class="intlTel" size="20" type="text">
                 
                 <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
+                <input id="subject" maxlength="80" name="subject" size="20" type="text">
                 
                 <label for="description">Description</label>
-                <textarea id="description" name="description"></textarea><br>
+                <textarea id="description" name="description"></textarea>
                 
                 <label for="00N5j00000GqQaq">Severity</label>
                 <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
@@ -394,16 +387,15 @@
                     <option value="Severity 2">Severity 2</option>
                     <option value="Severity 3">Severity 3</option>
                     <option value="Red Alert">Red Alert</option>
-                </select><br>
+                </select>
     
-                <input type="hidden"  id="external" name="external" value="1"><br>
+                <input type="hidden"  id="external" name="external" value="1">
                 
                 <div id="RecaptchaExisting"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageExisting" tabindex="-1">
                 </div>
-                <br>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Existing', /*sectionIndex*/ 0);"> 
@@ -411,8 +403,7 @@
             </form>
     
         </details>
-    
-    
+
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -423,16 +414,18 @@
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     
         <details><!-- Crate Collection -->
-            <summary>
-            <span class="summaryTitle">
-                Crates and Dollies Collection
-            </span>
-            <span class="summaryDescription">
-                If you need Tip Top crates and/or dollies collected
-            </span>
-            </summary>
             
-    
+            <summary>
+                
+                <span class="summaryTitle">
+                    Crates and Dollies Collection
+                </span>
+                <span class="summaryDescription">
+                    If you need Tip Top crates and/or dollies collected
+                </span>
+                
+            </summary>
+
             <form name="formCrates" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
@@ -449,19 +442,19 @@
                 <!--  ======================================================================  -->
                 
                 <label for="name">Contact Name 4</label>
-                <input id="name" maxlength="80" name="name" size="20" type="text"><br>
+                <input id="name" maxlength="80" name="name" size="20" type="text">
                 
                 <label for="emailCrates">Email</label>
-                <input id="emailCrates" maxlength="80" name="email" size="20" type="text"><br>
+                <input id="emailCrates" maxlength="80" name="email" size="20" type="text">
                 
                 <label for="phone">Phone</label>
-                <input id="phone" maxlength="40" name="phone" class="intlTel" size="20" type="text"><br>
+                <input id="phone" maxlength="40" name="phone" class="intlTel" size="20" type="text">
                 
                 <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
+                <input id="subject" maxlength="80" name="subject" size="20" type="text">
                 
                 <label for="description">Description</label>
-                <textarea id="description" name="description"></textarea><br>
+                <textarea id="description" name="description"></textarea>
                 
                 <label for="00N5j00000GqQaq">Severity</label>
                 <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
@@ -471,27 +464,23 @@
                     <option value="Severity 2">Severity 2</option>
                     <option value="Severity 3">Severity 3</option>
                     <option value="Red Alert">Red Alert</option>
-                </select><br>
+                </select>
     
-                <input type="hidden"  id="external" name="external" value="1"><br>
+                <input type="hidden"  id="external" name="external" value="1">
                 
                 <div id="RecaptchaCrates"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageCrates" tabindex="-1">
                 </div>
-                <br>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Crates', /*sectionIndex*/ 0);"> 
             
             </form>
-    
-    
+
         </details>
-    
-    
-    
+
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -502,45 +491,60 @@
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     
         <details><!-- Product Finder -->
+            
             <summary>
+                
                 <span class="summaryTitle">
                     Product Finder
                 </span>
                 <span class="summaryDescription">
                     If you're looking for a Tip Top product near you.
                 </span>
+                
             </summary>
+            
             <form>
                 Please <a href="https://gwf.my.salesforce-sites.com/p">click here</a> to use out Product Finder tool and search for a product near you.
             </form>
+            
         </details>
         
         <details><!-- Employment Opportunities -->
+            
             <summary>
+                
                 <span class="summaryTitle">
                     Employment Opportunities
                 </span>
                 <span class="summaryDescription">
                     Want to join one of George Weston Foods iconic brands.
                 </span>
+                
             </summary>
+            
             <form>
                 Please <a href="https://www.gwf.com.au/careers/">click here</a> to search careers at GWF.
             </form>
+            
         </details>
         
         <details><!-- Sponsorship &amp; Donations -->
+            
             <summary>
+                
                 <span class="summaryTitle">
                     Sponsorship &amp; Donations
                 </span>
                 <span class="summaryDescription">
                     TBD
                 </span>
+                
             </summary>
+            
             <form>
                 <span style="color:red;">Jo to provide text</span>
             </form>
+            
         </details>
     
     
@@ -591,22 +595,12 @@
         
         <script>
             //Populates Case Origin URL with the current URL, truncated to 100 characters to meet field specs
-            //(function() {
-                //document.getElementById("originurl").value = window.location.href.substring(0,100);
-        
-                const originalUrlString = window.location.href.substring(0,100);
-        
-                for (const originElem of document.getElementsByName("00N5j00000Gq8XC")) {
-                    originElem.value = originalUrlString; 
-                }
-        
-            //})();
-        </script>
-    
-        <script>
-            //Add the orgid to the end of each form action
+            for (const originElem of document.getElementsByName("00N5j00000Gq8XC")) {
+                originElem.value = window.location.href.substring(0,100);
+            }
+
+            //Add the orgid to the end of each form action if the action ends with orgId=
             for (const frm of document.forms) {
-                //only append the actual orgId is the action ends in orgId=
                 if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
                     frm.action = frm.action + varOrgid;
                 }
@@ -617,10 +611,7 @@
                 orgidElem.value = varOrgid; 
             }
         </script>
-    
-        
-        
-        
+
         <!--
         <br><br><br>
         <footer><pre style="color:darkgrey">
@@ -631,8 +622,7 @@
         Subject: Fixing Contact us Pages
         </pre></footer>
         -->
-    
-    
+
     </body>
 
 </html>
