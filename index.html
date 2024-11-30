@@ -563,7 +563,7 @@
                 
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
                 
-                var phoneNumbers[phoneElem.id] = "";
+                var phoneNumbers = JSON.parse('{}');
                 
                 //TO DO: work out how to store one of these for each as we need to retrieve it
                 const phoneInput = window.intlTelInput(phoneElem, {
