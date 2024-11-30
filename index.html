@@ -49,6 +49,12 @@
     
         <script>       
             function validate(event, sectionName, sectionIndex) {                   
+                //check phone number is correct and set value to formatted number
+                console.log(phoneNumbers['phone-raw' + sectionName]);
+                document.getElementById('phone-raw' + sectionName).value = phoneNumbers['phone-raw' + sectionName];
+                console.log(document.getElementById('phone-raw' + sectionName).value);
+                
+                //check recaptcha is completed
                 var response = grecaptcha.getResponse(sectionIndex).length;
                 if (typeof(response) == "undefined" || response === 0) {
                     document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
