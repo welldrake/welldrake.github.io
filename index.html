@@ -193,7 +193,7 @@
                 <input id="emailQuality" maxlength="80" name="email" size="20" type="text"><br>
                 
                 <label for="phone-rawQuality">Phone</label>
-                <input id="phone-rawQuality" maxlength="40" name="phone" size="20" type="text"><br>
+                <input id="phone-rawQuality" maxlength="40" name="phone" class="intlTel" size="20" type="text"><br>
                 
                 <label for="subject">Subject</label>
                 <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
@@ -371,7 +371,7 @@
                 <input id="emailExisting" maxlength="80" name="email" size="20" type="text"><br>
                 
                 <label for="phone">Phone</label>
-                <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+                <input id="phone" maxlength="40" name="phone" class="intlTel" size="20" type="text"><br>
                 
                 <label for="subject">Subject</label>
                 <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
@@ -448,7 +448,7 @@
                 <input id="emailCrates" maxlength="80" name="email" size="20" type="text"><br>
                 
                 <label for="phone">Phone</label>
-                <input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+                <input id="phone" maxlength="40" name="phone" class="intlTel" size="20" type="text"><br>
                 
                 <label for="subject">Subject</label>
                 <input id="subject" maxlength="80" name="subject" size="20" type="text"><br>
@@ -543,19 +543,34 @@
 
     <script>
         /* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
-        const phoneInputFieldQuality = document.getElementById('phone-rawQuality');
-        phoneInputFieldQuality.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
+        //const phoneInputFieldQuality = document.getElementById('phone-rawQuality');
+        //phoneInputFieldQuality.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
         
-        const phoneInputQuality = window.intlTelInput(phoneInputFieldQuality, {
-            initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
-            onlyCountries: ['nz', 'au'], /* ['nz', 'au'] *** CUSTOMISE 14 *** */
-            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
-        });
+        //const phoneInputQuality = window.intlTelInput(phoneInputFieldQuality, {
+        //    initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
+        //    onlyCountries: ['nz', 'au'], /* ['nz', 'au'] *** CUSTOMISE 14 *** */
+        //    utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
+        //});
 
         /* clear validation warning on phone number whenever user changes value */
-        phoneInputFieldQuality.oninput = function(){
-            phoneInputFieldQuality.setCustomValidity('');
-        };
+        //phoneInputFieldQuality.oninput = function(){
+        //    phoneInputFieldQuality.setCustomValidity('');
+        //};
+
+        for (const phoneElem of document.getElementsByClassName("IntlTel")) {
+            phoneElem; /* without this it takes too long to show the placeholder text */
+
+            const phoneInputQuality = window.intlTelInput(phoneElem, {
+                initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
+                onlyCountries: ['nz', 'au'], /* ['nz', 'au'] *** CUSTOMISE 14 *** */
+                utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
+            });
+
+            /* clear validation warning on phone number whenever user changes value */
+            phoneElem.oninput = function(){
+                phoneElem.setCustomValidity('');
+            };
+        }
     </script>
         
     <script>
@@ -604,7 +619,7 @@
             }
         }
 
-        //Set the valie of the orgid element in each form
+        //Set the value of the orgid element in each form
         for (const orgidElem of document.getElementsByName("orgid")) {
             orgidElem.value = varOrgid; 
         }
