@@ -65,10 +65,10 @@
         div.intlTelWrapper {
             /* this allows intlTel inputs to be styled the same as other inputs */
             display: inline-block;
-            width: 100%;
+            /*width: 100%;*/
         }
         div.iti.iti--allow-dropdown {
-            display:inline; /* overrides default for intlTel fields to ensure it goes full width */
+            display:block; /* overrides default for intlTel fields to ensure it goes full width */
         }
         /*Add red asterisk to all labels that occur before a required input field*/
         label {
@@ -137,6 +137,7 @@
             background-color: white; /* customise */
         }
         input,
+        input.intlTel,
         select,
         textarea {
             width: 100%; /* customise */
