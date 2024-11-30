@@ -543,23 +543,9 @@
     <p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
 
     <script>
-        /* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
-        //const phoneInputFieldQuality = document.getElementById('phone-rawQuality');
-        //phoneInputFieldQuality.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
-        
-        //const phoneInputQuality = window.intlTelInput(phoneInputFieldQuality, {
-        //    initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
-        //    onlyCountries: ['nz', 'au'], /* ['nz', 'au'] *** CUSTOMISE 14 *** */
-        //    utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
-        //});
-
-        /* clear validation warning on phone number whenever user changes value */
-        //phoneInputFieldQuality.oninput = function(){
-        //    phoneInputFieldQuality.setCustomValidity('');
-        //};
-
+        //Add country flags to all elements with the class intlTel
         for (const phoneElem of document.getElementsByClassName("intlTel")) {
-            phoneElem; /* without this it takes too long to show the placeholder text */
+            phoneElem.setCustomValidity('');; /* without this it takes too long to show the placeholder text */
 
             const phoneInputQuality = window.intlTelInput(phoneElem, {
                 initialCountry: varPhoneCountries[0],
