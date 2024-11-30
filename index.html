@@ -10,7 +10,7 @@
         <script>
             //Configure variables here
             var varOrgid = "00D0T0000000lof";
-            //var varBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* must include https and trailing slash */
+            var varBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* must include https and trailing slash */
             var varKeyname = "TestingKeyNoProtection";
             var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
             var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list */
@@ -182,7 +182,7 @@
                 </span>
             </summary>
             
-            <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
@@ -619,7 +619,7 @@
             //Add the baseUrl to the start and orgid to the end of each form action if the action ends with orgId=
             for (const frm of document.forms) {
                 if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
-                    frm.action = /* varBaseUrl + */ frm.action + varOrgid;
+                    frm.action = frm.action.replace("https://webto.salesforce.com/", varBaseUrl) + varOrgid;
                 }
             }
     
