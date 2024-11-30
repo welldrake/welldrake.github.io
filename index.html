@@ -544,6 +544,7 @@
     <script>
         /* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
         const phoneInputFieldQuality = document.getElementById('phone-rawQuality');
+        phoneInputFieldQuality.setCustomValidity('');
         
         const phoneInputQuality = window.intlTelInput(phoneInputFieldQuality, {
             initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
