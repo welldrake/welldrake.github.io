@@ -6,9 +6,57 @@
     
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
     
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css' >
-    
+    <script>
+        //Configure variables here
+        var varOrgid = "00D0T0000000lof";
+        var varKeyname = "TestingKeyNoProtection";
+        var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+        var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list */
+    </script>
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js'></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+    <script>
+        function onloadCallback() {
+            //These must be in the same sequence as the sections on the page
+            grecaptcha.render('RecaptchaQuality', {'sitekey' : varSitekey});
+            grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
+            grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
+            grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
+        };
+    </script>
+
+    <script>
+        function timestamp() {
+            var response = document.getElementById("g-recaptcha-response");
+            if (response == null || response.value.trim() == "") {
+                var capSettings = document.getElementsByName("captcha_settings");
+                for (const cs of capSettings) {
+                    var elems = JSON.parse(cs.value);
+                    elems["keyname"] = varKeyname; //set by global config variable
+                    elems["orgId"] = varOrgid; //set by global config variable
+                    elems["ts"] = JSON.stringify(new Date().getTime());
+                    cs.value = JSON.stringify(elems);
+                }
+            }
+        }
+        setInterval(timestamp, 500); 
+    </script>
+
+    <script>       
+        function validate(event, sectionName, sectionIndex) {                   
+            var response = grecaptcha.getResponse(sectionIndex).length;
+            if (typeof(response) == "undefined" || response === 0) {
+                document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
+            } else {
+                document.getElementById('rcMessage' + sectionName).setCustomValidity('');
+            }
+        }
+    </script>
+    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css' >
     
     <style>
         :root {
@@ -99,53 +147,6 @@
 </head>
 
 <body>
-
-    <script>
-        //Configure variables here
-        var varOrgid = "00D0T0000000lof";
-        var varKeyname = "TestingKeyNoProtection";
-        var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-        var varPhoneCountries = ["nz", "au"]; /* list them in priority ordre */
-    </script>
-    
-    <script>
-        function onloadCallback() {
-            //These must be in the same sequence as the sections on the page
-            grecaptcha.render('RecaptchaQuality', {'sitekey' : varSitekey});
-            grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
-            grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
-            grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
-        };
-    </script>
-
-    <script>
-        function timestamp() {
-            var response = document.getElementById("g-recaptcha-response");
-            if (response == null || response.value.trim() == "") {
-                var capSettings = document.getElementsByName("captcha_settings");
-                for (const cs of capSettings) {
-                    var elems = JSON.parse(cs.value);
-                    elems["keyname"] = varKeyname; //set by global config variable
-                    elems["orgId"] = varOrgid; //set by global config variable
-                    elems["ts"] = JSON.stringify(new Date().getTime());
-                    cs.value = JSON.stringify(elems);
-                }
-            }
-        }
-        setInterval(timestamp, 500); 
-    </script>
-
-    <script>       
-        function validate(event, sectionName, sectionIndex) {                   
-            var response = grecaptcha.getResponse(sectionIndex).length;
-            if (typeof(response) == "undefined" || response === 0) {
-                document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
-            } else {
-                document.getElementById('rcMessage' + sectionName).setCustomValidity('');
-            }
-        }
-    </script>
-
 
     <h1>How can we help?</h1>
 
@@ -610,9 +611,7 @@
         }
     </script>
 
-    /* Put this last as it takes a while and can delay the phone placeholder text showing */
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-
+    
     
     
     <!--
