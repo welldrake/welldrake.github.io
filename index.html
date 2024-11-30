@@ -62,14 +62,6 @@
         :root {
             interpolate-size: allow-keywords; /* used to animated the details/summary */
         }
-        div.intlTelWrapper {
-            /* this allows intlTel inputs to be styled the same as other inputs */
-            display: inline-block;
-            /*width: 100%;*/
-        }
-        div.iti.iti--allow-dropdown {
-            display:block; /* overrides default for intlTel fields to ensure it goes full width */
-        }
         /*Add red asterisk to all labels that occur before a required input field*/
         label {
             display: block; /* labels on own line */
@@ -136,10 +128,17 @@
             padding-bottom: 20px;
             background-color: white; /* customise */
         }
+        div.intlTelWrapper {
+            /* this allows intlTel inputs to be styled the same as other inputs */
+            display: inline-block;
+        }
+        div.iti.iti--allow-dropdown {
+            display:block; /* overrides default for intlTel fields to ensure it goes full width */
+        }
         input,
-        input.intlTel,
         select,
-        textarea {
+        textarea,
+        div.intlTelWrapper {
             width: 100%; /* customise */
             margin-bottom: 10px; /* customise */
             box-sizing: border-box;  /* sizes within the parent element */
