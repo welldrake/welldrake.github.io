@@ -565,7 +565,7 @@
                 console.log("phoneElem.id: " + phoneElem.id);
                 
                 //TO DO: work out how to store one of these for each as we need to retrieve it
-                var phoneInput + phoneElem.id = window.intlTelInput(phoneElem, {
+                const phoneInput = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
                     utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
@@ -575,7 +575,7 @@
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
                     console.log('phoneInput.getNumber(): ' + phoneInput.getNumber());
-                    console.log('phoneInput + phoneElem.id: ' + phoneInput + phoneElem.id);
+                    //console.log('phoneInput + phoneElem.id: ' + phoneInput + phoneElem.id);
                 };
             }
         </script>
