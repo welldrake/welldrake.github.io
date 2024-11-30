@@ -191,10 +191,10 @@
                 <!--  ======================================================================  -->
                 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
                 <!--  these lines if you wish to test in debug mode.                          -->
-                <!--
+                
                 <input type="hidden" name="debug" value=1>
                 <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
-                -->
+                
                 <!--  ======================================================================  -->
                 
                 <label for="name">Contact Name</label>
@@ -580,6 +580,7 @@
                 /* clear validation warning on phone number whenever user changes value */
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
+                    //TO DO: update getNumber when country code is changed
                     phoneNumbers[phoneElem.id] = phoneInput.getNumber();
                     console.log("phoneNumbers[" + phoneElem.id + "]: " + phoneNumbers[phoneElem.id]);
                 };
