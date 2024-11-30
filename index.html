@@ -562,8 +562,6 @@
             //Add country flags to all elements with the class intlTel
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
                 //phoneElem.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
-
-                console.log("phoneElem.id: " + phoneElem.id);
                 
                 //TO DO: work out how to store one of these for each as we need to retrieve it
                 const phoneInput = window.intlTelInput(phoneElem, {
@@ -576,8 +574,10 @@
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
                     console.log('phoneInput.getNumber(): ' + phoneInput.getNumber());
-                    //console.log('phoneInput + phoneElem.id: ' + phoneInput + phoneElem.id);
                     phoneNumberFormatted = phoneInput.getNumber();
+                    console.log("phoneElem.id: " + phoneElem.id);
+                    phoneNumberFormatted + phoneElem.id = phoneInput.getNumber();
+                    console.log("phoneNumberFormatted + phoneElem.id: " + phoneNumberFormatted + phoneElem.id);
                 };
             }
         </script>
