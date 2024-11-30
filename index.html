@@ -544,7 +544,7 @@
     <script>
         /* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
         const phoneInputFieldQuality = document.getElementById('phone-rawQuality');
-        phoneInputFieldQuality.setCustomValidity('');
+        phoneInputFieldQuality.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
         
         const phoneInputQuality = window.intlTelInput(phoneInputFieldQuality, {
             initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
@@ -598,7 +598,10 @@
     <script>
         //Add the orgid to the end of each form action
         for (const frm of document.forms) {
-            frm.action = frm.action + varOrgid;
+            //only append the actual orgId is the action ends in orgId=
+            if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
+                frm.action = frm.action + varOrgid;
+            }
         }
 
         //Set the valie of the orgid element in each form
