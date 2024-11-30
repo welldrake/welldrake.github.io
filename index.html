@@ -1,181 +1,181 @@
 <!DOCTYPE html>
 <html lang="en-AU">
-
-<head>
-    <title>Contact Us</title>
     
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
+    <head>
+        <title>Contact Us</title>
+        
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
+        
+        <script>
+            //Configure variables here
+            var varOrgid = "00D0T0000000lof";
+            var varKeyname = "TestingKeyNoProtection";
+            var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+            var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list */
+        </script>
     
-    <script>
-        //Configure variables here
-        var varOrgid = "00D0T0000000lof";
-        var varKeyname = "TestingKeyNoProtection";
-        var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-        var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list */
-    </script>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js'></script>
-
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-
-    <script>
-        function onloadCallback() {
-            //These must be in the same sequence as the sections on the page
-            grecaptcha.render('RecaptchaQuality', {'sitekey' : varSitekey});
-            grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
-            grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
-            grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
-        };
-    </script>
-
-    <script>
-        function timestamp() {
-            var response = document.getElementById("g-recaptcha-response");
-            if (response == null || response.value.trim() == "") {
-                var capSettings = document.getElementsByName("captcha_settings");
-                for (const cs of capSettings) {
-                    var elems = JSON.parse(cs.value);
-                    elems["keyname"] = varKeyname; //set by global config variable
-                    elems["orgId"] = varOrgid; //set by global config variable
-                    elems["ts"] = JSON.stringify(new Date().getTime());
-                    cs.value = JSON.stringify(elems);
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js'></script>
+    
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    
+        <script>
+            function onloadCallback() {
+                //These must be in the same sequence as the sections on the page
+                grecaptcha.render('RecaptchaQuality', {'sitekey' : varSitekey});
+                grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
+                grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
+                grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
+            };
+        </script>
+    
+        <script>
+            function timestamp() {
+                var response = document.getElementById("g-recaptcha-response");
+                if (response == null || response.value.trim() == "") {
+                    var capSettings = document.getElementsByName("captcha_settings");
+                    for (const cs of capSettings) {
+                        var elems = JSON.parse(cs.value);
+                        elems["keyname"] = varKeyname; //set by global config variable
+                        elems["orgId"] = varOrgid; //set by global config variable
+                        elems["ts"] = JSON.stringify(new Date().getTime());
+                        cs.value = JSON.stringify(elems);
+                    }
                 }
             }
-        }
-        setInterval(timestamp, 500); 
-    </script>
-
-    <script>       
-        function validate(event, sectionName, sectionIndex) {                   
-            var response = grecaptcha.getResponse(sectionIndex).length;
-            if (typeof(response) == "undefined" || response === 0) {
-                document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
-            } else {
-                document.getElementById('rcMessage' + sectionName).setCustomValidity('');
+            setInterval(timestamp, 500); 
+        </script>
+    
+        <script>       
+            function validate(event, sectionName, sectionIndex) {                   
+                var response = grecaptcha.getResponse(sectionIndex).length;
+                if (typeof(response) == "undefined" || response === 0) {
+                    document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
+                } else {
+                    document.getElementById('rcMessage' + sectionName).setCustomValidity('');
+                }
             }
-        }
-    </script>
-    
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css' >
-    
-    <style>
-        :root {
-            interpolate-size: allow-keywords; /* used to animated the details/summary */
-        }
-        /*Add red asterisk to all labels that occur before a required input field*/
-        label {
-            display: block; /* labels on own line */
-            color: black; /* customise */
-        }
-        label:has(+ input:required)::after, 
-        label:has(+ textarea:required)::after, 
-        label:has(+ select:required)::after {
-            content: "*";
-            color: red;
-        }
-        .rcMessageContainer {
-            margin-top: -36px;
-            margin-bottom: 36px;
-            margin-left: 26px;
-            margin-right: -26px;
-        }
-        .rcMessage {
-            width: 1px;
-            height: 1px;
-            margin: 0;
-            border: 0;
-            padding: 0;
-            opacity: 0;
-        }
-        summary {
-            margin-inline-start: 2rem; /* moved the text and marker to the right */
-            list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
-        }
-        summary::marker {
-            color: #ffffff; /* customise */
-            /* font-size:30px; */ /* rmarker size - customise */
-            /* content: "\002B"; */ /* plus sign */
-        }
-        details[open] > summary::marker {
-            /* content: "\2212"; */ /* minus sign */
-        }
-        details {
-            overflow: hidden;
-            background-color: #ffbb00; /* customise */
-            margin-bottom: 5px;
-        }
-        details::details-content {
-            /* https://www.youtube.com/watch?v=Vzj3jSUbMtI */
-            block-size: 0;
-            transition:
-                block-size 1s,
-                content-visibility 1s;
-            transition-behavior: allow-discrete;
-        }
-        details[open]::details-content {
-            block-size: auto;
-        }
-        .summaryTitle {
-            font-size: 24px; /* customise */
-            color: #ffffff; /* customise */
-        }
-        .summaryDescription {
-            font-size: 14px; /* customise */
-            color: #ffffff; /* customise */
-            display: block; /* description on own line */
-        }
-        form {
-            padding-bottom: 20px;
-            background-color: white; /* customise */
-        }
-        div.iti.iti--allow-dropdown {
-            display:block; /* overrides default inline-block for intlTel fields to ensure it goes full width */
-        }
-        input,
-        select,
-        textarea,
-        div.intlTelWrapper {
-            width: 100%; /* customise */
-            margin-bottom: 10px; /* customise */
-            box-sizing: border-box;  /* sizes within the parent element */
-            display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
-        }
-        input,
-        select {
-            height: 40px; /* customise */
-        }
-        textarea {
-            resize: vertical;
-            height: 8em; /* 8 rows high - customise */
-        }
-    </style>
-</head>
-
-<body>
-
-    <h1>How can we help?</h1>
-
-
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-    <details><!-- Product &amp; Quality Feedback -->
-        <summary>
-        <span class="summaryTitle">
-            Product &amp; Quality Feedback
-        </span>
-        <span class="summaryDescription">
-            We'd love to hear your feedback and answer any questions regarding quality, products or packaging
-        </span>
-        </summary>
+        </script>
         
-
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css' >
+        
+        <style>
+            :root {
+                interpolate-size: allow-keywords; /* used to animated the details/summary */
+            }
+            /*Add red asterisk to all labels that occur before a required input field*/
+            label {
+                display: block; /* labels on own line */
+                color: black; /* customise */
+            }
+            label:has(+ input:required)::after, 
+            label:has(+ textarea:required)::after, 
+            label:has(+ select:required)::after {
+                content: "*";
+                color: red;
+            }
+            .rcMessageContainer {
+                margin-top: -36px;
+                margin-bottom: 36px;
+                margin-left: 26px;
+                margin-right: -26px;
+            }
+            .rcMessage {
+                width: 1px;
+                height: 1px;
+                margin: 0;
+                border: 0;
+                padding: 0;
+                opacity: 0;
+            }
+            summary {
+                margin-inline-start: 2rem; /* moved the text and marker to the right */
+                list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
+            }
+            summary::marker {
+                color: #ffffff; /* customise */
+                /* font-size:30px; */ /* rmarker size - customise */
+                /* content: "\002B"; */ /* plus sign */
+            }
+            details[open] > summary::marker {
+                /* content: "\2212"; */ /* minus sign */
+            }
+            details {
+                overflow: hidden;
+                background-color: #ffbb00; /* customise */
+                margin-bottom: 5px;
+            }
+            details::details-content {
+                /* https://www.youtube.com/watch?v=Vzj3jSUbMtI */
+                block-size: 0;
+                transition:
+                    block-size 1s,
+                    content-visibility 1s;
+                transition-behavior: allow-discrete;
+            }
+            details[open]::details-content {
+                block-size: auto;
+            }
+            .summaryTitle {
+                font-size: 24px; /* customise */
+                color: #ffffff; /* customise */
+            }
+            .summaryDescription {
+                font-size: 14px; /* customise */
+                color: #ffffff; /* customise */
+                display: block; /* description on own line */
+            }
+            form {
+                padding-bottom: 20px;
+                background-color: white; /* customise */
+            }
+            div.iti.iti--allow-dropdown {
+                display:block; /* overrides default inline-block for intlTel fields to ensure it goes full width */
+            }
+            input,
+            select,
+            textarea,
+            div.intlTelWrapper {
+                width: 100%; /* customise */
+                margin-bottom: 10px; /* customise */
+                box-sizing: border-box;  /* sizes within the parent element */
+                display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
+            }
+            input,
+            select {
+                height: 40px; /* customise */
+            }
+            textarea {
+                resize: vertical;
+                height: 8em; /* 8 rows high - customise */
+            }
+        </style>
+    </head>
+    
+    <body>
+    
+        <h1>How can we help?</h1>
+    
+    
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    
+        <details><!-- Product &amp; Quality Feedback -->
+            <summary>
+            <span class="summaryTitle">
+                Product &amp; Quality Feedback
+            </span>
+            <span class="summaryDescription">
+                We'd love to hear your feedback and answer any questions regarding quality, products or packaging
+            </span>
+            </summary>
+            
+    
             <form name="formQuality" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
@@ -217,53 +217,53 @@
                     <option value="Severity 3">Severity 3</option>
                     <option value="Red Alert">Red Alert</option>
                 </select><br>
-
+    
                 <input type="hidden"  id="external" name="external" value="1"><br>
                 
                 <div id="RecaptchaQuality"></div>
-
+    
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageQuality" tabindex="-1">
                 </div>
                 <br>
-
+    
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
             
             </form>
-
-
-    </details>
-
     
-
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     
-    <details><!-- Become a Tip Top Customer -->
-        <summary>
-            <span class="summaryTitle">
-                Become a Tip Top Customer
-            </span>
-            <span class="summaryDescription">
-                If you are interested in opening an account.
-            </span>
-        </summary>
+        </details>
+    
         
-
+    
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        
+        <details><!-- Become a Tip Top Customer -->
+            <summary>
+                <span class="summaryTitle">
+                    Become a Tip Top Customer
+                </span>
+                <span class="summaryDescription">
+                    If you are interested in opening an account.
+                </span>
+            </summary>
+            
+    
             <form name="formBecome" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="oid" value=""> <!-- set by js by name -->
                 <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
                 <input type=hidden name="lead_source" value="Website"> <!-- This is required to allow to bypass duplicate rules -->
-
+    
                 <!--  ======================================================================  -->
                 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
                 <!--  these lines if you wish to test in debug mode.                          -->
@@ -320,42 +320,42 @@
                 </select><br>
                 
                 <div id="RecaptchaBecome"></div>
-
+    
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageBecome" tabindex="-1">
                 </div>
                 <br>
-
+    
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Become', /*sectionIndex*/ 1);"> 
-
+    
             
             </form>   
         
-    </details>
-
-
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-
-    <details><!-- Existing Customers -->
-        <summary>
-        <span class="summaryTitle">
-            Existing Customers
-        </span>
-        <span class="summaryDescription">
-            If you need to contact our Customer Service Team about your Customer Account, Order or Delivery
-        </span>
-        </summary>
-        
-
+        </details>
+    
+    
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    
+    
+        <details><!-- Existing Customers -->
+            <summary>
+            <span class="summaryTitle">
+                Existing Customers
+            </span>
+            <span class="summaryDescription">
+                If you need to contact our Customer Service Team about your Customer Account, Order or Delivery
+            </span>
+            </summary>
+            
+    
             <form name="formExisting" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
@@ -395,44 +395,44 @@
                     <option value="Severity 3">Severity 3</option>
                     <option value="Red Alert">Red Alert</option>
                 </select><br>
-
+    
                 <input type="hidden"  id="external" name="external" value="1"><br>
                 
                 <div id="RecaptchaExisting"></div>
-
+    
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageExisting" tabindex="-1">
                 </div>
                 <br>
-
+    
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Existing', /*sectionIndex*/ 0);"> 
             
             </form>
-
-    </details>
-
-
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-    <details><!-- Crate Collection -->
-        <summary>
-        <span class="summaryTitle">
-            Crates and Dollies Collection
-        </span>
-        <span class="summaryDescription">
-            If you need Tip Top crates and/or dollies collected
-        </span>
-        </summary>
-        
-
+    
+        </details>
+    
+    
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    
+        <details><!-- Crate Collection -->
+            <summary>
+            <span class="summaryTitle">
+                Crates and Dollies Collection
+            </span>
+            <span class="summaryDescription">
+                If you need Tip Top crates and/or dollies collected
+            </span>
+            </summary>
+            
+    
             <form name="formCrates" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
@@ -472,167 +472,167 @@
                     <option value="Severity 3">Severity 3</option>
                     <option value="Red Alert">Red Alert</option>
                 </select><br>
-
+    
                 <input type="hidden"  id="external" name="external" value="1"><br>
                 
                 <div id="RecaptchaCrates"></div>
-
+    
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageCrates" tabindex="-1">
                 </div>
                 <br>
-
+    
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Crates', /*sectionIndex*/ 0);"> 
             
             </form>
-
-
-    </details>
-
-
-
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
-    <details><!-- Product Finder -->
-        <summary>
-            <span class="summaryTitle">
-                Product Finder
-            </span>
-            <span class="summaryDescription">
-                If you're looking for a Tip Top product near you.
-            </span>
-        </summary>
-        <form>
-            Please <a href="https://gwf.my.salesforce-sites.com/p">click here</a> to use out Product Finder tool and search for a product near you.
-        </form>
-    </details>
     
-    <details><!-- Employment Opportunities -->
-        <summary>
-            <span class="summaryTitle">
-                Employment Opportunities
-            </span>
-            <span class="summaryDescription">
-                Want to join one of George Weston Foods iconic brands.
-            </span>
-        </summary>
-        <form>
-            Please <a href="https://www.gwf.com.au/careers/">click here</a> to search careers at GWF.
-        </form>
-    </details>
     
-    <details><!-- Sponsorship &amp; Donations -->
-        <summary>
-            <span class="summaryTitle">
-                Sponsorship &amp; Donations
-            </span>
-            <span class="summaryDescription">
-                TBD
-            </span>
-        </summary>
-        <form>
-            <span style="color:red;">Jo to provide text</span>
-        </form>
-    </details>
-
-
-
-    <p>OUR ADDRESS<p>
-    <p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
-
-    <script>
-        //Add country flags to all elements with the class intlTel
-        for (const phoneElem of document.getElementsByClassName("intlTel")) {
-            //phoneElem.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
-
-            const phoneInputQuality = window.intlTelInput(phoneElem, {
-                initialCountry: varPhoneCountries[0],
-                onlyCountries: varPhoneCountries,
-                utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
-            });
-
-            /* clear validation warning on phone number whenever user changes value */
-            phoneElem.oninput = function(){
-                phoneElem.setCustomValidity('');
-            };
-        }
-    </script>
+        </details>
+    
+    
+    
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    
+        <details><!-- Product Finder -->
+            <summary>
+                <span class="summaryTitle">
+                    Product Finder
+                </span>
+                <span class="summaryDescription">
+                    If you're looking for a Tip Top product near you.
+                </span>
+            </summary>
+            <form>
+                Please <a href="https://gwf.my.salesforce-sites.com/p">click here</a> to use out Product Finder tool and search for a product near you.
+            </form>
+        </details>
         
-    <script>
-        //Automatically close other sections if a new one is opened
+        <details><!-- Employment Opportunities -->
+            <summary>
+                <span class="summaryTitle">
+                    Employment Opportunities
+                </span>
+                <span class="summaryDescription">
+                    Want to join one of George Weston Foods iconic brands.
+                </span>
+            </summary>
+            <form>
+                Please <a href="https://www.gwf.com.au/careers/">click here</a> to search careers at GWF.
+            </form>
+        </details>
         
-        // Fetch all the details element.
-        const details = document.querySelectorAll("details");
+        <details><!-- Sponsorship &amp; Donations -->
+            <summary>
+                <span class="summaryTitle">
+                    Sponsorship &amp; Donations
+                </span>
+                <span class="summaryDescription">
+                    TBD
+                </span>
+            </summary>
+            <form>
+                <span style="color:red;">Jo to provide text</span>
+            </form>
+        </details>
     
-        // Add the onclick listeners.
-        details.forEach((detail) => {
-            detail.addEventListener("toggle", () => {
-                if (detail.open) setTargetDetail(detail);
-            });
-        });
     
-        // Close all the details that are not targetDetail.
-        function setTargetDetail(targetDetail) {
+    
+        <p>OUR ADDRESS<p>
+        <p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
+    
+        <script>
+            //Add country flags to all elements with the class intlTel
+            for (const phoneElem of document.getElementsByClassName("intlTel")) {
+                //phoneElem.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
+    
+                const phoneInputQuality = window.intlTelInput(phoneElem, {
+                    initialCountry: varPhoneCountries[0],
+                    onlyCountries: varPhoneCountries,
+                    utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
+                });
+    
+                /* clear validation warning on phone number whenever user changes value */
+                phoneElem.oninput = function(){
+                    phoneElem.setCustomValidity('');
+                };
+            }
+        </script>
+            
+        <script>
+            //Automatically close other sections if a new one is opened
+            
+            // Fetch all the details element.
+            const details = document.querySelectorAll("details");
+        
+            // Add the onclick listeners.
             details.forEach((detail) => {
-                if (detail !== targetDetail) {
-                detail.open = false;
-                }
+                detail.addEventListener("toggle", () => {
+                    if (detail.open) setTargetDetail(detail);
+                });
             });
-        }
-    </script>
+        
+            // Close all the details that are not targetDetail.
+            function setTargetDetail(targetDetail) {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                    detail.open = false;
+                    }
+                });
+            }
+        </script>
+        
+        <script>
+            //Populates Case Origin URL with the current URL, truncated to 100 characters to meet field specs
+            //(function() {
+                //document.getElementById("originurl").value = window.location.href.substring(0,100);
+        
+                const originalUrlString = window.location.href.substring(0,100);
+        
+                for (const originElem of document.getElementsByName("00N5j00000Gq8XC")) {
+                    originElem.value = originalUrlString; 
+                }
+        
+            //})();
+        </script>
     
-    <script>
-        //Populates Case Origin URL with the current URL, truncated to 100 characters to meet field specs
-        //(function() {
-            //document.getElementById("originurl").value = window.location.href.substring(0,100);
-    
-            const originalUrlString = window.location.href.substring(0,100);
-    
-            for (const originElem of document.getElementsByName("00N5j00000Gq8XC")) {
-                originElem.value = originalUrlString; 
+        <script>
+            //Add the orgid to the end of each form action
+            for (const frm of document.forms) {
+                //only append the actual orgId is the action ends in orgId=
+                if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
+                    frm.action = frm.action + varOrgid;
+                }
             }
     
-        //})();
-    </script>
-
-    <script>
-        //Add the orgid to the end of each form action
-        for (const frm of document.forms) {
-            //only append the actual orgId is the action ends in orgId=
-            if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
-                frm.action = frm.action + varOrgid;
+            //Set the value of the orgid element in each form
+            for (const orgidElem of document.getElementsByName("orgid")) {
+                orgidElem.value = varOrgid; 
             }
-        }
-
-        //Set the value of the orgid element in each form
-        for (const orgidElem of document.getElementsByName("orgid")) {
-            orgidElem.value = varOrgid; 
-        }
-    </script>
-
+        </script>
+    
+        
+        
+        
+        <!--
+        <br><br><br>
+        <footer><pre style="color:darkgrey">
+        <i>For more info, see email dated:</i>
+        From: Wilson, Alex <no-reply@gwf.com.au>
+        Date: Wednesday, 3 July 2024 at 9:36 AM
+        To: Wilson, Alex <no-reply@gwf.com.au>
+        Subject: Fixing Contact us Pages
+        </pre></footer>
+        -->
     
     
-    
-    <!--
-    <br><br><br>
-    <footer><pre style="color:darkgrey">
-    <i>For more info, see email dated:</i>
-    From: Wilson, Alex <no-reply@gwf.com.au>
-    Date: Wednesday, 3 July 2024 at 9:36 AM
-    To: Wilson, Alex <no-reply@gwf.com.au>
-    Subject: Fixing Contact us Pages
-    </pre></footer>
-    -->
-
-
-</body>
+    </body>
 
 </html>
