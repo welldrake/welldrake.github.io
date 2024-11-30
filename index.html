@@ -12,6 +12,7 @@
             var varOrgid = "00D0T0000000lof";
             var varIsSandbox = true;
             var varBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* this is ignored if varIsDandbox is true, otherwise must include https and trailing slash */
+            varBaseUrl = "https://webto.salesforce.com/";
             //https://webto.salesforce.com/ (PRD WEB-TO-CASE AND WEB-TO-LEAD)
             //https://test.salesforce.com/ (sandbox WEB-TO-LEAD)
             //https://gwf--uat.sandbox.my.salesforce.com/ (sanbox WEB-TO-CASE)
@@ -264,7 +265,7 @@
             </summary>
 
             <!-- TO DO: Make this dynamic or controlled by variables -->
-            <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="oid" value=""> <!-- set by js by name -->
