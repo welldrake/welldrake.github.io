@@ -10,7 +10,8 @@
         <script>
             //Configure variables here
             var varOrgid = "00D0T0000000lof";
-            var varBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* must include https and trailing slash */
+            var varIsSandbox = true;
+            var varBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* this is ignored if varIsDandbox is true, otherwise must include https and trailing slash */
             //https://webto.salesforce.com/ (PRD WEB-TO-CASE AND WEB-TO-LEAD)
             //https://test.salesforce.com/ (sandbox WEB-TO-LEAD)
             //https://gwf--uat.sandbox.my.salesforce.com/ (sanbox WEB-TO-CASE)
@@ -273,10 +274,10 @@
                 <!--  ======================================================================  -->
                 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
                 <!--  these lines if you wish to test in debug mode.                          -->
-                <!--
+                
                 <input type="hidden" name="debug" value=1>
                 <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
-                -->
+                
                 <!--  ======================================================================  -->
                 
                 <label for="first_name">First Name</label>
