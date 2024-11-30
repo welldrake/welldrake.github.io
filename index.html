@@ -118,8 +118,6 @@
         };
     </script>
 
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-
     <script>
         function timestamp() {
             var response = document.getElementById("g-recaptcha-response");
@@ -545,7 +543,7 @@
     <script>
         //Add country flags to all elements with the class intlTel
         for (const phoneElem of document.getElementsByClassName("intlTel")) {
-            phoneElem.setCustomValidity('');; /* without this it takes too long to show the placeholder text */
+            //phoneElem.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
 
             const phoneInputQuality = window.intlTelInput(phoneElem, {
                 initialCountry: varPhoneCountries[0],
@@ -611,6 +609,10 @@
             orgidElem.value = varOrgid; 
         }
     </script>
+
+    /* Put this last as it takes a while and can delay the phone placeholder text showing */
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
     
     
     <!--
