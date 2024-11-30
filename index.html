@@ -560,6 +560,9 @@
     
         <script>
             //Add country flags to all elements with the class intlTel
+
+            var phoneNumbers;
+                
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
                 //phoneElem.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
                 
@@ -576,8 +579,9 @@
                     console.log('phoneInput.getNumber(): ' + phoneInput.getNumber());
                     phoneNumberFormatted = phoneInput.getNumber();
                     console.log("phoneElem.id: " + phoneElem.id);
-                    phoneNumberFormatted + phoneElem.id = phoneInput.getNumber();
-                    console.log("phoneNumberFormatted + phoneElem.id: " + phoneNumberFormatted + phoneElem.id);
+                    //phoneNumberFormatted + phoneElem.id = phoneInput.getNumber();
+                    //console.log("phoneNumberFormatted + phoneElem.id: " + phoneNumberFormatted + phoneElem.id);
+                    phoneNumbers[phoneElem.id] = phoneInput.getNumber();
                 };
             }
         </script>
