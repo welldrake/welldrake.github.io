@@ -49,7 +49,7 @@
     
         <script>       
             function validate(event, sectionName, sectionIndex) {                   
-                alert(phoneNumberFormatted);
+                //alert(phoneNumberFormatted);
                 var response = grecaptcha.getResponse(sectionIndex).length;
                 if (typeof(response) == "undefined" || response === 0) {
                     document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
