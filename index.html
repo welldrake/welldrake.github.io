@@ -49,7 +49,6 @@
     
         <script>       
             function validate(event, sectionName, sectionIndex) {                   
-                //alert(phoneNumberFormatted);
                 var response = grecaptcha.getResponse(sectionIndex).length;
                 if (typeof(response) == "undefined" || response === 0) {
                     document.getElementById('rcMessage' + sectionName).setCustomValidity('Please complete the reCAPTCHA');
@@ -575,14 +574,8 @@
                 /* clear validation warning on phone number whenever user changes value */
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
-                    console.log('phoneInput.getNumber(): ' + phoneInput.getNumber());
-                    phoneNumberFormatted = phoneInput.getNumber();
-                    console.log("phoneElem.id: " + phoneElem.id);
-                    //phoneNumberFormatted + phoneElem.id = phoneInput.getNumber();
-                    //console.log("phoneNumberFormatted + phoneElem.id: " + phoneNumberFormatted + phoneElem.id);
                     phoneNumbers[phoneElem.id] = phoneInput.getNumber();
-                    console.log("phoneNumbers[phoneElem.id]: " + phoneNumbers[phoneElem.id]);
-                    
+                    console.log("phoneNumbers[" + phoneElem.id + "]: " + phoneNumbers[phoneElem.id]);
                 };
             }
         </script>
