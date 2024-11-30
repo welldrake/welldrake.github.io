@@ -561,7 +561,8 @@
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
                 //phoneElem.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
     
-                const phoneInputQuality = window.intlTelInput(phoneElem, {
+                //TO DO: work out how to store one of these for each as we need to retrieve it
+                const phoneInput = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
                     utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
@@ -570,6 +571,7 @@
                 /* clear validation warning on phone number whenever user changes value */
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
+                    console.log(phoneElem.getNumber());
                 };
             }
         </script>
