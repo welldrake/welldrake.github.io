@@ -10,6 +10,7 @@
         <script>
             //Configure variables here
             var varOrgid = "00D0T0000000lof";
+            var varBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* must include https and trailing slash */
             var varKeyname = "TestingKeyNoProtection";
             var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
             var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list */
@@ -175,7 +176,7 @@
                 </span>
             </summary>
             
-            <form name="formQuality" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
@@ -252,7 +253,7 @@
                 </span>
             </summary>
 
-            <form name="formBecome" action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="oid" value=""> <!-- set by js by name -->
@@ -349,7 +350,7 @@
                 
             </summary>
 
-            <form name="formExisting" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
@@ -428,7 +429,7 @@
                 
             </summary>
 
-            <form name="formCrates" action="https://gwf--uat.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form action="/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
@@ -560,9 +561,11 @@
             //Add country flags to all elements with the class intlTel
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
                 //phoneElem.setCustomValidity(''); /* without this it takes too long to show the placeholder text */
-    
+
+                console.log("phoneElem.id: " + phoneElem.id);
+                
                 //TO DO: work out how to store one of these for each as we need to retrieve it
-                const phoneInput = window.intlTelInput(phoneElem, {
+                var phoneInput + phoneElem.id = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
                     utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
@@ -571,7 +574,8 @@
                 /* clear validation warning on phone number whenever user changes value */
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
-                    console.log(phoneInput.getNumber());
+                    console.log('phoneInput.getNumber(): ' + phoneInput.getNumber());
+                    console.log('phoneInput + phoneElem.id: ' + phoneInput + phoneElem.id);
                 };
             }
         </script>
@@ -605,10 +609,10 @@
                 originElem.value = window.location.href.substring(0,100);
             }
 
-            //Add the orgid to the end of each form action if the action ends with orgId=
+            //Add the baseUrl to the start and orgid to the end of each form action if the action ends with orgId=
             for (const frm of document.forms) {
                 if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
-                    frm.action = frm.action + varOrgid;
+                    frm.action = varBaseUrl + frm.action + varOrgid;
                 }
             }
     
