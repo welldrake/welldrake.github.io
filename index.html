@@ -624,10 +624,10 @@
                 if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
                     frm.action = frm.action + varOrgid;
                 }
-                if (varIsSandbox && frm.action.includes('servlet.WebToCase') {
+                if (varIsSandbox && frm.action.includes('servlet.WebToCase')) {
                     frm.action.replace("https://webto.salesforce.com/", varSandboxBaseUrl);
                 }
-                if (varIsSandbox && frm.action.includes('servlet.WebToLead') {
+                if (varIsSandbox && frm.action.includes('servlet.WebToLead')) {
                     frm.action.replace("https://webto.salesforce.com/", "https://test.salesforce.com/");
                 }
             }
