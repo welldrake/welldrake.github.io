@@ -17,7 +17,6 @@
             var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list, list can be just one item */
         </script>
     
-        <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js'></script> -->
         <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/js/intlTelInput.min.js"></script>
     
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
@@ -92,7 +91,6 @@
             }
         </script>
         
-        <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css' > -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/css/intlTelInput.css">
         
         <style>
@@ -607,9 +605,6 @@
                     onlyCountries: varPhoneCountries,
                     countrySearch: false,
                     strictMode: true,
-                    containerClass: '<div class="test">',
-                    /* separateDialCode: true, */
-                    /* utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js', */
                     loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/js/utils.js",
                         
                 });
@@ -617,7 +612,7 @@
                 /* clear validation warning on phone number whenever user changes value */
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
-                    //TO DO: update getNumber when country code is changed
+                    //TO DO: update getNumber when country code is changed - see https://github.com/jackocnr/intl-tel-input/issues/1883
                     phoneNumbers[phoneElem.id] = phoneInput.getNumber();
                     console.log("phoneNumbers[" + phoneElem.id + "]: " + phoneNumbers[phoneElem.id]);
                 };
