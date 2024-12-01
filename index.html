@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us</title>
+        <title>Contact Us 2</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         
@@ -585,21 +585,22 @@
                 var phoneInputs = JSON.parse('{}');
 
                 //doco: https://github.com/jackocnr/intl-tel-input
-                phoneInputs[phoneElem.id] = window.intlTelInput(phoneElem, {
+                const phoneInput = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
                     countrySearch: false,
                     strictMode: true,
-                    loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/js/utils.js",
-                        
+                    loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/js/utils.js",   
                 });
+                
+                phoneInputs[phoneElem.id] = phoneInput;                
     
                 /* clear validation warning on phone number whenever user changes value */
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
                     //TO DO: update getNumber when country code is changed - see https://github.com/jackocnr/intl-tel-input/issues/1883
+                    phoneNumbers[phoneElem.id] = phoneInput.getNumber();
                     console.log("phoneNumbers[" + phoneElem.id + "]: " + phoneNumbers[phoneElem.id]);
-                    phoneNumbers[phoneElem.id] = (phoneInputs[phoneElem.id]).getNumber();
                 };
             }
         </script>
