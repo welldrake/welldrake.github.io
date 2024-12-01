@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 7</title>
+        <title>Contact Us 10</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         
@@ -28,6 +28,9 @@
                 grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
                 grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
                 grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
+
+                //Each form has this line at the bottom, and the sectionIndex must match the index above otherwise reCATPCHA validation will says it's not complete
+                //<input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
             };
         </script>
     
@@ -52,13 +55,13 @@
             function validate(event, sectionName, sectionIndex) {                   
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone' + sectionName);
-                var phoneFormattedNumber = phoneInputs['phone' + sectionName].getNumber();
+                var phoneFieldNumber = phoneInputs['phone' + sectionName].getNumber();
                 
-                if(phoneField && phoneFormattedNumber) { /* check there is a phone field before setting value to avoid js error */
+                if(phoneField && phoneFieldNumber) { /* check there is a phone field before setting value to avoid js error */
                     //let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
                     let re = /^\+(61|64)\s?[1-9]\s?([0-9]\s?){5,11}$/;
-                    if (phoneFormattedNumber.length == 0 || re.test(phoneFormattedNumber)) {
-                        phoneField.value = phoneFormattedNumber;
+                    if (phoneFieldNumber.length == 0 || re.test(phoneFieldNumber)) {
+                        phoneField.value = phoneFieldNumber;
                     } else {
                         phoneField.setCustomValidity('Invalid phone number.');
                     }
@@ -420,7 +423,7 @@
                 </div>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
-                <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Existing', /*sectionIndex*/ 0);"> 
+                <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Existing', /*sectionIndex*/ 2);"> 
             
             </form>
     
@@ -499,7 +502,7 @@
                 </div>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
-                <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Crates', /*sectionIndex*/ 0);"> 
+                <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Crates', /*sectionIndex*/ 4);"> 
             
             </form>
 
