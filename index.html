@@ -48,6 +48,17 @@
             setInterval(timestamp, 500); 
         </script>
 
+        <script>
+            var phoneFlagContainers = document.getElementsByClassName('iti__flag-container');
+            for (const pfc of phoneFlagContainers) {
+                pfc.addEventListener('click', function() { alert('hi'); }, false);
+            }
+
+            function updatePhoneNumbers() {
+                for (const phoneElem of document.getElementsByClassName("intlTel")) {
+                }
+            }
+        </script>
 
         <script>  
             function validate(event, sectionName, sectionIndex) {                   
@@ -56,7 +67,8 @@
                 var phoneFormattedNumber = phoneNumbers['phone-raw' + sectionName];
                 
                 if(phoneField) { /* check there is a phone field before setting value to avoid js error */
-                    let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
+                    //let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
+                    let re = /^\+(61|64)\s?[1-9]\s?([0-9]\s?){5,11}$/;
                     if (phoneFormattedNumber.length == 0 || re.test(phoneFormattedNumber)) {
                         phoneField.value = phoneFormattedNumber;
                     } else {
@@ -587,7 +599,8 @@
                 const phoneInput = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
-                    utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
+                    //utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
+                    utilsScript: 'https://intl-tel-input.com/intl-tel-input/js/utils.js?1730730622316',
                 });
     
                 /* clear validation warning on phone number whenever user changes value */
