@@ -165,7 +165,10 @@
                 margin-bottom: 10px; /* customise */
                 box-sizing: border-box;  /* sizes within the parent element */
                 display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
-
+            }
+            input,
+            select,
+            textarea {
                 /* the following lines match styling of SELECT to other input cells (placed here to ensure they are ALL the same - required on iOS */
                 background-color: transparent;
                 color: black;
@@ -174,7 +177,7 @@
             }
             input,
             select {
-                height: 3em; /* 40px; */ /* customise */
+                height:  40px; /* customise */
             }
             textarea {
                 resize: vertical;
@@ -201,12 +204,12 @@
                 select,
                 textarea {
                     font-size: 36px; /* make this big enough so that iPhone doesn't auto-zoom when selected - customise */
-                    border-radius: 5px; /* make SELECT same as default iOS styling for INPUT */
+                    border-radius: 10px; /* make SELECT same as default iOS styling for INPUT */
                 }
-                /* input,
+                input,
                 select {
-                    height: 60px; / * customise * /
-                } */
+                    height: 60px; /* customise */
+                }
                 select {
                     padding-left: 3px; /* gives it the same spacing as text input */
                 }
