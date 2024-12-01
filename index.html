@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 33</title>
+        <title>Contact Us 34</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -49,13 +49,20 @@
         <script>
             function onloadCallback() {
                 //These must be in the same sequence as the sections on the page
+                /*
                 grecaptcha.render('RecaptchaQuality', {'sitekey' : varSitekey});
                 grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
                 grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
                 grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
+                */
 
                 //Each form has this line at the bottom, and the sectionIndex must match the index above otherwise reCATPCHA validation will says it's not complete
                 //<input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
+
+                //Render a recpatch for each FORM. Note, there must be a DIV element in each form where the ID = 'Recaptcha' + frm.id
+                for (const frm of document.getElementsByTagName("form")) {
+                    grecaptcha.render('Recaptcha' + frm.id, {'sitekey' : varSitekey});
+                }
             };
         </script>
     
