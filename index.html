@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 20</title>
+        <title>Contact Us 21</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -171,7 +171,10 @@
             }
             textarea {
                 resize: vertical;
-                height: 8em; /* 8 rows high - customise */
+                height: 8rem; /* 8 rows high - customise */
+            }
+            select, option {
+              -webkit-appearance: none; /* remove iPhone styling on iPhone */
             }
             @media only screen and (max-width: 420px) {
                 .summaryTitle {
@@ -187,10 +190,17 @@
                 summary::marker {
                     font-size:36px; /* rmarker size - customise */
                 }
+                label {
+                    font-size: 24px; /* customise */
+                }
                 input,
                 select,
                 textarea {
-                    font-size: 36px; /* customise */
+                    font-size: 36px; /* make this big enough so that iPhone doesn't auto-zoom when selected - customise */
+                }
+                input,
+                select {
+                    height: 60px; /* customise */
                 }
             }
         </style>
