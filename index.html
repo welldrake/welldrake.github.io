@@ -598,8 +598,8 @@
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
                     //TO DO: update getNumber when country code is changed - see https://github.com/jackocnr/intl-tel-input/issues/1883
-                    phoneNumbers[phoneElem.id] = phoneInputs[phoneElem.id].getNumber();
                     console.log("phoneNumbers[" + phoneElem.id + "]: " + phoneNumbers[phoneElem.id]);
+                    phoneNumbers[phoneElem.id] = (phoneInputs[phoneElem.id]).getNumber();
                 };
             }
         </script>
