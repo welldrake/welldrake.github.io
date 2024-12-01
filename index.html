@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 12</title>
+        <title>Contact Us 14</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         
@@ -67,8 +67,8 @@
                     } else {
                         phoneField.setCustomValidity('Invalid phone number.');
                     }
+                    console.log(phoneField.value);
                 }
-                console.log(phoneField.value);
                 
                 //check recaptcha is completed
                 var response = grecaptcha.getResponse(sectionIndex).length;
