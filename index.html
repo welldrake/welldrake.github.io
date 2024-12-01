@@ -48,27 +48,11 @@
             setInterval(timestamp, 500); 
         </script>
 
-        <!--
-        <script>
-            var phoneFlagContainers = document.getElementsByClassName('iti__flag-container');
-            for (const pfc of phoneFlagContainers) {
-                pfc.addEventListener('click', function() { alert('hi'); }, false);
-            }
-
-            function updatePhoneNumbers() {
-                for (const phoneElem of document.getElementsByClassName("intlTel")) {
-                }
-            }
-        </script>
-        -->
-
         <script>  
             function validate(event, sectionName, sectionIndex) {                   
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone' + sectionName);
                 var phoneFormattedNumber = phoneNumbers['phone' + sectionName];
-                
-                /* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
                 
                 if(phoneField) { /* check there is a phone field before setting value to avoid js error */
                     //let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
