@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 4</title>
+        <title>Contact Us 5</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         
@@ -52,7 +52,7 @@
             function validate(event, sectionName, sectionIndex) {                   
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone' + sectionName);
-                var phoneFormattedNumber = phoneNumbers['phone' + sectionName];
+                var phoneFormattedNumber = phoneInputs[phoneElem.id].getNumber();
                 
                 if(phoneField) { /* check there is a phone field before setting value to avoid js error */
                     //let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
@@ -579,7 +579,6 @@
         <script>
             //Add country flags to all elements with the class intlTel
 
-            var phoneNumbers = JSON.parse('{}');
             var phoneInputs = JSON.parse('{}');
             
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
@@ -596,9 +595,7 @@
                 /* clear validation warning on phone number whenever user changes value */
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
-                    //TO DO: update getNumber when country code is changed - see https://github.com/jackocnr/intl-tel-input/issues/1883
-                    phoneNumbers[phoneElem.id] = phoneInputs[phoneElem.id].getNumber();
-                    console.log("phoneNumbers[" + phoneElem.id + "]: " + phoneNumbers[phoneElem.id]);
+                    console.log('phoneInputs[' + phoneElem.id + '].getNumber(): ' + phoneInputs[phoneElem.id].getNumber());
                 };
             }
         </script>
