@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 27</title>
+        <title>Contact Us 28</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -165,21 +165,20 @@
                 margin-bottom: 10px; /* customise */
                 box-sizing: border-box;  /* sizes within the parent element */
                 display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
+
+                /* the following lines match styling of SELECT to other input cells (placed here to ensure they are ALL the same - required on iOS */
+                background-color: transparent;
+                color: black;
+                border: 1px solid #888888; /* was rgb(118, 118, 118); but didn't match on iPhone */
+                border-radius: 2px;
             }
             input,
             select {
-                height: 40px; /* customise */
+                height: 3em; /* 40px; */ /* customise */
             }
             textarea {
                 resize: vertical;
                 height: 8em; /* 8 rows high - customise */
-            }
-            select {
-                /* match styling of select to other input cells - required on iOS */
-                background-color: transparent;
-                color: black;
-                border: 1px solid #888888; /* was rgb(118, 118, 118); but didn't match on iPhone */
-                border-radius: 3px;
             }
             @media only screen and (max-width: 420px) {
                 .summaryTitle {
@@ -202,11 +201,12 @@
                 select,
                 textarea {
                     font-size: 36px; /* make this big enough so that iPhone doesn't auto-zoom when selected - customise */
+                    border-radius: 5px; /* make SELECT same as default iOS styling for INPUT */
                 }
-                input,
+                /* input,
                 select {
-                    height: 60px; /* customise */
-                }
+                    height: 60px; / * customise * /
+                } */
                 select {
                     padding-left: 3px; /* gives it the same spacing as text input */
                 }
