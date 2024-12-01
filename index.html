@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 25</title>
+        <title>Contact Us 26</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -150,10 +150,9 @@
                 /* color: #ffffff; */ /* only required if different from what's set on summary - customise */
             }
             form {
+                padding: 3px; /* gives space to allow glow to show on iPhone when cell selected */
                 padding-bottom: 20px;
                 background-color: white; /* customise */
-                padding-left: 2px; /* allow glow to show on iPhone when cell selected */
-                padding-right: 2px; /* allow glow to show on iPhone when cell selected */
             }
             div.iti.iti--allow-dropdown {
                 display:block; /* overrides default inline-block for intlTel fields to ensure it goes full width */
@@ -176,11 +175,11 @@
                 height: 8rem; /* 8 rows high - customise */
             }
             select {
-              /* -webkit-appearance: none; */ /* remove iPhone styling on iPhone */
+                /* match styling of select to other input cells - required on iOS */
                 background-color: transparent;
                 color: black;
-                border: 1px solid rgb(118, 118, 118);
-                border-radius: 2px;
+                border: 1px solid #666666; /* rgb(118, 118, 118); */
+                border-radius: 3px;
             }
             @media only screen and (max-width: 420px) {
                 .summaryTitle {
