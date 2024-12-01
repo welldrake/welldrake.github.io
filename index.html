@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 10</title>
+        <title>Contact Us 12</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         
@@ -55,12 +55,14 @@
             function validate(event, sectionName, sectionIndex) {                   
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone' + sectionName);
-                var phoneFieldNumber = phoneInputs['phone' + sectionName].getNumber();
+                var phoneFieldDetails = phoneInputs['phone' + sectionName];
                 
-                if(phoneField && phoneFieldNumber) { /* check there is a phone field before setting value to avoid js error */
+                if(phoneField && phoneFieldDetails) { /* check there is a phone field before setting value to avoid js error */
+                    var phoneFieldNumber = phoneFieldDetails.getNumber();
                     //let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
                     let re = /^\+(61|64)\s?[1-9]\s?([0-9]\s?){5,11}$/;
                     if (phoneFieldNumber.length == 0 || re.test(phoneFieldNumber)) {
+                        phoneField.setCustomValidity('');
                         phoneField.value = phoneFieldNumber;
                     } else {
                         phoneField.setCustomValidity('Invalid phone number.');
@@ -596,10 +598,10 @@
                 });            
     
                 /* clear validation warning on phone number whenever user changes value */
-                phoneElem.oninput = function(){
+                /*phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
                     console.log('phoneInputs[' + phoneElem.id + '].getNumber(): ' + phoneInputs[phoneElem.id].getNumber());
-                };
+                };*/
             }
         </script>
             
