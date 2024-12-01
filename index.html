@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 21</title>
+        <title>Contact Us 23</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -173,8 +173,9 @@
                 resize: vertical;
                 height: 8rem; /* 8 rows high - customise */
             }
-            select, option {
-              -webkit-appearance: none; /* remove iPhone styling on iPhone */
+            select {
+              /* -webkit-appearance: none; */ /* remove iPhone styling on iPhone */
+                background-color: transparent;
             }
             @media only screen and (max-width: 420px) {
                 .summaryTitle {
@@ -201,6 +202,9 @@
                 input,
                 select {
                     height: 60px; /* customise */
+                }
+                select {
+                    padding-left: 3px; /* gives it the same spacing as text input */
                 }
             }
         </style>
