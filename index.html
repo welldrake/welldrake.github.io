@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 35</title>
+        <title>Contact Us 36</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -25,7 +25,7 @@
                 'Golden Crumpet Toast Cinnamon Burst',
             ];
 
-            var varStorePurchasedFromName = [
+            var varStoreNameQuality = [
                 // for a TEXT field instead of SELECT, use: var varStorePurchasedFromName = [];
                 'Countdown',
                 'New World ',
@@ -48,21 +48,13 @@
     
         <script>
             function onloadCallback() {
-                //These must be in the same sequence as the sections on the page
-                /*
-                grecaptcha.render('RecaptchaQuality', {'sitekey' : varSitekey});
-                grecaptcha.render('RecaptchaBecome', {'sitekey' : varSitekey});
-                grecaptcha.render('RecaptchaExisting', {'sitekey' : varSitekey});
-                grecaptcha.render('RecaptchaCrates', {'sitekey' : varSitekey});
-                */
-
-                //Each form has this line at the bottom, and the sectionIndex must match the index above otherwise reCATPCHA validation will says it's not complete
-                //<input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
-
-                //Render a recpatch for each FORM. Note, there must be a DIV element in each form where the ID = 'Recaptcha' + frm.id
+                //Render a recaptcha for each FORM. Note, there must be a DIV element in each form where the ID = 'Recaptcha' + frm.id
                 for (const frm of document.getElementsByTagName("form")) {
                     grecaptcha.render('Recaptcha' + frm.id, {'sitekey' : varSitekey});
                 }
+                //Each form has this line at the bottom, and the sectionIndex must be set correctly, otherwise the wrong recaptcha will be checked
+                //sectionIndex is 0 for the first form/recaptcha, 1 for the second, 2 for the third, etc
+                //<input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
             };
         </script>
     
@@ -322,6 +314,9 @@
                 </select>
 
                 <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
+                <!-- The field is constructed and inserted by javascript -->
+                
+                <label id="labelStoreNameQuality" for='storeNameQuality'>Store Purchased From Name</label>
                 <!-- The field is constructed and inserted by javascript -->
     
                 <input type="hidden"  id="external" name="external" value="1">
@@ -741,29 +736,44 @@
 
             //Product Name in Quality Section
             var elementLabelProductNameQuality = document.getElementById('labelProductNameQuality');
-            //var placeholderNode = document.createElement("placeholder");   
             if (varProductNameQuality.length === 0) {
                 var newNode = document.createElement("input");  
                 newNode.id = 'productNameQuality';
                 newNode.name = '00N5j00000Gq8XD'
                 newNode.type = 'text';
                 newNode.setAttribute('maxlength', 80);
-                //var newHTML = "<input id='productNameQuality' maxlength='80' name='00N5j00000Gq8XD' type='text' />";
-                //placeholderNode.innerHTML = newHTML;
-                //elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
                 elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.newNode, elementLabelProductNameQuality.nextSibling);
             } else {
                 var newNode = document.createElement("select");  
                 newNode.id = 'productNameQuality';
                 newNode.name = '00N5j00000Gq8XD'
-                //var newHTML = "<select id='productNameQuality' name='00N5j00000Gq8XD'>";
                 var newHTML = "<option value=''>--None--</option>";
                 for (const itm of varProductNameQuality) {
                     newHTML += '<option>' + itm + '</option>';
                 }
-                //newHTML += "</select>";
                 newNode.innerHTML = newHTML;
                 elementLabelProductNameQuality.parentNode.insertBefore(newNode, elementLabelProductNameQuality.nextSibling);
+            }
+
+            //Store Purchased From Name in Quality Section
+            var elementLabelStoreNameQuality = document.getElementById('labelStoreNameQuality');
+            if (varStoreNameQuality.length === 0) {
+                var newNode = document.createElement("input");  
+                newNode.id = 'storeNameQuality';
+                newNode.name = '00N5j00000Gq8XN'
+                newNode.type = 'text';
+                newNode.setAttribute('maxlength', 200);
+                elementLabelStoreNameQuality.parentNode.insertBefore(placeholderNode.newNode, elementLabelStoreNameQuality.nextSibling);
+            } else {
+                var newNode = document.createElement("select");  
+                newNode.id = 'storeNameQuality';
+                newNode.name = '00N5j00000Gq8XN'
+                var newHTML = "<option value=''>--None--</option>";
+                for (const itm of varStoreNameQuality) {
+                    newHTML += '<option>' + itm + '</option>';
+                }
+                newNode.innerHTML = newHTML;
+                elementLabelStoreNameQuality.parentNode.insertBefore(newNode, elementLabelStoreNameQuality.nextSibling);
             }
         </script>
 
