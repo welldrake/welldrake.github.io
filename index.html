@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 18</title>
+        <title>Contact Us 19</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -112,12 +112,12 @@
                 opacity: 0;
             }
             summary {
-                color: #ffffff; /* customise */
+                font-size: 24px; /* customise */
+                color: #ffffff; /* needs to be on summary and not marker to work on iphone - customise */
                 margin-inline-start: 2rem; /* moved the text and marker to the right */
                 list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
             }
             summary::marker {
-                
                 /* font-size:30px; */ /* rmarker size - customise */
                 /* content: "\002B"; */ /* plus sign */
             }
@@ -142,12 +142,12 @@
             }
             .summaryTitle {
                 font-size: 24px; /* customise */
-                color: #ffffff; /* customise */
+                /* color: #ffffff; */ /* only required if different from what's set on summary - customise */
             }
             .summaryDescription {
                 font-size: 14px; /* customise */
-                color: #ffffff; /* customise */
                 display: block; /* description on own line */
+                /* color: #ffffff; */ /* only required if different from what's set on summary - customise */
             }
             form {
                 padding-bottom: 20px;
@@ -179,6 +179,10 @@
                 }
                 .summaryDescription {
                     font-size: 24px; /* customise */
+                }
+                summary {
+                    font-size: 36px; /* customise */
+                    margin-inline-start: 3rem; /* moved the text and marker to the right */
                 }
                 summary::marker {
                     font-size:36px; /* rmarker size - customise */
