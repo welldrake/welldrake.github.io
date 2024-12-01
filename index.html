@@ -25,28 +25,6 @@
                 'Golden Crumpet Toast Cinnamon Burst'
             ];
         </script>
-
-        <script>
-            //build and insert HTML for fields based on config above
-
-            //Product Name in Quality Section
-            var elementLabelProductNameQuality = document.getElementById('labelProductNameQuality');
-            var placeholderNode = document.createElement("placeholder");   
-            if (varProductNameQuality.length === 0) {
-                var newHTML = "<input id='productNameQuality' maxlength='80' name='00N5j00000Gq8XD' type='text' />";
-                placeholderNode.innerHTML = newHTML;
-                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
-            } else {
-                var newHTML = "<select id='productNameQuality' name='00N5j00000Gq8XD'>";
-                newHTML += "<option value=''>--None--</option>";
-                for (const itm of varProductNameQuality) {
-                    newHTML += '<option>' + itm + '</option>';
-                }
-                newHTML += "</select>";
-                placeholderNode.innerHTML = newHTML;
-                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
-            }
-        </script>
     
         <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/js/intlTelInput.min.js"></script>
     
@@ -732,6 +710,28 @@
             //Set the value of the oid element in each form (web-to-lead)
             for (const orgidElem of document.getElementsByName("oid")) {
                 orgidElem.value = varOrgid; 
+            }
+        </script>
+
+        <script>
+            //build and insert HTML for fields based on config above
+
+            //Product Name in Quality Section
+            var elementLabelProductNameQuality = document.getElementById('labelProductNameQuality');
+            var placeholderNode = document.createElement("placeholder");   
+            if (varProductNameQuality.length === 0) {
+                var newHTML = "<input id='productNameQuality' maxlength='80' name='00N5j00000Gq8XD' type='text' />";
+                placeholderNode.innerHTML = newHTML;
+                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
+            } else {
+                var newHTML = "<select id='productNameQuality' name='00N5j00000Gq8XD'>";
+                newHTML += "<option value=''>--None--</option>";
+                for (const itm of varProductNameQuality) {
+                    newHTML += '<option>' + itm + '</option>';
+                }
+                newHTML += "</select>";
+                placeholderNode.innerHTML = newHTML;
+                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
             }
         </script>
 
