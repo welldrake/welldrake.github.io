@@ -59,7 +59,6 @@
                 
                 if(phoneField && phoneFieldDetails) { /* check there is a phone field before setting value to avoid js error */
                     var phoneFieldNumber = phoneFieldDetails.getNumber();
-                    //let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
                     let re = /^\+(61|64)\s?[1-9]\s?([0-9]\s?){5,11}$/;
                     if (phoneFieldNumber.length == 0 || re.test(phoneFieldNumber)) {
                         phoneField.setCustomValidity('');
@@ -288,9 +287,8 @@
                 <!--  these lines if you wish to test in debug mode.                          -->
                 <!--
                 <input type="hidden" name="debug" value=1>
-                -->
                 <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
-                
+                -->
                 <!--  ======================================================================  -->
                 
                 <label for="first_name">First Name</label>
@@ -588,7 +586,7 @@
             
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
 
-                //doco: https://github.com/jackocnr/intl-tel-input
+                //documentation: https://github.com/jackocnr/intl-tel-input
                 phoneInputs[phoneElem.id] = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
@@ -596,12 +594,7 @@
                     strictMode: true,
                     loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/js/utils.js",   
                 });            
-    
-                /* clear validation warning on phone number whenever user changes value */
-                /*phoneElem.oninput = function(){
-                    phoneElem.setCustomValidity('');
-                    console.log('phoneInputs[' + phoneElem.id + '].getNumber(): ' + phoneInputs[phoneElem.id].getNumber());
-                };*/
+                
             }
         </script>
             
