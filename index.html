@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 37</title>
+        <title>Contact Us 38</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -12,10 +12,31 @@
             //Configure variables here
             var varOrgid = "00D0T0000000lof";
             var varIsSandbox = true;
-            var varSandboxBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* this is ignored if varIsSandbox is true, otherwise must include https and trailing slash */
+            var varSandboxBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* this is ignored if varIsSandbox is false, otherwise must include https:// and trailing slash */
+            var varReturnUrl ="https://welldrake.github.io/thanks.html"; /* where to send the user after they submit a form */
+            var varCaseOriginDetail = "Golden NZ" /* valid values are: Abbotts, Bazaar, Big Ben NZ, Burgen, Burgen NZ, Dorset, Foodservice, Golden, Golden NZ, GWF, GWF Baking NZ, Jordans, Jordans Ryvita, Pataks, Ploughmans NZ, Retail, Ryvita, Tip Top, Tip Top NZ */
+            var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list, list can be just one item */
+
+            //Configure the reCPATCHA keyname and site key
             var varKeyname = "TestingKeyNoProtection";
             var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-            var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list, list can be just one item */
+            /* delete key pairs here: https://gwf--uat.sandbox.my.salesforce.com/0He */
+            /* delete key pairs here: https://gwf.my.salesforce.com/0He */
+            
+            /*
+            AustraliaAll           : 6LdKMJ8fAAAAAENRalWR8ISyK94pLiQ73H08nH2K
+            TipTopNZ               : 6LcD27sfAAAAAMhbJDIuNUawDBcExbb4Q-K9kfst
+            BigBenNZ               : 6Le-2bsfAAAAALI4E4wAXBOelAZHNqUZwju0e6S-
+            PloughmansNZ           : 6LfT27sfAAAAABC98SgcHLiQcwsW3SZ8oXKLqGBM
+            BurgenNZ               : 6LdA3LsfAAAAAGBLLrK_frB6NCoeljKwYDihJaPt
+            GoldenNZ               : 6Lex3LsfAAAAAORE8n6Pe-ASsnLx2wXca6H9Y1s5
+            GWFNZ                  : 6LeA3bsfAAAAAPdCAL4P3nqR0XH5IZMUhz_lvKQl
+            FoodserviceNZ          : 6Lfu3bsfAAAAAGGOkkcNRaVzagaK1B3PSim6VozZ
+            TestingKeyNoProtection : 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+
+            AU key managed though Google Account for no-reply@gwf.com.au
+            NZ keys managed by Simon Dixon
+            */
 
             var varProductNameQuality = [
                 // for a TEXT field instead of SELECT, use: var varProductNameQuality = [];
@@ -212,7 +233,7 @@
             }
             textarea {
                 resize: vertical;
-                height: 8em; /* 8 rows high - customise */
+                /* height: 8em; */ /* 8 rows high - customise - shouldn't be required as set using 'rows=8' in html*/
             }
             @media only screen and (max-width: 420px) {
                 .summaryTitle {
@@ -271,11 +292,13 @@
                 </span>
             </summary>
             
+            <!-- form ID must be set as it's used to generate the recaptcha and must match sectionName passed in to validate function -->
             <form id="Quality" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
+                <input type=hidden name="external" value="1">
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
-                <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
+                <input type=hidden name="retURL" value="">
                 
                 <!--  ======================================================================  -->
                 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
@@ -287,32 +310,52 @@
                 <!--  ======================================================================  -->
 
                 <input type='hidden' name='00N5j00000GqQaq' value='N/A' > <!-- severity -->
-                
-                <label for="name">Contact Name</label>
-                <input id="name" maxlength="80" name="name" size="20" type="text">
+                <input type='hidden' name='00N5j00000Gq8XC' value=''> <!-- Case Origin URL -->  <!-- *** populated dynamically using javascript  *** -->
+                <input type='hidden' name='00N5j00000Gq8XJ' value='Unit'> <!-- unit of measure -->
+                <input type='hidden' name='00N5j00000Gq8XI' value='1'> <!-- quantity -->
+                <input type='hidden' name='00N5j00000Gq8XF' value='CIC'> <!-- case function -->
+                <input type='hidden' name='00N5j00000GqBxu' value='Bakery TBD'> <!-- business unit --> <!-- *** TBD part is included so it can be easily checked in javascript and populated dynamically if applicable  *** -->
+                <input type='hidden' name='00N5j00000Gq8XB' value=''> <!-- Case Origin Detail --> <!-- *** populated dynamically using javascript  *** -->
+
+                <label for="nameQuality">Contact Name</label>
+                <input id="nameQuality" name="name" type="text" maxlength="80" placeholder='First name and last name' required>
                 
                 <label for="emailQuality">Email</label>
-                <input id="emailQuality" maxlength="80" name="email" size="20" type="text">
+                <input id="emailQuality" name="email" type="text" required>
                 
                 <label for="phoneQuality">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneQuality" maxlength="40" name="phone" class="intlTel" size="20" type="text">
+                    <input id="phoneQuality" maxlength="40" name="phone" class="intlTel" type="text">
                 </div>
                 
-                <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" size="20" type="text">
-                
-                <label for="description">Description</label>
-                <textarea id="description" name="description"></textarea>
+                <label for='Enquiry'>Reason to Contact<span style="color:red;">*</span></label>
+                <div class="radio-toolbar">
+                    <label for="Enquiry">Enquiry</label>
+                    <input type="radio" id="Enquiry" name="00N5j00000Gq8XG" value="Enquiry" required>
+                    <label for="Complaint">Product Feedback</label>
+                    <input type="radio" id="Complaint" name="00N5j00000Gq8XG" value="Complaint">
+                </div>
 
-                <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
-                <!-- The field is constructed and inserted by javascript -->
-                
-                <label id="labelStoreNameQuality" for='storeNameQuality'>Store Purchased From Name</label>
-                <!-- The field is constructed and inserted by javascript -->
-    
-                <input type="hidden"  id="external" name="external" value="1">
-                
+                <label for="subjectQuality">Subject</label>
+                <input id="subjectQuality" name="subject" type="text" maxlength="80" placeholder='Reason for contacting us' required>
+
+                <label for='descriptionQuality'>Description</label>
+                <textarea id= 'descriptionQuality' name='description' rows='8' maxlength='32000' placeholder='Tell us in a few words what your enquiry or experience is so we can help you'></textarea>
+
+                <div  id='extendedForm'> <!-- TO DO: add back: hidden -->
+
+                    <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
+                    <!-- The field is constructed and inserted by javascript -->
+                    
+                    <label id="labelStoreNameQuality" for='storeNameQuality'>Store Purchased From Name</label>
+                    <!-- The field is constructed and inserted by javascript -->
+
+                    <label for='dateBestBefore'>Best Before Date (DD/MM/YYYY)</label>
+                    <input class="formDate" id='dateBestBefore' name='dateBestBefore' type='date' >
+            
+                </div>
+
+                <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaQuality"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
@@ -322,7 +365,7 @@
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
                 <!-- sectionIndex MUST BE set correctly. sectionIndex is 0 for the first form/recaptcha, 1 for the second, 2 for the third, etc -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
-            
+
             </form>
             
         </details>
@@ -347,7 +390,7 @@
                 </span>
             </summary>
 
-            <!-- TO DO: Make this dynamic or controlled by variables -->
+            <!-- form ID must be set as it's used to generate the recaptcha and must match sectionName passed in to validate function -->
             <form id="Become" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
@@ -365,28 +408,28 @@
                 <!--  ======================================================================  -->
                 
                 <label for="first_name">First Name</label>
-                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required>
+                <input id="first_name" maxlength="40" name="first_name" type="text" required>
                 
                 <label for="last_name">Last Name</label>
-                <input id="last_name" maxlength="80" name="last_name" size="20" type="text">
+                <input id="last_name" maxlength="80" name="last_name" type="text">
                 
                 <label for="first_name_local">First Name (Local)</label>
-                <input id="first_name_local" maxlength="40" name="first_name_local" size="20" type="text">
+                <input id="first_name_local" maxlength="40" name="first_name_local" type="text">
                 
                 <label for="last_name_local">Last Name (Local)</label>
-                <input id="last_name_local" maxlength="40" name="last_name_local" size="20" type="text">
+                <input id="last_name_local" maxlength="40" name="last_name_local" type="text">
                 
                 <label for="company_local">Company Name (Local)</label>
-                <input id="company_local" maxlength="40" name="company_local" size="20" type="text">
+                <input id="company_local" maxlength="40" name="company_local" type="text">
                 
                 <label for="emailBecome">Email</label>
-                <input id="emailBecome" maxlength="80" name="email" size="20" type="text">
+                <input id="emailBecome" maxlength="80" name="email" type="text">
                 
                 <label for="company">Company</label>
-                <input id="company" maxlength="40" name="company" size="20" type="text">
+                <input id="company" maxlength="40" name="company" type="text">
                 
                 <label for="city">City</label>
-                <input id="city" maxlength="40" name="city" size="20" type="text">
+                <input id="city" maxlength="40" name="city" type="text">
                 
                 <label for="country_code">Country</label>
                 <select id="country_code" name="country_code">
@@ -410,6 +453,7 @@
                     <option value="WA">WA</option>
                 </select>
                 
+                <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaBecome"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
@@ -446,8 +490,10 @@
                 
             </summary>
 
+            <!-- form ID must be set as it's used to generate the recaptcha and must match sectionName passed in to validate function -->
             <form id="Existing" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
+                <input type=hidden name="external" value="1">
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
                 <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
@@ -462,26 +508,32 @@
                 <!--  ======================================================================  -->
 
                 <input type='hidden' name='00N5j00000GqQaq' value='N/A' > <!-- severity -->
+                <input type='hidden' name='00N5j00000Gq8XC' value=''> <!-- Case Origin URL -->  <!-- *** populated dynamically using javascript  *** -->
+
+                <input type="hidden" name='recordType' value='0125j0000009xZ5' id="recordtypeexisting" > <!-- Default RT is NCS Fresh but set by JS based on Case Function -->
+                <input type="hidden" name="00N5j00000Gq8XB" value="Retail" > <!-- Case Origin Detail -->   
+                <input type="hidden" name='00N5j00000Gq8XG' value='Enquiry' > <!-- Case Type -->
+                <input type="hidden" name="00N5j00000GqBxu" value='Tip Top' > <!-- Business Unit -->
+                <input type="hidden" name="00N5j00000GqZEj" value='Customer' > <!-- Contact Type Description -->
                 
                 <label for="name">Contact Name 4</label>
-                <input id="name" maxlength="80" name="name" size="20" type="text">
+                <input id="name" maxlength="80" name="name" type="text">
                 
                 <label for="emailExisting">Email</label>
-                <input id="emailExisting" maxlength="80" name="email" size="20" type="text">
+                <input id="emailExisting" maxlength="80" name="email" type="text">
                 
                 <label for="phoneExisting">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneExisting" maxlength="40" name="phone" class="intlTel" size="20" type="text">
+                    <input id="phoneExisting" maxlength="40" name="phone" class="intlTel" type="text">
                 </div>
                 
                 <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" size="20" type="text">
+                <input id="subject" maxlength="80" name="subject" type="text">
                 
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
-
-                <input type="hidden"  id="external" name="external" value="1">
                 
+                <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaExisting"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
@@ -518,8 +570,10 @@
                 
             </summary>
 
+            <!-- form ID must be set as it's used to generate the recaptcha and must match sectionName passed in to validate function -->
             <form id="Crates" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
+                <input type=hidden name="external" value="1">
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
                 <input type=hidden name="retURL" value="https://welldrake.github.io/thanks.html">
@@ -534,26 +588,34 @@
                 <!--  ======================================================================  -->
 
                 <input type='hidden' name='00N5j00000GqQaq' value='N/A' > <!-- severity -->
+                <input type='hidden' name='00N5j00000Gq8XC' value=''> <!-- Case Origin URL -->  <!-- *** populated dynamically using javascript  *** -->
                 
+                <input type='hidden' name="subject" value="Crate Collection Request From Web" > <!-- Subject -->
+                <input type='hidden' name='recordType' value='0125j0000009xZ5' > <!-- RT: NCS Fresh -->
+                <input type='hidden' name='00N5j00000Gq8XF' value='Fresh' > <!-- Case Function -->
+                <input type='hidden' name='00N5j00000Gq8XG' value='Complaint' > <!-- Case Type -->
+                <input type='hidden' name='00N5j00000GqZGD' value='Crate/Dollies Collection' > <!-- Reason_L5__c -->
+                <input type='hidden' name="00N5j00000GqBxu" value='Tip Top' > <!-- Business Unit -->
+                <input type='hidden' name="00N5j00000I8ar0" id="SuppliedMailingAddressCrate" value='' > <!-- Web Mail Address : SuppliedMailingAddress__c -->
+
                 <label for="name">Contact Name 4</label>
-                <input id="name" maxlength="80" name="name" size="20" type="text">
+                <input id="name" maxlength="80" name="name" type="text">
                 
                 <label for="emailCrates">Email</label>
-                <input id="emailCrates" maxlength="80" name="email" size="20" type="text">
+                <input id="emailCrates" maxlength="80" name="email" type="text">
                 
                 <label for="phoneCrates">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneCrates" maxlength="40" name="phone" class="intlTel" size="20" type="text">
+                    <input id="phoneCrates" maxlength="40" name="phone" class="intlTel" type="text">
                 </div>
                 
                 <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" size="20" type="text">
+                <input id="subject" maxlength="80" name="subject" type="text">
                 
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
-    
-                <input type="hidden"  id="external" name="external" value="1">
-                
+                    
+                <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaCrates"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
@@ -687,15 +749,35 @@
                 originElem.value = window.location.href.substring(0,100);
             }
 
+            //Populates the return URL of each form
+            for (const retUrlElem of document.getElementsByName("retURL")) {
+                retUrlElem.value = varReturnUrl;
+            }
+
+            //Populates business unit dynamically if case function is CIC
+            for (const busineesUnitElem of document.getElementsByName("00N5j00000GqBxu")) {
+                if (varPhoneCountries[0] == 'nz' && busineesUnitElem.value == 'Bakery TBD') {
+                    busineesUnitElem.value = 'Bakery NZ';
+                } else if (busineesUnitElem.value == 'Bakery TBD') {
+                    busineesUnitElem.value = 'Bakery Aus';
+                }
+                // The purpose of checking 'Bakery TBD' in both if statements is to avoid overwriting Business Unit when Case Function is not CIC, e.g. when Case Function = Fresh and Business Unit = Tip Top
+            }
+
+            //Populate Case Origin detail on each form
+            for (const caseOriginDetailElem of document.getElementsByName("00N5j00000Gq8XB")) {
+                caseOriginDetailElem.value = varCaseOriginDetail;
+            }
+
             //Adjust the baseUrl at the start and add orgid to the end of each form action if the action ends with orgId=
             for (const frm of document.forms) {
                 if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
                     frm.action = frm.action + varOrgid;
                 }
-                if (varIsSandbox && frm.action.includes("servlet.WebToCase")) {
+                if (varIsSandbox && frm.action.includes("servlet.WebToCase")) { //Case
                     frm.action = frm.action.replace("https://webto.salesforce.com/", varSandboxBaseUrl);
                 }
-                if (varIsSandbox && frm.action.includes("servlet.WebToLead")) {
+                if (varIsSandbox && frm.action.includes("servlet.WebToLead")) { //Lead
                     frm.action = frm.action.replace("https://webto.salesforce.com/", "https://test.salesforce.com/");
                 }
             }
