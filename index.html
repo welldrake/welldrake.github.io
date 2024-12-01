@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 32</title>
+        <title>Contact Us 33</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -18,11 +18,27 @@
             var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list, list can be just one item */
 
             var varProductNameQuality = [
-                /* Save as empty list to use TEXT field instead of SELECT */
+                // for a TEXT field instead of SELECT, use: var varProductNameQuality = [];
                 'Golden Crumpet Rounds',
                 'Golden Crumpet Squares',
                 'Golden Pikelets',
-                'Golden Crumpet Toast Cinnamon Burst'
+                'Golden Crumpet Toast Cinnamon Burst',
+            ];
+
+            var varStorePurchasedFromName = [
+                // for a TEXT field instead of SELECT, use: var varStorePurchasedFromName = [];
+                'Countdown',
+                'New World ',
+                'Pak N Save',
+                'Four Square',
+                'Caltex',
+                'BP',
+                'Z ',
+                'Night &amp; Day',
+                'Mobil',
+                'Dairy',
+                'Café',
+                'Other',
             ];
         </script>
     
@@ -162,7 +178,7 @@
                 display: block; /* description on own line */
                 /* color: #ffffff; */ /* only required if different from what's set on summary - customise */
             }
-            form {
+            form, div.noForm {
                 padding: 3px; /* gives space to allow glow to show on iPhone when cell selected */
                 padding-bottom: 20px;
                 background-color: white; /* customise */
@@ -256,7 +272,7 @@
                 </span>
             </summary>
             
-            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form id="Quality" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'>
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
@@ -337,7 +353,7 @@
             </summary>
 
             <!-- TO DO: Make this dynamic or controlled by variables -->
-            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form id="Become" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="oid" value=""> <!-- set by js by name -->
@@ -434,7 +450,7 @@
                 
             </summary>
 
-            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form id="Existing" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
@@ -513,7 +529,7 @@
                 
             </summary>
 
-            <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
+            <form id="Crates" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=" method="POST"> <!-- orgId is updated by js using document.forms -->
             
                 <input type=hidden name='captcha_settings' value='{"keyname":"","fallback":"true","orgId":"","ts":""}'> <!-- set by js by name -->
                 <input type=hidden name="orgid" value=""> <!-- set by js by name -->
@@ -592,9 +608,9 @@
                 
             </summary>
             
-            <form>
+            <div class="noForm">
                 Please <a href="https://gwf.my.salesforce-sites.com/p">click here</a> to use out Product Finder tool and search for a product near you.
-            </form>
+            </div>
             
         </details>
         
@@ -611,9 +627,9 @@
                 
             </summary>
             
-            <form>
+            <div class="noForm">
                 Please <a href="https://www.gwf.com.au/careers/">click here</a> to search careers at GWF.
-            </form>
+            </div>
             
         </details>
         
@@ -630,9 +646,9 @@
                 
             </summary>
             
-            <form>
+            <div class="noForm">
                 <span style="color:red;">Jo to provide text</span>
-            </form>
+            </div>
             
         </details>
     
@@ -718,20 +734,29 @@
 
             //Product Name in Quality Section
             var elementLabelProductNameQuality = document.getElementById('labelProductNameQuality');
-            var placeholderNode = document.createElement("placeholder");   
+            //var placeholderNode = document.createElement("placeholder");   
             if (varProductNameQuality.length === 0) {
-                var newHTML = "<input id='productNameQuality' maxlength='80' name='00N5j00000Gq8XD' type='text' />";
-                placeholderNode.innerHTML = newHTML;
-                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
+                var newNode = document.createElement("input");  
+                newNode.id = 'productNameQuality';
+                newNode.name = '00N5j00000Gq8XD'
+                newNode.type = 'text';
+                newNode.setAttribute('maxlength', 80);
+                //var newHTML = "<input id='productNameQuality' maxlength='80' name='00N5j00000Gq8XD' type='text' />";
+                //placeholderNode.innerHTML = newHTML;
+                //elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
+                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.newNode, elementLabelProductNameQuality.nextSibling);
             } else {
-                var newHTML = "<select id='productNameQuality' name='00N5j00000Gq8XD'>";
+                var newNode = document.createElement("select");  
+                newNode.id = 'productNameQuality';
+                newNode.name = '00N5j00000Gq8XD'
+                //var newHTML = "<select id='productNameQuality' name='00N5j00000Gq8XD'>";
                 newHTML += "<option value=''>--None--</option>";
                 for (const itm of varProductNameQuality) {
                     newHTML += '<option>' + itm + '</option>';
                 }
-                newHTML += "</select>";
-                placeholderNode.innerHTML = newHTML;
-                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
+                //newHTML += "</select>";
+                newNode.innerHTML = newHTML;
+                elementLabelProductNameQuality.parentNode.insertBefore(newNode, elementLabelProductNameQuality.nextSibling);
             }
         </script>
 
