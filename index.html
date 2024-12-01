@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 2</title>
+        <title>Contact Us 3</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         
@@ -578,14 +578,14 @@
     
         <script>
             //Add country flags to all elements with the class intlTel
-                
+
+            var phoneNumbers = JSON.parse('{}');
+            var phoneInputs = JSON.parse('{}');
+            
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
-                
-                var phoneNumbers = JSON.parse('{}');
-                var phoneInputs = JSON.parse('{}');
 
                 //doco: https://github.com/jackocnr/intl-tel-input
-                const phoneInput = window.intlTelInput(phoneElem, {
+                phoneInputs[phoneElem.id] = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
                     countrySearch: false,
@@ -599,7 +599,7 @@
                 phoneElem.oninput = function(){
                     phoneElem.setCustomValidity('');
                     //TO DO: update getNumber when country code is changed - see https://github.com/jackocnr/intl-tel-input/issues/1883
-                    phoneNumbers[phoneElem.id] = phoneInput.getNumber();
+                    phoneNumbers[phoneElem.id] = phoneInputs[phoneElem.id].getNumber();
                     console.log("phoneNumbers[" + phoneElem.id + "]: " + phoneNumbers[phoneElem.id]);
                 };
             }
