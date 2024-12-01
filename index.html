@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 30</title>
+        <title>Contact Us 31</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -16,6 +16,36 @@
             var varKeyname = "TestingKeyNoProtection";
             var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
             var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list, list can be just one item */
+
+            var varProductNameQuality = [
+                /* Save as empty list to use TEXT field instead of SELECT */
+                'Golden Crumpet Rounds',
+                'Golden Crumpet Squares',
+                'Golden Pikelets',
+                'Golden Crumpet Toast Cinnamon Burst'
+            ];
+        </script>
+
+        <script>
+            //build and insert HTML for fields based on config above
+
+            //Product Name in Quality Section
+            var elementLabelProductNameQuality = document.getElementById('labelProductNameQuality');
+            var placeholderNode = document.createElement("placeholder");   
+            if (varProductNameQuality.length === 0) {
+                var newHTML = "<input id='productNameQuality' maxlength='80' name='00N5j00000Gq8XD' type='text' />";
+                placeholderNode.innerHTML = newHTML;
+                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
+            } else {
+                var newHTML = "<select id='productNameQuality' name='00N5j00000Gq8XD'>";
+                newHTML += "<option value=''>--None--</option>";
+                for for (const itm of varProductNameQuality) {
+                    newHTML += '<option>' + itm + '</option>';
+                }
+                newHTML += "</select>";
+                placeholderNode.innerHTML = newHTML;
+                elementLabelProductNameQuality.parentNode.insertBefore(placeholderNode.firstChild, elementLabelProductNameQuality.nextSibling);
+            }
         </script>
     
         <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.0/build/js/intlTelInput.min.js"></script>
@@ -36,6 +66,7 @@
         </script>
     
         <script>
+            //updates the hidden captcha_settings at the top of each form
             function timestamp() {
                 var response = document.getElementById("g-recaptcha-response");
                 if (response == null || response.value.trim() == "") {
@@ -53,7 +84,8 @@
         </script>
 
         <script>  
-            function validate(event, sectionName, sectionIndex) {                   
+            function validate(event, sectionName, sectionIndex) {        
+                
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone' + sectionName);
                 var phoneFieldDetails = phoneInputs['phone' + sectionName];
@@ -117,7 +149,7 @@
             summary {
                 font-size: 24px; /* needs to be on summary to control size of marker on iphone - customise */
                 color: #ffffff; /* needs to be on summary and not marker to work on iphone - customise */
-                margin-inline-start: 2rem; /* moved the text and marker to the right */
+                margin-inline-start: 2rem; /* moved the text and marker to the right */ /* doesn't work correctly on iPhone */
                 list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
             }
             summary::marker {
@@ -287,6 +319,8 @@
                     <option value="Severity 3">Severity 3</option>
                     <option value="Red Alert">Red Alert</option>
                 </select>
+
+                <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
     
                 <input type="hidden"  id="external" name="external" value="1">
                 
