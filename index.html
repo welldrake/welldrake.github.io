@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 17</title>
+        <title>Contact Us 18</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -112,11 +112,12 @@
                 opacity: 0;
             }
             summary {
+                color: #ffffff; /* customise */
                 margin-inline-start: 2rem; /* moved the text and marker to the right */
                 list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
             }
             summary::marker {
-                color: #ffffff; /* customise */
+                
                 /* font-size:30px; */ /* rmarker size - customise */
                 /* content: "\002B"; */ /* plus sign */
             }
@@ -174,10 +175,13 @@
             }
             @media only screen and (max-width: 420px) {
                 .summaryTitle {
-                    font-size: 48px; /* customise */
+                    font-size: 36px; /* customise */
                 }
                 .summaryDescription {
                     font-size: 24px; /* customise */
+                }
+                summary::marker {
+                    font-size:36px; /* rmarker size - customise */
                 }
             }
         </style>
