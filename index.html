@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 36</title>
+        <title>Contact Us 37</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -285,6 +285,8 @@
                 <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
                 -->
                 <!--  ======================================================================  -->
+
+                <input type='hidden' name='00N5j00000GqQaq' value='N/A' > <!-- severity -->
                 
                 <label for="name">Contact Name</label>
                 <input id="name" maxlength="80" name="name" size="20" type="text">
@@ -302,16 +304,6 @@
                 
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
-                
-                <label for="00N5j00000GqQaq">Severity</label>
-                <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
-                    <option value="">--None--</option>
-                    <option value="N/A">N/A</option>
-                    <option value="Severity 1">Severity 1</option>
-                    <option value="Severity 2">Severity 2</option>
-                    <option value="Severity 3">Severity 3</option>
-                    <option value="Red Alert">Red Alert</option>
-                </select>
 
                 <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
                 <!-- The field is constructed and inserted by javascript -->
@@ -328,6 +320,7 @@
                 </div>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+                <!-- sectionIndex MUST BE set correctly. sectionIndex is 0 for the first form/recaptcha, 1 for the second, 2 for the third, etc -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Quality', /*sectionIndex*/ 0);"> 
             
             </form>
@@ -424,6 +417,7 @@
                 </div>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+                <!-- sectionIndex MUST BE set correctly. sectionIndex is 0 for the first form/recaptcha, 1 for the second, 2 for the third, etc -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Become', /*sectionIndex*/ 1);"> 
 
             </form>   
@@ -466,6 +460,8 @@
                 <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
                 -->
                 <!--  ======================================================================  -->
+
+                <input type='hidden' name='00N5j00000GqQaq' value='N/A' > <!-- severity -->
                 
                 <label for="name">Contact Name 4</label>
                 <input id="name" maxlength="80" name="name" size="20" type="text">
@@ -483,17 +479,7 @@
                 
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
-                
-                <label for="00N5j00000GqQaq">Severity</label>
-                <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
-                    <option value="">--None--</option>
-                    <option value="N/A">N/A</option>
-                    <option value="Severity 1">Severity 1</option>
-                    <option value="Severity 2">Severity 2</option>
-                    <option value="Severity 3">Severity 3</option>
-                    <option value="Red Alert">Red Alert</option>
-                </select>
-    
+
                 <input type="hidden"  id="external" name="external" value="1">
                 
                 <div class="recaptchaWrapper" id="RecaptchaExisting"></div>
@@ -503,6 +489,7 @@
                 </div>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+                <!-- sectionIndex MUST BE set correctly. sectionIndex is 0 for the first form/recaptcha, 1 for the second, 2 for the third, etc -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Existing', /*sectionIndex*/ 2);"> 
             
             </form>
@@ -545,6 +532,8 @@
                 <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
                 -->
                 <!--  ======================================================================  -->
+
+                <input type='hidden' name='00N5j00000GqQaq' value='N/A' > <!-- severity -->
                 
                 <label for="name">Contact Name 4</label>
                 <input id="name" maxlength="80" name="name" size="20" type="text">
@@ -562,16 +551,6 @@
                 
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
-                
-                <label for="00N5j00000GqQaq">Severity</label>
-                <select id="00N5j00000GqQaq" name="00N5j00000GqQaq" title="Severity" required>
-                    <option value="">--None--</option>
-                    <option value="N/A">N/A</option>
-                    <option value="Severity 1">Severity 1</option>
-                    <option value="Severity 2">Severity 2</option>
-                    <option value="Severity 3">Severity 3</option>
-                    <option value="Red Alert">Red Alert</option>
-                </select>
     
                 <input type="hidden"  id="external" name="external" value="1">
                 
@@ -582,6 +561,7 @@
                 </div>
     
                 <!-- validation is done onclick of input, instead of on submit of form, so that customValidation can be set before submit.  Otherwise validation doesn't show until second click of submit button -->
+                <!-- sectionIndex MUST BE set correctly. sectionIndex is 0 for the first form/recaptcha, 1 for the second, 2 for the third, etc -->
                 <input type="submit" name="submit" onclick="validate(event, /*sectionName*/ 'Crates', /*sectionIndex*/ 4);"> 
             
             </form>
