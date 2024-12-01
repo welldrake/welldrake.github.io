@@ -65,8 +65,8 @@
         <script>  
             function validate(event, sectionName, sectionIndex) {                   
                 //check phone number is correct and set value to formatted number
-                var phoneField = document.getElementById('phone-raw' + sectionName);
-                var phoneFormattedNumber = phoneNumbers['phone-raw' + sectionName];
+                var phoneField = document.getElementById('phone' + sectionName);
+                var phoneFormattedNumber = phoneNumbers['phone' + sectionName];
                 
                 /* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
                 
@@ -230,9 +230,9 @@
                 <label for="emailQuality">Email</label>
                 <input id="emailQuality" maxlength="80" name="email" size="20" type="text">
                 
-                <label for="phone-rawQuality">Phone</label>
+                <label for="phoneQuality">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phone-rawQuality" maxlength="40" name="phone" class="intlTel" size="20" type="text">
+                    <input id="phoneQuality" maxlength="40" name="phone" class="intlTel" size="20" type="text">
                 </div>
                 
                 <label for="subject">Subject</label>
@@ -406,9 +406,9 @@
                 <label for="emailExisting">Email</label>
                 <input id="emailExisting" maxlength="80" name="email" size="20" type="text">
                 
-                <label for="phone-rawExisting">Phone</label>
+                <label for="phoneExisting">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phone-rawExisting" maxlength="40" name="phone" class="intlTel" size="20" type="text">
+                    <input id="phoneExisting" maxlength="40" name="phone" class="intlTel" size="20" type="text">
                 </div>
                 
                 <label for="subject">Subject</label>
@@ -485,9 +485,9 @@
                 <label for="emailCrates">Email</label>
                 <input id="emailCrates" maxlength="80" name="email" size="20" type="text">
                 
-                <label for="phone-rawCrates">Phone</label>
+                <label for="phoneCrates">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phone-rawCrates" maxlength="40" name="phone" class="intlTel" size="20" type="text">
+                    <input id="phoneCrates" maxlength="40" name="phone" class="intlTel" size="20" type="text">
                 </div>
                 
                 <label for="subject">Subject</label>
