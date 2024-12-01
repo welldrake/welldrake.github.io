@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 6</title>
+        <title>Contact Us 7</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         
@@ -52,9 +52,9 @@
             function validate(event, sectionName, sectionIndex) {                   
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone' + sectionName);
-                var phoneFormattedNumber = phoneInputs[phone + sectionName].getNumber();
+                var phoneFormattedNumber = phoneInputs['phone' + sectionName].getNumber();
                 
-                if(phoneField) { /* check there is a phone field before setting value to avoid js error */
+                if(phoneField && phoneFormattedNumber) { /* check there is a phone field before setting value to avoid js error */
                     //let re = /^\+[1-9]\d{1,11}$/; //TO DO: make this match validation rules in SF
                     let re = /^\+(61|64)\s?[1-9]\s?([0-9]\s?){5,11}$/;
                     if (phoneFormattedNumber.length == 0 || re.test(phoneFormattedNumber)) {
