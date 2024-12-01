@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 29</title>
+        <title>Contact Us 30</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -97,6 +97,9 @@
                 content: "*";
                 color: red;
             }
+            .recaptchaWrapper {
+                margin-top: 10px;
+            }
             .rcMessageContainer {
                 margin-top: -36px;
                 margin-bottom: 36px;
@@ -157,7 +160,7 @@
             div.iti.iti--allow-dropdown {
                 display:block; /* overrides default inline-block for intlTel fields to ensure it goes full width */
             }
-            input,
+            input:not([type="submit"]),
             select,
             textarea,
             div.intlTelWrapper {
@@ -166,15 +169,15 @@
                 box-sizing: border-box;  /* sizes within the parent element */
                 display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
             }
-            input,
+            input:not([type="submit"]),
             select,
             textarea {
-                /* the following lines match styling of SELECT to other input cells (placed here to ensure they are ALL the same - required on iOS */
+                /* the following lines match styling of SELECT to other input cells, also included here to ensure they are ALL the same - required on iOS */
                 border: 1px solid #888888; /* was rgb(118, 118, 118); but didn't match on iPhone */
                 border-radius: 2px;
             }
             select {
-                /* the following lines match styling of SELECT to other input cells (placed here to ensure they are ALL the same - required on iOS */
+                /* the following lines match styling of SELECT to other input cells - required on iOS */
                 background-color: transparent;
                 color: black;
             }
@@ -287,7 +290,7 @@
     
                 <input type="hidden"  id="external" name="external" value="1">
                 
-                <div id="RecaptchaQuality"></div>
+                <div class="recaptchaWrapper" id="RecaptchaQuality"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageQuality" tabindex="-1">
@@ -383,7 +386,7 @@
                     <option value="WA">WA</option>
                 </select>
                 
-                <div id="RecaptchaBecome"></div>
+                <div class="recaptchaWrapper" id="RecaptchaBecome"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageBecome" tabindex="-1">
@@ -462,7 +465,7 @@
     
                 <input type="hidden"  id="external" name="external" value="1">
                 
-                <div id="RecaptchaExisting"></div>
+                <div class="recaptchaWrapper" id="RecaptchaExisting"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageExisting" tabindex="-1">
@@ -541,7 +544,7 @@
     
                 <input type="hidden"  id="external" name="external" value="1">
                 
-                <div id="RecaptchaCrates"></div>
+                <div class="recaptchaWrapper" id="RecaptchaCrates"></div>
     
                 <div class="rcMessageContainer"><!-- This allows for customValidation message to be shown when reCAPTCHA not completed -->
                     <input class="rcMessage" id="rcMessageCrates" tabindex="-1">
