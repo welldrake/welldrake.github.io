@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 55</title>
+        <title>Contact Us 56</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -259,6 +259,7 @@
                 -webkit-appearance: textfield;
                 -moz-appearance: textfield;
                 background-color: transparent;
+                padding: 0px; /* assist with vertical align on iOS - test */
             }
             textarea {
                 padding-top: 8px; /* add some space to make it look more like text input looks */
@@ -276,6 +277,11 @@
             textarea {
                 resize: vertical;
                 /* height: 8em; */ /* 8 rows high - customise - shouldn't be required as set using 'rows=8' in html*/
+            }
+            div.extendedForm {
+                /* gives space around fields in extendedForm DIV to allow glow to show on iPhone when cell selected */
+                padding: 3px;
+                margin: -3px;
             }
             .radio-toolbar input[type="radio"] {
                 width: 0;
