@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 9</title>
+        <title>Contact Us 10</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -191,7 +191,7 @@
             summary {
                 font-size: 24px; /* needs to be on summary to control size of marker on iphone - customise */
                 color: #ffffff; /* needs to be on summary and not marker to work on iphone - customise */
-                margin-inline-start: 2rem; /* moved the text and marker to the right */ /* doesn't work correctly on iPhone */
+                margin-inline-start: 2em; /* moved the text and marker to the right */ /* doesn't work correctly on iPhone */
                 list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
             }
             summary::marker {
@@ -199,7 +199,7 @@
                 /* content: "\002B"; */ /* plus sign */
             }
             summary::-webkit-details-marker {
-                margin-left: -20px; /* iOS hack */
+                margin-left: 2em; /* iOS hack */
             }
             details[open] > summary::marker {
                 /* content: "\2212"; */ /* minus sign */
@@ -336,13 +336,13 @@
                 }
                 summary {
                     font-size: 36px; 
-                    margin-inline-start: 3rem; /* moves the text and marker to the right */
+                    margin-inline-start: 3em; /* moves the text and marker to the right */
                 }
                 summary::marker {
                     font-size:36px; /* marker size - customise */
                 }
                 summary::-webkit-details-marker {
-                    margin-left: -45px; /* iOS hack */
+                    margin-left: -3em; /* iOS hack */
                 }
                 input:not([type="submit"]),
                 select,
