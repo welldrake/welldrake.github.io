@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 45</title>
+        <title>Contact Us 46</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -375,7 +375,7 @@
                 <label for='descriptionQuality'>Description</label>
                 <textarea id='descriptionQuality' name='description' rows='8' maxlength='32000' placeholder='Tell us in a few words what your enquiry or experience is so we can help you'></textarea>
 
-                <div  id='extendedForm'> <!-- TO DO: add back: hidden -->
+                <div id='extendedForm' hidden>
 
                     <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
                     <!-- The field is constructed and inserted by javascript -->
@@ -404,6 +404,12 @@
                     <!-- The field is constructed and inserted by javascript -->
 
                 </div>
+
+                <label id='postCodeLabel' for='postCodeQuality'>Your Post Code</label>
+                <input id='postCodeQuality' maxlength='10' name='00N5j00000Gq8XO' type='text' >
+            
+                <label id='countryLabel' for='countryQuality' style="display:none;">Your Country</label> <!-- *** CUSTOMISE 10 REMOVE DISPLAY NONE FOR PATAKS AS THAT SITE COVERS BOTH COUNTRIES *** -->
+                <input id='countryQuality' name='00N5j00000Gq8XM' value='New Zealand' style="display:none;"> <!-- *** CUSTOMISE 11 HARDCODE VALUE FOR MOST AU / NZ SITES. FOR PATAKS: REMOVE display:none ADD type='text' maxlength='56' value='' *** -->
 
                 <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaQuality"></div>
@@ -903,7 +909,7 @@
                 elementLabelStoreNameQuality.parentNode.insertBefore(newNode, elementLabelStoreNameQuality.nextSibling);
             }
 
-            //Store Purchased From State or City Section
+            //Store Purchased From State or City Section in Quality section
             var elementLabelStoreStateQuality = document.getElementById('labelStoreStateQuality');
             if (varPhoneCountries[0] == 'nz') {
                 elementLabelStoreStateQuality.innerHTML = elementLabelStoreStateQuality.innerHTML.replace('State', 'City'); //rename field for NZ
@@ -927,7 +933,37 @@
                 elementLabelStoreStateQuality.parentNode.insertBefore(newNode, elementLabelStoreStateQuality.nextSibling);
             }
             
-            //TO DO: remove 'Store Purchased From' from labels when it's an Enquiry and not a Complaint
+        </script>
+
+        <script>
+            //Show or hide extended form based on case type selection in Quality section
+
+            var enquiryRadio = document.getElementById('Enquiry');
+            var complaintRadio = document.getElementById('Complaint');
+            var extendedFormDiv = document.getElementById('extendedForm');
+            var productNameField = document.getElementById('00N5j00000Gq8XD'); /* 00N5j00000Gq8XD is created by JS, so this must happen after the other script */
+            var postCodeLabel = document.getElementById('postCodeLabel');
+            var countryLabel = document.getElementById('countryLabel');
+        
+            enquiryRadio.addEventListener('change', function(){
+            if(enquiryRadio.id === 'Enquiry'){
+                //extendedFormDiv.style.display = 'none';
+                extendedFormDiv.hidden = true;
+                productNameField.required = false;
+                postCodeLabel.innerHTML = 'Your Post Code';
+                countryLabel.innerHTML = 'Your Country';
+            }});
+    
+            complaintRadio.addEventListener('change', function(){
+            if(complaintRadio.id === 'Complaint'){
+                //extendedFormDiv.style.display = 'block';
+                extendedFormDiv.hidden = false;
+                productNameField.required = true;
+                postCodeLabel.innerHTML = 'Store Purchased From Post Code';
+                countryLabel.innerHTML = 'Store Purchased From Country';
+            }});
+
+            //TO DO: remove 'Store Purchased From' from labels when it's an Enquiry and not a Complaint - simplify above, also do State (City)
         </script>
 
         <!--
