@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 47</title>
+        <title>Contact Us 48</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -391,7 +391,7 @@
                 <label for='descriptionQuality'>Description</label>
                 <textarea id='descriptionQuality' name='description' rows='8' maxlength='32000' placeholder='Tell us in a few words what your enquiry or experience is so we can help you'></textarea>
 
-                <div id='extendedForm' hidden>
+                <div id='extendedForm' style="overflow:hidden;height:0;transition:1s;">
 
                     <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
                     <!-- The field is constructed and inserted by javascript -->
@@ -977,7 +977,8 @@
             enquiryRadio.addEventListener('change', function(){
             if(enquiryRadio.id === 'Enquiry'){
                 //extendedFormDiv.style.display = 'none';
-                extendedFormDiv.hidden = true;
+                //extendedFormDiv.hidden = true;
+                extendedFormDiv.style.height = 0;
                 productNameField.required = false;
                 postCodeLabel.innerHTML = 'Your Post Code';
                 countryLabel.innerHTML = 'Your Country';
@@ -986,7 +987,8 @@
             complaintRadio.addEventListener('change', function(){
             if(complaintRadio.id === 'Complaint'){
                 //extendedFormDiv.style.display = 'block';
-                extendedFormDiv.hidden = false;
+                //extendedFormDiv.hidden = false;
+                extendedFormDiv.style.height = 'unset';
                 productNameField.required = true;
                 postCodeLabel.innerHTML = 'Store Purchased From Post Code';
                 countryLabel.innerHTML = 'Store Purchased From Country';
