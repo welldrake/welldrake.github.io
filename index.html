@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 57 revert to 1227</title>
+        <title>Contact Us 1</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -159,8 +159,9 @@
             /*Add red asterisk to all labels that occur before a required input field*/
             label {
                 display: block; /* labels on own line */
-                color: black; /* customise */
+                color: rgb(106, 106, 106); /* customise */
                 font-size: 14px; /* customise? */
+                font-family: sans-serif; /* customise? */
             }
             label:has(+ input:not([type="radio"]):required)::after, 
             label:has(+ textarea:required)::after, 
@@ -232,15 +233,21 @@
                 display:block; /* overrides default inline-block for intlTel fields to ensure it goes full width */
             }
             input:not([type="submit"]),
+            input[type="submit"], /* TEST if needed - use both type=submit and not(type=submit) as this is more specific than just input and therefore takes precedence */
+            select,
+            textarea,
+            div.intlTelWrapper {
+                width: 100%; /* customise */
+                box-sizing: border-box;  /* sizes within the parent element */
+                display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
+                font-size: 18px; /* customise? */
+            }
+            input:not([type="submit"]),
             select,
             textarea,
             div.intlTelWrapper,
-            div.radio-toolbar {
-                width: 100%; /* customise */
+            .radio-toolbar label {
                 margin-bottom: 10px; /* customise */
-                box-sizing: border-box;  /* sizes within the parent element */
-                display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
-                font-size: 16px; /* customise? */
             }
             input:not([type="submit"]),
             select,
@@ -248,11 +255,10 @@
                 /* the following lines match styling of SELECT to other input cells, also included here to ensure they are ALL the same - required on iOS */
                 border: 1px solid #888888; /* was rgb(118, 118, 118); but didn't match on iPhone */
                 border-radius: 2px;
-                
             }
             textarea,
             input[type="date"] {
-                font-family: Arial;
+                font-family: sans-serif; /* customise? */
                 color:#000000; /* customise? */
             }
             input[type="date"] {
@@ -301,8 +307,15 @@
             .radio-toolbar input[type="radio"]:checked+label {
                 background-color: #ffbb00;
                 color: white;
+                
+            }
+            .labelButton {
+                font-size:18px; /* customise */
             }
             @media only screen and (max-width: 420px) {
+                label {
+                    font-size: 20px; /* customise */
+                }
                 .summaryTitle {
                     font-size: 36px; /* customise */
                 }
@@ -316,14 +329,19 @@
                 summary::marker {
                     font-size:36px; /* rmarker size - customise */
                 }
-                label {
-                    font-size: 20px; /* customise */
-                }
-                input,
+                input:not([type="submit"]),
+                input[type="submit"], /* TEST if needed - use both type=submit and not(type=submit) as this is more specific than just input and therefore takes precedence */
                 select,
                 textarea {
                     font-size: 24px; /* make this big enough so that iPhone doesn't auto-zoom when selected - customise */
                     border-radius: 5px; /* make SELECT same as default iOS styling for INPUT */
+                }
+                input:not([type="submit"]),
+                select,
+                textarea,
+                div.intlTelWrapper,
+                .radio-toolbar label {
+                    margin-bottom: 20px; /* customise */
                 }
                 input,
                 select {
@@ -332,6 +350,9 @@
                 }
                 select {
                     padding-left: 3px; /* gives it the same spacing as text input */
+                }
+                .labelButton {
+                    font-size:24px; /* customise */
                 }
             }
         </style>
@@ -400,9 +421,9 @@
                 <div class="radio-toolbar">
                     <!-- label must come after input for CSS to work -->
                     <input type="radio" id="Enquiry" name="00N5j00000Gq8XG" value="Enquiry" required>
-                    <label for="Enquiry">Enquiry</label>
+                    <label for="Enquiry" class="labelButton">Enquiry</label>
                     <input type="radio" id="Complaint" name="00N5j00000Gq8XG" value="Complaint">
-                    <label for="Complaint">Product Feedback</label>
+                    <label for="Complaint" class="labelButton">Product Feedback</label>
                 </div>
 
                 <label for="subjectQuality">Subject</label>
