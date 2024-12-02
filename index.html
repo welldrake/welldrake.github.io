@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 8</title>
+        <title>Contact Us 9</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -155,19 +155,19 @@
         
         <style>
             :root {
-                interpolate-size: allow-keywords; /* used to animated the details/summary */
+                interpolate-size: allow-keywords; /* required to animate open/close sections */
             }
-            /*Add red asterisk to all labels that occur before a required input field*/
             label {
                 display: block; /* labels on own line */
                 color: grey; 
                 font-family: Arial, Helvetica, sans-serif; 
                 font-size: 14px; /* test - adding to media query becuase it wasn't working on iphone */ 
-                -webkit-text-size-adjust: 100% /* this is required to prevent iOS from sizing this differently */
+                -webkit-text-size-adjust: 100% /* this is required to prevent iOS from sizing the font differently */
             }
             label:has(+ input:not([type="radio"]):required)::after, 
             label:has(+ textarea:required)::after, 
             label:has(+ select:required)::after {
+                /* Add red asterisk to all labels that occur before a required input field */
                 content: "*";
                 color: red;
             }
@@ -198,6 +198,9 @@
                 /* font-size:30px; */ /* rmarker size - customise */
                 /* content: "\002B"; */ /* plus sign */
             }
+            summary::-webkit-details-marker {
+                margin-left: -20px; /* iOS hack */
+            }
             details[open] > summary::marker {
                 /* content: "\2212"; */ /* minus sign */
             }
@@ -207,7 +210,7 @@
                 margin-bottom: 5px;
             }
             details::details-content {
-                /* https://www.youtube.com/watch?v=Vzj3jSUbMtI */
+                /* animates open/close sections - https://www.youtube.com/watch?v=Vzj3jSUbMtI */
                 block-size: 0;
                 transition:
                     block-size 1s,
@@ -333,10 +336,13 @@
                 }
                 summary {
                     font-size: 36px; 
-                    margin-inline-start: 3rem; /* moved the text and marker to the right */
+                    margin-inline-start: 3rem; /* moves the text and marker to the right */
                 }
                 summary::marker {
                     font-size:36px; /* marker size - customise */
+                }
+                summary::-webkit-details-marker {
+                    margin-left: -45px; /* iOS hack */
                 }
                 input:not([type="submit"]),
                 select,
@@ -453,7 +459,7 @@
                     <input class="formDate" id='dateBestBeforePicker' type='date' > <!-- temporary date for user input with validation -->
                     <input id='dateBestBeforeFormat' name='00N5j00000Gq8XE' type='hidden' > <!-- hidden field to hold correctly formatted BB date -->
 
-                    <label for='00N5j00000Gq8XA'>Batch Code (Found on the tag e.g. AK1 113 0527)</label>
+                    <label for='00N5j00000Gq8XA'>Batch Code (From tag e.g. AK1 113 0527)</label>
                     <input id='00N5j00000Gq8XA' maxlength='20' name='00N5j00000Gq8XA' type='text' >
 
                     <label for='00N5j00000Gq8X9'>Barcode (e.g. 9415382000110)</label>
