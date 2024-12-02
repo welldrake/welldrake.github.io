@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 6</title>
+        <title>Contact Us 7</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -264,15 +264,18 @@
                 font-family: sans-serif; 
                 color:#000000; 
             }
-            input[type='date'],
-            input[type='date']::-webkit-date-and-time-value {
+            input[type='date'] {
                 /* fix date fields in iOS */
                 /* display: block; */
                 -webkit-appearance: textfield;
                 -moz-appearance: textfield;
                 background-color: transparent;
                 padding: 0px; /* assist with vertical alignment of dates on iOS */
-                text-align: left; /* required for iOS */
+            }
+            input[type='date']::-webkit-date-and-time-value {
+                /* required for iOS */
+                text-align: left;
+                padding-left: 8px;
             }
             textarea {
                 padding-top: 8px; /* add some space to make it look more like text input looks */
