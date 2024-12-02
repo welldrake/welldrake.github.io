@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 64</title>
+        <title>Contact Us 65</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -160,7 +160,7 @@
             label {
                 display: block; /* labels on own line */
                 color: black; /* customise */
-                font-size: 4px; /* customise? */
+                font-size: 12px; /* customise? */
                 font-family: sans-serif; /* customise? */
             }
             label:has(+ input:not([type="radio"]):required)::after, 
@@ -302,11 +302,14 @@
             .radio-toolbar input[type="radio"]:checked+label {
                 background-color: #ffbb00;
                 color: white;
+                
+            }
+            .labelButton {
                 font-size:18px; /* customise */
             }
             @media only screen and (max-width: 420px) {
                 label {
-                    font-size: 40px; /* important is required to take effect on iOS :: test - customise */
+                    font-size: 20px; /* customise */
                 }
                 .summaryTitle {
                     font-size: 36px; /* customise */
@@ -342,7 +345,7 @@
                 select {
                     padding-left: 3px; /* gives it the same spacing as text input */
                 }
-                .radio-toolbar input[type="radio"]:checked+label {
+                .labelButton {
                     font-size:24px; /* customise */
                 }
             }
@@ -412,9 +415,9 @@
                 <div class="radio-toolbar">
                     <!-- label must come after input for CSS to work -->
                     <input type="radio" id="Enquiry" name="00N5j00000Gq8XG" value="Enquiry" required>
-                    <label for="Enquiry">Enquiry</label>
+                    <label for="Enquiry" class="labelButton">Enquiry</label>
                     <input type="radio" id="Complaint" name="00N5j00000Gq8XG" value="Complaint">
-                    <label for="Complaint">Product Feedback</label>
+                    <label for="Complaint" class="labelButton">Product Feedback</label>
                 </div>
 
                 <label for="subjectQuality">Subject</label>
