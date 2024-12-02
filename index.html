@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 49</title>
+        <title>Contact Us 50</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -251,6 +251,12 @@
             textarea/*::placeholder*/,
             input[type="date"] {
                 font-family: Arial;
+                color:#000000; /* customise? */
+            }
+            input[type="date"] {
+                /* fix date fields in iOS */
+                -webkit-appearance: textfield;
+                -moz-appearance: textfield;
             }
             textarea {
                 padding-top: 8px; /* add some space to make it look more like text input looks */
