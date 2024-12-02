@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 41</title>
+        <title>Contact Us 42</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -152,7 +152,7 @@
                 display: block; /* labels on own line */
                 color: black; /* customise */
             }
-            label:has(+ input:required)::after, 
+            label:has(+ input:not([type="submit"]):required)::after, 
             label:has(+ textarea:required)::after, 
             label:has(+ select:required)::after {
                 content: "*";
@@ -353,6 +353,7 @@
                 
                 <label for='Enquiry'>Reason to Contact<span style="color:red;">*</span></label>
                 <div class="radio-toolbar">
+                    <!-- labels are after inputs to avoid extra 'required' star being added by css used on non-radio button fields-->
                     <label for="Enquiry">Enquiry</label>
                     <input type="radio" id="Enquiry" name="00N5j00000Gq8XG" value="Enquiry" required>
                     <label for="Complaint">Product Feedback</label>
