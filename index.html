@@ -64,7 +64,8 @@
 
             var varStoreStateQuality = [
                 // for a TEXT field instead of SELECT, use: var varStorePurchasedStateOrCity = [];
-                //For NZ, could list out states, or remove all options below to make it a free text input
+                //For NZ, could list out states, or comment out all options below to make it a free text input
+                /*
                 'Australian Capital Territory',
                 'New South Wales',
                 'Victoria',
@@ -73,6 +74,7 @@
                 'South Australia',
                 'Northern Territory',
                 'Tasmania',
+                */
             ];
         </script>
     
@@ -236,12 +238,12 @@
                 border-radius: 2px;
                 
             }
-            input[type="date"],
-            textarea::placeholder {
+            textarea/*::placeholder*/,
+            input[type="date"] {
                 font-family: Arial;
             }
-            input[type=date]:invalid::-webkit-datetime-edit {
-                color: rgb(106, 106, 106); /* hacky way to set 'placeholder' text to grey
+            textarea {
+                padding-top: 6px; /* add some space to make it look more like text input looks */
             }
             select {
                 /* the following lines match styling of SELECT to other input cells - required on iOS */
