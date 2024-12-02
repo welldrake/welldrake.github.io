@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 1</title>
+        <title>Contact Us 2</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -159,9 +159,9 @@
             /*Add red asterisk to all labels that occur before a required input field*/
             label {
                 display: block; /* labels on own line */
-                color: rgb(106, 106, 106); /* customise */
-                font-size: 14px; /* customise? */
-                font-family: sans-serif; /* customise? */
+                color: rgb(106, 106, 106); 
+                font-size: 14px; 
+                font-family: sans-serif; 
             }
             label:has(+ input:not([type="radio"]):required)::after, 
             label:has(+ textarea:required)::after, 
@@ -201,7 +201,7 @@
             }
             details {
                 overflow: hidden;
-                background-color: #ffbb00; /* customise */
+                background-color: #ffbb00; 
                 margin-bottom: 5px;
             }
             details::details-content {
@@ -216,38 +216,40 @@
                 block-size: auto;
             }
             .summaryTitle {
-                font-size: 24px; /* customise */
+                font-size: 24px; 
                 /* color: #ffffff; */ /* only required if different from what's set on summary - customise */
             }
             .summaryDescription {
-                font-size: 14px; /* customise */
+                font-size: 14px; 
                 display: block; /* description on own line */
                 /* color: #ffffff; */ /* only required if different from what's set on summary - customise */
             }
             form, div.noForm {
                 padding: 3px; /* gives space to allow glow to show on iPhone when cell selected */
                 padding-bottom: 20px;
-                background-color: white; /* customise */
+                background-color: white; 
             }
             div.iti.iti--allow-dropdown {
                 display:block; /* overrides default inline-block for intlTel fields to ensure it goes full width */
             }
             input:not([type="submit"]),
-            input[type="submit"], /* TEST if needed - use both type=submit and not(type=submit) as this is more specific than just input and therefore takes precedence */
             select,
             textarea,
             div.intlTelWrapper {
-                width: 100%; /* customise */
+                width: 100%; 
                 box-sizing: border-box;  /* sizes within the parent element */
                 display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
-                font-size: 18px; /* customise? */
+                font-size: 18px; 
+            }
+            input[type="submit"] {
+                font-size: 18px; 
             }
             input:not([type="submit"]),
             select,
             textarea,
             div.intlTelWrapper,
             .radio-toolbar label {
-                margin-bottom: 10px; /* customise */
+                margin-bottom: 10px; 
             }
             input:not([type="submit"]),
             select,
@@ -258,8 +260,8 @@
             }
             textarea,
             input[type="date"] {
-                font-family: sans-serif; /* customise? */
-                color:#000000; /* customise? */
+                font-family: sans-serif; 
+                color:#000000; 
             }
             input[type="date"] {
                 /* fix date fields in iOS */
@@ -279,7 +281,7 @@
             }
             input,
             select {
-                height:  40px; /* customise */
+                height:  40px; 
                 line-height: 40px; /* required to vertically centre date fields on iOS */
             }
             textarea {
@@ -310,49 +312,51 @@
                 
             }
             .labelButton {
-                font-size:18px; /* customise */
+                font-size:18px; 
             }
             @media only screen and (max-width: 420px) {
                 label {
-                    font-size: 20px; /* customise */
+                    font-size: 20px; 
                 }
                 .summaryTitle {
-                    font-size: 36px; /* customise */
+                    font-size: 36px; 
                 }
                 .summaryDescription {
-                    font-size: 24px; /* customise */
+                    font-size: 24px; 
                 }
                 summary {
-                    font-size: 36px; /* customise */
+                    font-size: 36px; 
                     margin-inline-start: 3rem; /* moved the text and marker to the right */
                 }
                 summary::marker {
-                    font-size:36px; /* rmarker size - customise */
+                    font-size:36px; /* marker size - customise */
                 }
                 input:not([type="submit"]),
-                input[type="submit"], /* TEST if needed - use both type=submit and not(type=submit) as this is more specific than just input and therefore takes precedence */
                 select,
                 textarea {
                     font-size: 24px; /* make this big enough so that iPhone doesn't auto-zoom when selected - customise */
                     border-radius: 5px; /* make SELECT same as default iOS styling for INPUT */
+                }
+                input[type="submit"]{
+                    font-size: 24px; 
                 }
                 input:not([type="submit"]),
                 select,
                 textarea,
                 div.intlTelWrapper,
                 .radio-toolbar label {
-                    margin-bottom: 20px; /* customise */
+                    margin-bottom: 20px; 
                 }
                 input,
                 select {
-                    height: 60px; /* customise */
+                    height: 60px; 
                     line-height: 60px; /* required to vertically centre date fields on iOS */
                 }
                 select {
                     padding-left: 3px; /* gives it the same spacing as text input */
                 }
                 .labelButton {
-                    font-size:24px; /* customise */
+                    font-size:24px; 
                 }
             }
         </style>
