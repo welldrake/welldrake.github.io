@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 66</title>
+        <title>Contact Us 67</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -160,7 +160,7 @@
             label {
                 display: block; /* labels on own line */
                 color: rgb(106, 106, 106); /* customise */
-                font-size: 10px; /* customise? */
+                font-size: 14px; /* customise? */
                 font-family: sans-serif; /* customise? */
             }
             label:has(+ input:not([type="radio"]):required)::after, 
@@ -235,13 +235,18 @@
             input:not([type="submit"]),
             select,
             textarea,
-            div.intlTelWrapper,
-            .radio-toolbar label {
+            div.intlTelWrapper {
                 width: 100%; /* customise */
-                margin-bottom: 10px; /* customise */
                 box-sizing: border-box;  /* sizes within the parent element */
                 display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
                 font-size: 18px; /* customise? */
+            }
+            input:not([type="submit"]),
+            select,
+            textarea,
+            div.intlTelWrapper,
+            .radio-toolbar label {
+                margin-bottom: 10px; /* customise */
             }
             input:not([type="submit"]),
             select,
