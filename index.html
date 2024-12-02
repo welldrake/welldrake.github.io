@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 40</title>
+        <title>Contact Us 41</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -60,6 +60,19 @@
                 'Dairy',
                 'Café',
                 'Other',
+            ];
+
+            var varStoreStateQuality = [
+                // for a TEXT field instead of SELECT, use: var varStorePurchasedStateOrCity = [];
+                //For NZ, could list out states, or remove all options below to make it a free text input
+                'Australian Capital Territory',
+                'New South Wales',
+                'Victoria',
+                'Queensland',
+                'Western Australia',
+                'South Australia',
+                'Northern Territory',
+                'Tasmania',
             ];
         </script>
     
@@ -227,8 +240,8 @@
             textarea::placeholder {
                 font-family: Arial;
             }
-            input[type="date"]::placeholder {
-                color: rgb(106, 106, 106);
+            input[type=date]:invalid::-webkit-datetime-edit {
+                color: rgb(106, 106, 106); /* hacky way to set 'placeholder' text to grey
             }
             select {
                 /* the following lines match styling of SELECT to other input cells - required on iOS */
@@ -348,19 +361,36 @@
                 <input id="subjectQuality" name="subject" type="text" maxlength="80" placeholder='Reason for contacting us' required>
 
                 <label for='descriptionQuality'>Description</label>
-                <textarea id= 'descriptionQuality' name='description' rows='8' maxlength='32000' placeholder='Tell us in a few words what your enquiry or experience is so we can help you'></textarea>
+                <textarea id='descriptionQuality' name='description' rows='8' maxlength='32000' placeholder='Tell us in a few words what your enquiry or experience is so we can help you'></textarea>
 
                 <div  id='extendedForm'> <!-- TO DO: add back: hidden -->
 
                     <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
                     <!-- The field is constructed and inserted by javascript -->
                     
+                    <label for='dateBestBefore'>Best Before Date (DD/MM/YYYY)</label>
+                    <input class="formDate" id='dateBestBefore' name='dateBestBefore' type='date' > <!-- temporary date for user input with validation -->
+                    <input id='00N5j00000Gq8XH' type='hidden' name='00N5j00000Gq8XH' > <!-- hidden field to hold correctly formatted BB date -->
+
+                    <label for='00N5j00000Gq8XA'>Batch Code (Found on the tag e.g. AK1 113 0527)</label>
+                    <input id='00N5j00000Gq8XA' maxlength='20' name='00N5j00000Gq8XA' type='text' >
+
+                    <label for='00N5j00000Gq8X9'>Barcode (e.g. 9415382000110)</label>
+                    <input id='00N5j00000Gq8X9' maxlength='20' name='00N5j00000Gq8X9' type='text' >
+
+                    <label for='datePurchased'>Date Purchased (DD/MM/YYYY)</label> 
+                    <input class="formDate" id='datePurchased' name='datePurchased' type='date' > <!-- temporary date for user input with validation -->
+                    <input id='00N5j00000Gq8XH' type='hidden' name='00N5j00000Gq8XH' > <!-- hidden field to hold correctly formatted purchased date -->
+
                     <label id="labelStoreNameQuality" for='storeNameQuality'>Store Purchased From Name</label>
                     <!-- The field is constructed and inserted by javascript -->
+                    
+                    <label for='00N5j00000Gq8XL'>Store Purchased From Suburb</label>
+                    <input id='00N5j00000Gq8XL' maxlength='85' name='00N5j00000Gq8XL' type='text' >
+                
+                    <label id="labelStoreStateQuality" for='00N5j00000Gq8XK'>Store Purchased From State</label> <!-- automatically renamed to Store Purchased From City for NZ forma -->
+                    <!-- The field is constructed and inserted by javascript -->
 
-                    <label for='dateBestBefore'>Best Before Date (DD/MM/YYYY)</label>
-                    <input class="formDate" id='dateBestBefore' name='dateBestBefore' type='date' >
-            
                 </div>
 
                 <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
@@ -845,6 +875,31 @@
                 newNode.innerHTML = newHTML;
                 elementLabelStoreNameQuality.parentNode.insertBefore(newNode, elementLabelStoreNameQuality.nextSibling);
             }
+
+            //Store Purchased From State or City Section
+            var elementLabelStoreStateQuality = document.getElementById('labelStoreStateQuality');
+            if (varPhoneCountries[0] == 'nz') {
+                elementLabelStoreStateQuality.innerHTML = elementLabelStoreStateQuality.innerHTML.replace('State', 'City'); //rename field for NZ
+            }
+            if (varStoreStateQuality.length === 0) {
+                var newNode = document.createElement("input");  
+                newNode.id = 'storeStateQuality';
+                newNode.name = '00N5j00000Gq8XK'
+                newNode.type = 'text';
+                newNode.setAttribute('maxlength', 85);
+                elementLabelStoreStateQuality.parentNode.insertBefore(placeholderNode.newNode, elementLabelStoreStateQuality.nextSibling);
+            } else {
+                var newNode = document.createElement("select");  
+                newNode.id = 'storeStateQuality';
+                newNode.name = '00N5j00000Gq8XK'
+                var newHTML = "<option value=''>--None--</option>";
+                for (const itm of varStoreStateQuality) {
+                    newHTML += '<option>' + itm + '</option>';
+                }
+                newNode.innerHTML = newHTML;
+                elementLabelStoreStateQuality.parentNode.insertBefore(newNode, elementLabelStoreStateQuality.nextSibling);
+            }
+            
         </script>
 
         <!--
