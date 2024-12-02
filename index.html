@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 67 GOOD BUT SUBMIT TOO SMALL</title>
+        <title>Contact Us 60</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -159,9 +159,8 @@
             /*Add red asterisk to all labels that occur before a required input field*/
             label {
                 display: block; /* labels on own line */
-                color: rgb(106, 106, 106); /* customise */
+                color: black; /* customise */
                 font-size: 14px; /* customise? */
-                font-family: sans-serif; /* customise? */
             }
             label:has(+ input:not([type="radio"]):required)::after, 
             label:has(+ textarea:required)::after, 
@@ -235,18 +234,13 @@
             input:not([type="submit"]),
             select,
             textarea,
-            div.intlTelWrapper {
+            div.intlTelWrapper,
+            div.radio-toolbar {
                 width: 100%; /* customise */
+                margin-bottom: 10px; /* customise */
                 box-sizing: border-box;  /* sizes within the parent element */
                 display: inline-block; /* this and div.intlTelWrapper allow intlTel inputs to be styled the same as other inputs */
                 font-size: 18px; /* customise? */
-            }
-            input:not([type="submit"]),
-            select,
-            textarea,
-            div.intlTelWrapper,
-            .radio-toolbar label {
-                margin-bottom: 10px; /* customise */
             }
             input:not([type="submit"]),
             select,
@@ -258,7 +252,7 @@
             }
             textarea,
             input[type="date"] {
-                font-family: sans-serif; /* customise? */
+                font-family: Arial;
                 color:#000000; /* customise? */
             }
             input[type="date"] {
@@ -307,15 +301,8 @@
             .radio-toolbar input[type="radio"]:checked+label {
                 background-color: #ffbb00;
                 color: white;
-                
-            }
-            .labelButton {
-                font-size:18px; /* customise */
             }
             @media only screen and (max-width: 420px) {
-                label {
-                    font-size: 20px; /* customise */
-                }
                 .summaryTitle {
                     font-size: 36px; /* customise */
                 }
@@ -329,6 +316,9 @@
                 summary::marker {
                     font-size:36px; /* rmarker size - customise */
                 }
+                label {
+                    font-size: 22px; /* customise */
+                }
                 input:not([type="submit"]),
                 select,
                 textarea {
@@ -339,7 +329,7 @@
                 select,
                 textarea,
                 div.intlTelWrapper,
-                .radio-toolbar label {
+                div.radio-toolbar {
                     margin-bottom: 20px; /* customise */
                 }
                 input,
@@ -349,9 +339,6 @@
                 }
                 select {
                     padding-left: 3px; /* gives it the same spacing as text input */
-                }
-                .labelButton {
-                    font-size:24px; /* customise */
                 }
             }
         </style>
@@ -420,9 +407,9 @@
                 <div class="radio-toolbar">
                     <!-- label must come after input for CSS to work -->
                     <input type="radio" id="Enquiry" name="00N5j00000Gq8XG" value="Enquiry" required>
-                    <label for="Enquiry" class="labelButton">Enquiry</label>
+                    <label for="Enquiry">Enquiry</label>
                     <input type="radio" id="Complaint" name="00N5j00000Gq8XG" value="Complaint">
-                    <label for="Complaint" class="labelButton">Product Feedback</label>
+                    <label for="Complaint">Product Feedback</label>
                 </div>
 
                 <label for="subjectQuality">Subject</label>
