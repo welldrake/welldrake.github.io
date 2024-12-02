@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 60</title>
+        <title>Contact Us 61</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -161,6 +161,7 @@
                 display: block; /* labels on own line */
                 color: black; /* customise */
                 font-size: 14px; /* customise? */
+                font-family: sans-serif; /* customise? */
             }
             label:has(+ input:not([type="radio"]):required)::after, 
             label:has(+ textarea:required)::after, 
@@ -252,7 +253,7 @@
             }
             textarea,
             input[type="date"] {
-                font-family: Arial;
+                font-family: sans-serif; /* customise? */
                 color:#000000; /* customise? */
             }
             input[type="date"] {
@@ -317,7 +318,7 @@
                     font-size:36px; /* rmarker size - customise */
                 }
                 label {
-                    font-size: 22px; /* customise */
+                    font-size: 20px!important; /* important is required to take effect on iOS - customise */
                 }
                 input:not([type="submit"]),
                 select,
