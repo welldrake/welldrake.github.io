@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 44</title>
+        <title>Contact Us 45</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -115,6 +115,15 @@
         <script>  
             function validate(event, sectionName, sectionIndex) {        
                 
+                //Copy dates from date picker fields in to hidden fields (required before Salesforce expects dd/mm/yyyy and date picker provides yyyy-mm-dd)
+                const dateBBpicker = document.getElementById('dateBestBeforePicker');
+                const dateBBformat = document.getElementById('dateBestBeforeFormat');
+                dateBBformat.value = dateBBpicker.value.split("-").reverse().join("/"); //converts yyyy-mm-dd to dd/mm/yyyy
+
+                const datePurchPicker = document.getElementById('datePurchasedPicker');
+                const datePurchFormat = document.getElementById('datePurchasedFormat');
+                datePurchFormat.value = datePurchPicker.value.split("-").reverse().join("/"); //converts yyyy-mm-dd to dd/mm/yyyy
+
                 //check phone number is correct and set value to formatted number
                 var phoneField = document.getElementById('phone' + sectionName);
                 var phoneFieldDetails = phoneInputs['phone' + sectionName];
@@ -243,7 +252,7 @@
                 font-family: Arial;
             }
             textarea {
-                padding-top: 6px; /* add some space to make it look more like text input looks */
+                padding-top: 8px; /* add some space to make it look more like text input looks */
             }
             select {
                 /* the following lines match styling of SELECT to other input cells - required on iOS */
@@ -344,11 +353,11 @@
                 <input id="nameQuality" name="name" type="text" maxlength="80" placeholder='First name and last name' required>
                 
                 <label for="emailQuality">Email</label>
-                <input id="emailQuality" name="email" type="text" required>
+                <input id="emailQuality" name="email" type="text" placeholder='first.last@example.com' required>
                 
                 <label for="phoneQuality">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneQuality" maxlength="40" name="phone" class="intlTel" type="text">
+                    <input id="phoneQuality" maxlength="20" name="phone" class="intlTel" type="text">
                 </div>
                 
                 <label for='Enquiry'>Reason to Contact<span style="color:red;">*</span></label>
@@ -361,7 +370,7 @@
                 </div>
 
                 <label for="subjectQuality">Subject</label>
-                <input id="subjectQuality" name="subject" type="text" maxlength="80" placeholder='Reason for contacting us' required>
+                <input id="subjectQuality" name="subject" type="text" maxlength="255" placeholder='Reason for contacting us' required>
 
                 <label for='descriptionQuality'>Description</label>
                 <textarea id='descriptionQuality' name='description' rows='8' maxlength='32000' placeholder='Tell us in a few words what your enquiry or experience is so we can help you'></textarea>
@@ -371,9 +380,9 @@
                     <label id="labelProductNameQuality" for='productNameQuality'>Product Name</label>
                     <!-- The field is constructed and inserted by javascript -->
                     
-                    <label for='dateBestBefore'>Best Before Date (DD/MM/YYYY)</label>
-                    <input class="formDate" id='dateBestBefore' name='dateBestBefore' type='date' > <!-- temporary date for user input with validation -->
-                    <input id='00N5j00000Gq8XH' type='hidden' name='00N5j00000Gq8XH' > <!-- hidden field to hold correctly formatted BB date -->
+                    <label for='dateBestBeforePicker'>Best Before Date (DD/MM/YYYY)</label>
+                    <input class="formDate" id='dateBestBeforePicker' type='date' > <!-- temporary date for user input with validation -->
+                    <input id='dateBestBeforeFormat' name='00N5j00000Gq8XE' type='hidden' > <!-- hidden field to hold correctly formatted BB date -->
 
                     <label for='00N5j00000Gq8XA'>Batch Code (Found on the tag e.g. AK1 113 0527)</label>
                     <input id='00N5j00000Gq8XA' maxlength='20' name='00N5j00000Gq8XA' type='text' >
@@ -381,15 +390,15 @@
                     <label for='00N5j00000Gq8X9'>Barcode (e.g. 9415382000110)</label>
                     <input id='00N5j00000Gq8X9' maxlength='20' name='00N5j00000Gq8X9' type='text' >
 
-                    <label for='datePurchased'>Date Purchased (DD/MM/YYYY)</label> 
-                    <input class="formDate" id='datePurchased' name='datePurchased' type='date' > <!-- temporary date for user input with validation -->
-                    <input id='00N5j00000Gq8XH' type='hidden' name='00N5j00000Gq8XH' > <!-- hidden field to hold correctly formatted purchased date -->
+                    <label for='datePurchasedPicker'>Date Purchased (DD/MM/YYYY)</label> 
+                    <input class="formDate" id='datePurchasedPicker' type='date' > <!-- temporary date for user input with validation -->
+                    <input id='datePurchasedFormat' name='00N5j00000Gq8XH' type='hidden' > <!-- hidden field to hold correctly formatted purchased date -->
 
                     <label id="labelStoreNameQuality" for='storeNameQuality'>Store Purchased From Name</label>
                     <!-- The field is constructed and inserted by javascript -->
                     
                     <label for='00N5j00000Gq8XL'>Store Purchased From Suburb</label>
-                    <input id='00N5j00000Gq8XL' maxlength='85' name='00N5j00000Gq8XL' type='text' >
+                    <input id='00N5j00000Gq8XL' maxlength='50' name='00N5j00000Gq8XL' type='text' >
                 
                     <label id="labelStoreStateQuality" for='00N5j00000Gq8XK'>Store Purchased From State</label> <!-- automatically renamed to Store Purchased From City for NZ forma -->
                     <!-- The field is constructed and inserted by javascript -->
@@ -464,7 +473,7 @@
                 <input id="company_local" maxlength="40" name="company_local" type="text">
                 
                 <label for="emailBecome">Email</label>
-                <input id="emailBecome" maxlength="80" name="email" type="text">
+                <input id="emailBecome" name="email" type="text" placeholder='first.last@example.com' required>
                 
                 <label for="company">Company</label>
                 <input id="company" maxlength="40" name="company" type="text">
@@ -561,15 +570,15 @@
                 <input id="name" maxlength="80" name="name" type="text">
                 
                 <label for="emailExisting">Email</label>
-                <input id="emailExisting" maxlength="80" name="email" type="text">
+                <input id="emailExisting" name="email" type="text" placeholder='first.last@example.com' required>
                 
                 <label for="phoneExisting">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneExisting" maxlength="40" name="phone" class="intlTel" type="text">
+                    <input id="phoneExisting" maxlength="20" name="phone" class="intlTel" type="text">
                 </div>
                 
                 <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" type="text">
+                <input id="subject" maxlength="255" name="subject" type="text">
                 
                 <label for="description">Description</label>
                 <textarea id="description" name="description"></textarea>
@@ -643,11 +652,11 @@
                 <input id="name" maxlength="80" name="name" type="text">
                 
                 <label for="emailCrates">Email</label>
-                <input id="emailCrates" maxlength="80" name="email" type="text">
+                <input id="emailCrates" name="email" type="text" placeholder='first.last@example.com' required>
                 
                 <label for="phoneCrates">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneCrates" maxlength="40" name="phone" class="intlTel" type="text">
+                    <input id="phoneCrates" maxlength="20" name="phone" class="intlTel" type="text">
                 </div>
                 
                 <label for="subject">Subject</label>
@@ -785,14 +794,38 @@
         </script>
         
         <script>
-            //Populates Case Origin URL with the current URL, truncated to 100 characters to meet field specs
-            for (const originElem of document.getElementsByName("00N5j00000Gq8XC")) {
-                originElem.value = window.location.href.substring(0,100);
+    
+            //Set the value of the orgid element in each form (web-to-case)
+            for (const orgidElem of document.getElementsByName("orgid")) {
+                orgidElem.value = varOrgid; 
             }
 
+            //Set the value of the oid element in each form (web-to-lead)
+            for (const orgidElem of document.getElementsByName("oid")) {
+                orgidElem.value = varOrgid; 
+            }
+            
             //Populates the return URL of each form
             for (const retUrlElem of document.getElementsByName("retURL")) {
                 retUrlElem.value = varReturnUrl;
+            }
+
+            //Adjust the baseUrl at the start and add orgid to the end of each form action if the action ends with orgId=
+            for (const frm of document.forms) {
+                if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
+                    frm.action = frm.action + varOrgid;
+                }
+                if (varIsSandbox && frm.action.includes("servlet.WebToCase")) { //Case
+                    frm.action = frm.action.replace("https://webto.salesforce.com/", varSandboxBaseUrl);
+                }
+                if (varIsSandbox && frm.action.includes("servlet.WebToLead")) { //Lead
+                    frm.action = frm.action.replace("https://webto.salesforce.com/", "https://test.salesforce.com/");
+                }
+            }
+
+            //Populates Case Origin URL with the current URL, truncated to 100 characters to meet field specs
+            for (const originElem of document.getElementsByName("00N5j00000Gq8XC")) {
+                originElem.value = window.location.href.substring(0,100);
             }
 
             //Populates business unit dynamically if case function is CIC
@@ -810,32 +843,23 @@
                 caseOriginDetailElem.value = varCaseOriginDetail;
             }
 
-            //Adjust the baseUrl at the start and add orgid to the end of each form action if the action ends with orgId=
-            for (const frm of document.forms) {
-                if (frm.action.substr(frm.action.length - 6) == 'orgId=') {
-                    frm.action = frm.action + varOrgid;
-                }
-                if (varIsSandbox && frm.action.includes("servlet.WebToCase")) { //Case
-                    frm.action = frm.action.replace("https://webto.salesforce.com/", varSandboxBaseUrl);
-                }
-                if (varIsSandbox && frm.action.includes("servlet.WebToLead")) { //Lead
-                    frm.action = frm.action.replace("https://webto.salesforce.com/", "https://test.salesforce.com/");
-                }
-            }
+            //Set MIN and MAX dates for date pickers in Quality form
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0, hence the + 1!
+            var yyyy = today.getFullYear();
     
-            //Set the value of the orgid element in each form (web-to-case)
-            for (const orgidElem of document.getElementsByName("orgid")) {
-                orgidElem.value = varOrgid; 
-            }
-
-            //Set the value of the oid element in each form (web-to-lead)
-            for (const orgidElem of document.getElementsByName("oid")) {
-                orgidElem.value = varOrgid; 
-            }
+            today = yyyy+'-'+mm+'-'+dd;
+            yearago = yyyy-1+'-'+mm+'-'+dd;
+            usebymax = yyyy+1+'-'+mm+'-'+dd;
+            document.getElementById('datePurchasedPicker').setAttribute('max', today);
+            document.getElementById('datePurchasedPicker').setAttribute('min', yearago);
+            document.getElementById('dateBestBeforePicker').setAttribute('max', usebymax);
+            document.getElementById('dateBestBeforePicker').setAttribute('min', yearago);
         </script>
 
         <script>
-            //build and insert HTML for fields based on config above
+            //build and insert HTML for fields based on config in head > script section
 
             //Product Name in Quality Section
             var elementLabelProductNameQuality = document.getElementById('labelProductNameQuality');
@@ -865,7 +889,7 @@
                 newNode.id = 'storeNameQuality';
                 newNode.name = '00N5j00000Gq8XN'
                 newNode.type = 'text';
-                newNode.setAttribute('maxlength', 200);
+                newNode.setAttribute('maxlength', 80);
                 elementLabelStoreNameQuality.parentNode.insertBefore(newNode, elementLabelStoreNameQuality.nextSibling);
             } else {
                 var newNode = document.createElement("select");  
@@ -889,7 +913,7 @@
                 newNode.id = 'storeStateQuality';
                 newNode.name = '00N5j00000Gq8XK'
                 newNode.type = 'text';
-                newNode.setAttribute('maxlength', 85);
+                newNode.setAttribute('maxlength', 50);
                 elementLabelStoreStateQuality.parentNode.insertBefore(newNode, elementLabelStoreStateQuality.nextSibling);
             } else {
                 var newNode = document.createElement("select");  
@@ -903,6 +927,7 @@
                 elementLabelStoreStateQuality.parentNode.insertBefore(newNode, elementLabelStoreStateQuality.nextSibling);
             }
             
+            //TO DO: remove 'Store Purchased From' from labels when it's an Enquiry and not a Complaint
         </script>
 
         <!--
