@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 48</title>
+        <title>Contact Us 49</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -16,7 +16,7 @@
             var varReturnUrl ="https://welldrake.github.io/thanks.html"; /* where to send the user after they submit a form */
             var varCaseOriginDetail = "Golden NZ" /* valid values are: Abbotts, Bazaar, Big Ben NZ, Burgen, Burgen NZ, Dorset, Foodservice, Golden, Golden NZ, GWF, GWF Baking NZ, Jordans, Jordans Ryvita, Pataks, Ploughmans NZ, Retail, Ryvita, Tip Top, Tip Top NZ */
             var varPhoneCountries = ["nz", "au"]; /* phone number field will default to first one in the list, list can be just one item */
-            var varShowCountryField = false; /* Usually false, might be true for Pataks as there is one website across both countries */
+            var varShowCountryField = false; /* Usually false, might be true for Pataks as there is one website across both countries so need customer to tell us where they are */
             //Configure the reCPATCHA keyname and site key
             var varKeyname = "TestingKeyNoProtection";
             var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
@@ -233,7 +233,8 @@
             input:not([type="submit"]),
             select,
             textarea,
-            div.intlTelWrapper {
+            div.intlTelWrapper,
+            div.radio-toolbar {
                 width: 100%; /* customise */
                 margin-bottom: 10px; /* customise */
                 box-sizing: border-box;  /* sizes within the parent element */
@@ -268,9 +269,10 @@
                 /* height: 8em; */ /* 8 rows high - customise - shouldn't be required as set using 'rows=8' in html*/
             }
             .radio-toolbar input[type="radio"] {
-                width:0;
-                margin:0;
-                margin-right:-3px; /* compensate for original radio button taking up 3px more than specified width */
+                width: 0;
+                height: 0;
+                margin: 0;
+                margin-right: -3px; /* compensate for original radio button taking up 3px more than specified width */
                 opacity: 0; /* hide the original radio buttons */
             }
             .radio-toolbar label {
@@ -424,10 +426,8 @@
                 <label id='postCodeLabel' for='postCodeQuality'>Your Post Code</label>
                 <input id='postCodeQuality' maxlength='10' name='00N5j00000Gq8XO' type='text' >
             
-                <label id='countryLabel' for='countryQuality' hidden>Your Country</label>
-                <!-- <input id='countryQuality' name='00N5j00000Gq8XM' hidden> -->
-                <select id='countryQuality' name='00N5j00000Gq8XM' hidden>
-                    <!-- This is a plain text field, so new options can be added/removed safely, max 56 characters -->
+                <label id='countryLabel' for='countryQuality'>Your Country</label> <!-- gets display:none by javascript unless varShowCountryField in config is set to true -->
+                <select id='countryQuality' name='00N5j00000Gq8XM'> <!-- This is a plain text field, so new options can be added/removed safely, max 56 characters -->
                     <option value=''>--None--</option>
                     <option>Australia</option>
                     <option>New Zealand</option>
@@ -872,10 +872,10 @@
                 caseOriginDetailElem.value = varCaseOriginDetail;
             }
 
-            //Let user enter their country if varShowCountryField in config is true
-            if (varShowCountryField) {
-                document.getElementById('countryLabel').hidden = false;
-                document.getElementById('countryQuality').hidden = false;
+            //Let user enter their country if varShowCountryField in config is true, otherwise, hide
+            if (!varShowCountryField) {
+                document.getElementById('countryLabel').style.display = 'none';
+                document.getElementById('countryQuality').style.display = 'none';
             }
 
             //Set MIN and MAX dates for date pickers in Quality form
