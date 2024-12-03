@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 17</title>
+        <title>Contact Us 18</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -166,7 +166,8 @@
             }
             label:has(+ input:not([type="radio"]):required)::after, 
             label:has(+ textarea:required)::after, 
-            label:has(+ select:required)::after {
+            label:has(+ select:required)::after,
+            label:has(+ div > input[type="radio"]:required)::after {
                 /* Add red asterisk to all labels that occur before a required input field */
                 content: "*";
                 color: red;
@@ -198,14 +199,14 @@
                 /* font-size:30px; */ /* rmarker size - customise */
                 /* content: "\002B"; */ /* plus sign */
             }
+            details[open] > summary::marker {
+                /* content: "\2212"; */ /* minus sign */
+            }
             summary::-webkit-details-marker {
                 /* iOS hack to align markers and titles */
                 margin-left: -2rem;
                 padding-left:0.3rem;
                 margin-right:0.3rem;
-            }
-            details[open] > summary::marker {
-                /* content: "\2212"; */ /* minus sign */
             }
             details {
                 overflow: hidden;
@@ -251,6 +252,7 @@
             }
             input[type="submit"] {
                 font-size: 18px; 
+                -webkit-border-radius:6px; /* without this (or if set to 5px) the radius is set to 20px by iOS */
             }
             input:not([type="submit"]),
             select,
@@ -277,7 +279,6 @@
                 -webkit-appearance: textfield;
                 -moz-appearance: textfield;
                 background-color: transparent;
-                /* padding: 0 8px; */ /* assist with vertical alignment of dates on iOS */
             }
             input[type='date']::-webkit-date-and-time-value {
                 text-align: left; /* required for iOS */
@@ -292,7 +293,7 @@
             }
             input,
             select {
-                height:  40px; 
+                height: 40px; 
                 line-height: 40px; /* required to vertically centre date fields on iOS */
             }
             textarea {
@@ -307,7 +308,8 @@
             }
             .radio-toolbar label {
                 background-color: lightgrey;
-                padding:10px 24px;
+                color:black;
+                padding: 10px 24px;
                 display: inline-block; /* ensures each button won't wrap around the line on narrow screen*/
                 cursor: pointer;
             }
@@ -429,7 +431,7 @@
                     <input id="phoneQuality" maxlength="20" name="phone" class="intlTel" type="text">
                 </div>
                 
-                <label for='Enquiry'>Reason to Contact<span style="color:red;">*</span></label>
+                <label for='Enquiry'>Reason to Contact</label>
                 <div class="radio-toolbar">
                     <!-- label must come after input for CSS to work -->
                     <input type="radio" id="Enquiry" name="00N5j00000Gq8XG" value="Enquiry" required>
