@@ -11,16 +11,16 @@
         
         <script>
             //Configure variables here
-            var varOrgid = "00D0T0000000lof";
+            var varOrgid = '00D0T0000000lof';
             var varIsSandbox = true;
-            var varSandboxBaseUrl = "https://gwf--uat.sandbox.my.salesforce.com/"; /* this is ignored if varIsSandbox is false, otherwise must include https:// and trailing slash */
-            var varReturnUrl ="https://welldrake.github.io/thanks.html"; /* where to send the user after they submit a form */
-            var varCaseOriginDetail = "Golden NZ" /* valid values are: Abbotts, Bazaar, Big Ben NZ, Burgen, Burgen NZ, Dorset, Foodservice, Golden, Golden NZ, GWF, GWF Baking NZ, Jordans, Jordans Ryvita, Pataks, Ploughmans NZ, Retail, Ryvita, Tip Top, Tip Top NZ */
-            var varPhoneCountries = ["au", "nz"]; /* phone number field will default to first one in the list, list can be just one item */
+            var varSandboxBaseUrl = 'https://gwf--uat.sandbox.my.salesforce.com/'; /* this is ignored if varIsSandbox is false, otherwise must include https:// and trailing slash */
+            var varReturnUrl = 'https://welldrake.github.io/thanks.html'; /* where to send the user after they submit a form */
+            var varCaseOriginDetail = 'Golden NZ' /* valid values are: Abbotts, Bazaar, Big Ben NZ, Burgen, Burgen NZ, Dorset, Foodservice, Golden, Golden NZ, GWF, GWF Baking NZ, Jordans, Jordans Ryvita, Pataks, Ploughmans NZ, Retail, Ryvita, Tip Top, Tip Top NZ */
+            var varPhoneCountries = ['nz', 'au']; /* phone number field will default to first one in the list, list can be just one item */
             var varShowCountryField = false; /* Usually false, might be true for Pataks as there is one website across both countries so need customer to tell us where they are */
             //Configure the reCPATCHA keyname and site key
-            var varKeyname = "TestingKeyNoProtection";
-            var varSitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+            var varKeyname = 'TestingKeyNoProtection';
+            var varSitekey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
             /* delete key pairs here: https://gwf--uat.sandbox.my.salesforce.com/0He */
             /* delete key pairs here: https://gwf.my.salesforce.com/0He */
             
@@ -196,7 +196,7 @@
                 list-style-position: outside; /* prevents title wrapping under marker on narrorw screens */
             }
             summary::marker {
-                /* font-size:30px; */ /* rmarker size - customise */
+                /* font-size:30px; */ /* marker size - customise */
                 /* content: "\002B"; */ /* plus sign */
             }
             details[open] > summary::marker {
@@ -222,6 +222,7 @@
                 transition-behavior: allow-discrete; /* ensures it works for closing (as well as opening) */
             }
             details:has(div.noForm)::details-content {
+                /* The sections with no form are generally smaller, therefore should transition in a shorter time to appear to move at same speed */
                 transition:
                     block-size 0.4s,
                     content-visibility 0.4s;
@@ -525,7 +526,7 @@
                     Become a Tip Top Customer
                 </span>
                 <span class="summaryDescription">
-                    If you are interested in opening an account.
+                    If you are interested in opening an account
                 </span>
             </summary>
 
@@ -655,7 +656,7 @@
                 <input type="hidden" name="00N5j00000GqBxu" value='Tip Top' > <!-- Business Unit -->
                 <input type="hidden" name="00N5j00000GqZEj" value='Customer' > <!-- Contact Type Description -->
                 
-                <label for="name">Contact Name 4</label>
+                <label for="name">Contact Name</label>
                 <input id="name" maxlength="80" name="name" type="text">
                 
                 <label for="emailExisting">Email</label>
@@ -786,7 +787,7 @@
                     Product Finder
                 </span>
                 <span class="summaryDescription">
-                    If you're looking for a Tip Top product near you.
+                    If you're looking for a Tip Top product near you
                 </span>
                 
             </summary>
@@ -805,7 +806,7 @@
                     Employment Opportunities
                 </span>
                 <span class="summaryDescription">
-                    Want to join one of George Weston Foods iconic brands.
+                    Want to join one of George Weston Foods iconic brands
                 </span>
                 
             </summary>
@@ -848,6 +849,7 @@
             for (const phoneElem of document.getElementsByClassName("intlTel")) {
 
                 //documentation: https://github.com/jackocnr/intl-tel-input
+
                 phoneInputs[phoneElem.id] = window.intlTelInput(phoneElem, {
                     initialCountry: varPhoneCountries[0],
                     onlyCountries: varPhoneCountries,
@@ -1036,8 +1038,6 @@
         
             enquiryRadio.addEventListener('change', function(){
             if(enquiryRadio.id === 'Enquiry'){
-                //extendedFormDiv.style.display = 'none';
-                //extendedFormDiv.hidden = true;
                 extendedFormDiv.style.height = 0;
                 productNameField.required = false;
                 postCodeLabel.innerHTML = 'Your Post Code';
@@ -1046,15 +1046,11 @@
     
             complaintRadio.addEventListener('change', function(){
             if(complaintRadio.id === 'Complaint'){
-                //extendedFormDiv.style.display = 'block';
-                //extendedFormDiv.hidden = false;
                 extendedFormDiv.style.height = 'unset';
                 productNameField.required = true;
                 postCodeLabel.innerHTML = 'Store Purchased From Post Code';
                 countryLabel.innerHTML = 'Store Purchased From Country';
             }});
-
-            //TO DO: remove 'Store Purchased From' from labels when it's an Enquiry and not a Complaint - simplify above, also do State (City)
         </script>
 
         <!--
