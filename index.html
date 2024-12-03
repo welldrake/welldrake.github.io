@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 15</title>
+        <title>Contact Us 16</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -199,7 +199,7 @@
                 /* content: "\002B"; */ /* plus sign */
             }
             summary::-webkit-details-marker {
-                /* iOS hack */
+                /* iOS hack to align markers and titles */
                 margin-left: -2rem;
                 padding-left:0.3rem;
                 margin-right:0.3rem;
@@ -259,14 +259,13 @@
             .radio-toolbar label {
                 margin-bottom: 10px; 
             }
-            input:not([type="submit"]),
+            input:not([type="submit"]):not([type="radio"]),
             select,
             textarea {
                 /* the following lines match styling of SELECT to other input cells, also included here to ensure they are ALL the same - required on iOS */
                 border: 1px solid #888888;
                 border-radius: 2px;
                 padding: 0 8px; /* assist with vertical alignment of dates on iOS */
-                text-align: left; /* required for dates on iOS */
             }
             textarea,
             input[type="date"] {
@@ -280,9 +279,9 @@
                 background-color: transparent;
                 /* padding: 0 8px; */ /* assist with vertical alignment of dates on iOS */
             }
-            /* input[type='date']::-webkit-date-and-time-value {
-                text-align: left; / * required for iOS * /
-            } */
+            input[type='date']::-webkit-date-and-time-value {
+                text-align: left; /* required for iOS */
+            } 
             textarea {
                 padding-top: 8px; /* add some space to make it look more like text input looks */
             }
@@ -298,13 +297,7 @@
             }
             textarea {
                 resize: vertical;
-                /* height: 8em; */ /* 8 rows high - customise - shouldn't be required as set using 'rows=8' in html*/
             }
-            /* div.extendedForm {
-                / * TO DO: test - gives space around fields in extendedForm DIV to allow glow to show on iPhone when cell selected * /
-                padding: 3px;
-                margin: -3px;
-            } */
             .radio-toolbar input[type="radio"] {
                 width: 0;
                 height: 0;
@@ -344,7 +337,7 @@
                     font-size:36px; /* marker size - customise */
                 }
                 summary::-webkit-details-marker {
-                    /* iOS hack */
+                    /* iOS hack to align markers and titles */
                     margin-left: -3rem;
                     padding-left:0.5rem;
                     margin-right:0.5rem;
