@@ -116,6 +116,16 @@
         <script>  
             function validate(event, sectionName, sectionIndex) {        
                 
+                //Check all dates are betweeen min and max
+                var dateFields = document.querySelectorAll('input[type=date]');
+                for (const df of dateFields) {
+                    if ((df.value != '' && df.min != '' && df.value < df.min) || (df.value != '' && df.max != '' && df.value > df.max)) {
+                        df.setCustomValidity('Date must be between ' + df.min + ' and ' + df.max);
+                    } else {
+                        df.setCustomValidity('');
+                    }
+                }
+
                 //Copy dates from date picker fields in to hidden fields (required before Salesforce expects dd/mm/yyyy and date picker provides yyyy-mm-dd)
                 const dateBBpicker = document.getElementById('dateBestBeforePicker');
                 const dateBBformat = document.getElementById('dateBestBeforeFormat');
