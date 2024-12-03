@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 14</title>
+        <title>Contact Us 15</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -265,6 +265,8 @@
                 /* the following lines match styling of SELECT to other input cells, also included here to ensure they are ALL the same - required on iOS */
                 border: 1px solid #888888;
                 border-radius: 2px;
+                padding: 0 8px; /* assist with vertical alignment of dates on iOS */
+                text-align: left; /* required for dates on iOS */
             }
             textarea,
             input[type="date"] {
@@ -276,11 +278,11 @@
                 -webkit-appearance: textfield;
                 -moz-appearance: textfield;
                 background-color: transparent;
-                padding: 0 8px; /* assist with vertical alignment of dates on iOS */
+                /* padding: 0 8px; */ /* assist with vertical alignment of dates on iOS */
             }
-            input[type='date']::-webkit-date-and-time-value {
-                text-align: left; /* required for iOS */
-            }
+            /* input[type='date']::-webkit-date-and-time-value {
+                text-align: left; / * required for iOS * /
+            } */
             textarea {
                 padding-top: 8px; /* add some space to make it look more like text input looks */
             }
@@ -367,9 +369,6 @@
                 select {
                     height: 60px; 
                     line-height: 60px; /* required to vertically centre date fields on iOS */
-                }
-                select {
-                    padding-left: 3px; /* gives it the same spacing as text input */
                 }
                 .labelButton {
                     font-size:24px; 
