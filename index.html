@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 19</title>
+        <title>Contact Us 20</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -120,7 +120,7 @@
                 var dateFields = document.querySelectorAll('input[type=date]');
                 for (const df of dateFields) {
                     if ((df.value != '' && df.min != '' && df.value < df.min) || (df.value != '' && df.max != '' && df.value > df.max)) {
-                        df.setCustomValidity('Date must be between ' + df.min + ' and ' + df.max);
+                        df.setCustomValidity('Date must be between ' + df.min.split("-").reverse().join("/") + ' and ' + df.max.split("-").reverse().join("/"));
                     } else {
                         df.setCustomValidity('');
                     }
