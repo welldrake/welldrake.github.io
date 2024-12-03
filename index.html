@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 12</title>
+        <title>Contact Us 14</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -263,7 +263,7 @@
             select,
             textarea {
                 /* the following lines match styling of SELECT to other input cells, also included here to ensure they are ALL the same - required on iOS */
-                border: 1px solid #888888; /* was rgb(118, 118, 118); but didn't match on iPhone */
+                border: 1px solid #888888;
                 border-radius: 2px;
             }
             textarea,
@@ -273,16 +273,13 @@
             }
             input[type='date'] {
                 /* fix date fields in iOS */
-                /* display: block; */
                 -webkit-appearance: textfield;
                 -moz-appearance: textfield;
                 background-color: transparent;
-                padding: 0 0 0 8px; /* assist with vertical alignment of dates on iOS */
+                padding: 0 8px; /* assist with vertical alignment of dates on iOS */
             }
             input[type='date']::-webkit-date-and-time-value {
-                /* required for iOS */
-                text-align: left;
-                /* padding-left: 8px; */
+                text-align: left; /* required for iOS */
             }
             textarea {
                 padding-top: 8px; /* add some space to make it look more like text input looks */
@@ -465,11 +462,11 @@
                     <input class="formDate" id='dateBestBeforePicker' type='date' > <!-- temporary date for user input with validation -->
                     <input id='dateBestBeforeFormat' name='00N5j00000Gq8XE' type='hidden' > <!-- hidden field to hold correctly formatted BB date -->
 
-                    <label for='00N5j00000Gq8XA'>Batch Code (From tag e.g. AK1 113 0527)</label>
-                    <input id='00N5j00000Gq8XA' maxlength='20' name='00N5j00000Gq8XA' type='text' >
+                    <label for='00N5j00000Gq8XA'>Batch Code (From tag)</label>
+                    <input id='00N5j00000Gq8XA' maxlength='20' name='00N5j00000Gq8XA' type='text' placeholder='e.g. AK1 113 0527'>
 
-                    <label for='00N5j00000Gq8X9'>Barcode (e.g. 9415382000110)</label>
-                    <input id='00N5j00000Gq8X9' maxlength='20' name='00N5j00000Gq8X9' type='text' >
+                    <label for='00N5j00000Gq8X9'>Barcode</label>
+                    <input id='00N5j00000Gq8X9' maxlength='20' name='00N5j00000Gq8X9' type='text' placeholder='e.g. 9415382000110'>
 
                     <label for='datePurchasedPicker'>Date Purchased (DD/MM/YYYY)</label> 
                     <input class="formDate" id='datePurchasedPicker' type='date' > <!-- temporary date for user input with validation -->
