@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 22</title>
+        <title>Contact Us 23</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -453,7 +453,7 @@
                 
                 <label for="phoneQuality">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneQuality" maxlength="20" name="phone" class="intlTel" type="text">
+                    <input id="phoneQuality" maxlength="20" name="phone" type="tel">
                 </div>
                 
                 <label for='Enquiry'>Reason to Contact</label>
@@ -682,7 +682,7 @@
                 
                 <label for="phoneExisting">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneExisting" maxlength="20" name="phone" class="intlTel" type="text">
+                    <input id="phoneExisting" maxlength="20" name="phone" type="tel">
                 </div>
                 
                 <label for="subject">Subject</label>
@@ -764,7 +764,7 @@
                 
                 <label for="phoneCrates">Phone</label>
                 <div class="intlTelWrapper">
-                    <input id="phoneCrates" maxlength="20" name="phone" class="intlTel" type="text">
+                    <input id="phoneCrates" maxlength="20" name="phone" type="tel">
                 </div>
                 
                 <label for="subject">Subject</label>
@@ -864,7 +864,7 @@
 
             var phoneInputs = JSON.parse('{}');
             
-            for (const phoneElem of document.getElementsByClassName("intlTel")) {
+            for (const phoneElem of document.querySelectorAll('input[type="tel"]')) {
 
                 //documentation: https://github.com/jackocnr/intl-tel-input
 
