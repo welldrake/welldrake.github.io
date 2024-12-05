@@ -1,90 +1,121 @@
-<form id="msff" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&amp;orgId=00D900000010aKL" method="POST">
+<!DOCTYPE html>
+<html lang="en-AU">
+    
+    
+    <head>
 
-    <input type="hidden" name="captcha_settings" value="{&quot;keyname&quot;:&quot;MauriContactUs&quot;,&quot;fallback&quot;:&quot;true&quot;,&quot;orgId&quot;:&quot;00D900000010aKL&quot;,&quot;ts&quot;:&quot;1733371099967&quot;}">
-    <input type="hidden" name="orgid" value="00D900000010aKL">
-    <input type="hidden" id="subject" name="subject" value="">
-    <!-- Hidden field for Business Unit with default value -->
-    <input type="hidden" id="00NMn00000G3zaf" name="00NMn00000G3zaf" value="AU Bakery Ingredient">
-    <!-- Hidden field for Type with default value -->
-    <input type="hidden" id="type" name="type" value="General Enquiry">
-    <input type="hidden" id="recordType" name="recordType" value="012Mn000001gIZV">
-    
-    <!-- Change to the Success page -->
-    <input type="hidden" name="retURL" value="https://www.mauri.com.au/contact/">
-    
-    <!--  ----------------------------------------------------------------------  -->
-    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-    <!--  these lines if you wish to test in debug mode.                          -->
-<input type="hidden" name="debug" value=1>
-<input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
-    <!--  ----------------------------------------------------------------------  -->
-    
-    <label>First Name:</label><input id="00NMn00000G3zbm" maxlength="40" name="00NMn00000G3zbm" size="20" type="text"><br>
-    
-    <label>Last Name:</label><input id="00NMn00000G3zbo" maxlength="80" name="00NMn00000G3zbo" size="20" type="text"><br>
-    
-    <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text"><br>
-    
-    <label for="phone">Phone</label><input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
-    
-    <label>Type Of Business:</label><select id="00NMn00000G3zat" name="00NMn00000G3zat" title="Web Type Of Business"><option value="">--None--</option><option value="BAKERY/HOT BREAD SHOP">BAKERY/HOT BREAD SHOP</option>
-    <option value="DISTRIBUTOR">DISTRIBUTOR</option>
-    <option value="MANUFACTURE">MANUFACTURE</option>
-    <option value="SUPERMARKET/RETAILER">SUPERMARKET/RETAILER</option>
-    <option value="EDUCATION FACILITY">EDUCATION FACILITY</option>
-    <option value="CORRECTIVE SERVICES">CORRECTIVE SERVICES</option>
-    <option value="CATERING SERVICES">CATERING SERVICES</option>
-    <option value="OTHER">OTHER</option>
-    <option value="HOME BAKER">HOME BAKER</option>
-    </select><br>
-    
-    <label for="company">Company</label><input id="company" maxlength="80" name="company" size="20" type="text"><br>
-    
-    <label>Postcode:</label><input id="00NMn00000G3zbp" maxlength="20" name="00NMn00000G3zbp" size="20" type="text"><br>
-    
-    <label>Suburb:</label><input id="00NMn00000G3zbq" maxlength="40" name="00NMn00000G3zbq" size="20" type="text"><br>
-    
-    <label>State:</label><select id="00NMn00000G3zas" name="00NMn00000G3zas" title="Web State"><option value="">--None--</option><option value="NSW">NSW</option>
-    <option value="QLD">QLD</option>
-    <option value="SA">SA</option>
-    <option value="TAS">TAS</option>
-    <option value="VIC">VIC</option>
-    <option value="WA">WA</option>
-    <option value="ACT">ACT</option>
-    </select><br>
-    
-    <label>How Can We Help You?</label>
-    <div id="helpCheckboxContainer">
-        <label><input type="checkbox" name="helpCheckbox" value="SET UP A BUSINESS ACCOUNT WITH MAURI"> SET UP A BUSINESS ACCOUNT WITH MAURI</label>
-        <label><input type="checkbox" name="helpCheckbox" value="FIND A LOCAL SUPPLIER NEAR ME"> FIND A LOCAL SUPPLIER NEAR ME</label>
-        <label><input type="checkbox" name="helpCheckbox" value="REQUEST PRODUCT INFORMATION"> REQUEST PRODUCT INFORMATION</label>
-        <label><input type="checkbox" name="helpCheckbox" value="REQUEST TECHNICAL BAKING SUPPORT"> REQUEST TECHNICAL BAKING SUPPORT</label>
-        <label><input type="checkbox" name="helpCheckbox" value="GENERAL FEEDBACK / OTHER …"> GENERAL FEEDBACK / OTHER …</label>
-    </div>
-    
-    <input type="hidden" id="00NMn00000G3zbn" name="00NMn00000G3zbn"><br>
-    
-    <label>What Products Are You Interested In?</label>
-    <div id="productsCheckboxContainer">
-        <label><input type="checkbox" name="productsCheckbox" value="Flour"> Flour</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Bread Mixes"> Bread Mixes</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Cakes &amp; Pastry Mixes"> Cakes &amp; Pastry Mixes</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Wellness Bread Concentrates"> Wellness Bread Concentrates</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Gluten Free"> Gluten Free</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Grains, Meals &amp; Seeds"> Grains, Meals &amp; Seeds</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Specialty Flour"> Specialty Flour</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Sustainable, Organic &amp; Stoneground Flour"> Sustainable, Organic &amp; Stoneground Flour</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Pies, Toppings &amp; Bases"> Pies, Toppings &amp; Bases</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Yeast"> Yeast</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Bread Improvers &amp; Conditioners"> Bread Improvers &amp; Conditioners</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Dry &amp; Fruit Ingredients"> Dry &amp; Fruit Ingredients</label>
-        <label><input type="checkbox" name="productsCheckbox" value="Fats &amp; Oils"> Fats &amp; Oils</label>
-    </div>
-    <input type="hidden" id="00NMn00000G3zbr" name="00NMn00000G3zbr">
-    
-    <label for="description">Please include specific details of enquiry</label><textarea name="description" cols="40" rows="10"></textarea>
-    
-    <div class="g-recaptcha" data-sitekey="6LfVnCYTAAAAAB4x9xlkeTsV8CO6np5UMhNjRNNZ"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-5ch2fgdnhusd" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfVnCYTAAAAAB4x9xlkeTsV8CO6np5UMhNjRNNZ&amp;co=aHR0cHM6Ly93d3cubWF1cmkuY29tLmF1OjQ0Mw..&amp;hl=en&amp;v=pPK749sccDmVW_9DSeTMVvh2&amp;size=normal&amp;cb=if3cbaflunch"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
-    <input type="submit" name="submit">
-    
-    </form>
+        <title>title</title>
+
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+        
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        
+        <script>
+            function timestamp() {
+              var response = document.getElementById("g-recaptcha-response");
+              if (response == null || response.value.trim() == "") {
+                var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+                elems["ts"] = JSON.stringify(new Date().getTime());
+                document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); 
+              }
+            }
+            setInterval(timestamp, 500); 
+        </script>
+</head>
+
+<body>
+
+    <form id="msff" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D900000010aKL" method="POST">
+
+<input type=hidden name='captcha_settings' value='{"keyname":"TestKeyNoProtection","fallback":"true","orgId":"00D900000010aKL","ts":""}'>
+<input type=hidden name="orgid" value="00D900000010aKL">
+        
+        <input type="hidden" id="subject" name="subject" value="">
+        <!-- Hidden field for Business Unit with default value -->
+        <input type="hidden" id="00NMn00000G3zaf" name="00NMn00000G3zaf" value="AU Bakery Ingredient">
+        <!-- Hidden field for Type with default value -->
+        <input type="hidden" id="type" name="type" value="General Enquiry">
+        <input type="hidden" id="recordType" name="recordType" value="012Mn000001gIZV">
+        
+        <!-- Change to the Success page -->
+        <input type="hidden" name="retURL" value="https://www.mauri.com.au/contact/">
+        
+
+        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+        <!--  these lines if you wish to test in debug mode.                          -->
+    <input type="hidden" name="debug" value=1>
+    <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
+        
+        <label>First Name 5:</label><input id="00NMn00000G3zbm" maxlength="40" name="00NMn00000G3zbm" size="20" type="text"><br>
+        
+        <label>Last Name:</label><input id="00NMn00000G3zbo" maxlength="80" name="00NMn00000G3zbo" size="20" type="text"><br>
+        
+        <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text"><br>
+        
+        <label for="phone">Phone</label><input id="phone" maxlength="40" name="phone" size="20" type="text"><br>
+        
+        <label>Type Of Business:</label><select id="00NMn00000G3zat" name="00NMn00000G3zat" title="Web Type Of Business"><option value="">--None--</option><option value="BAKERY/HOT BREAD SHOP">BAKERY/HOT BREAD SHOP</option>
+        <option value="DISTRIBUTOR">DISTRIBUTOR</option>
+        <option value="MANUFACTURE">MANUFACTURE</option>
+        <option value="SUPERMARKET/RETAILER">SUPERMARKET/RETAILER</option>
+        <option value="EDUCATION FACILITY">EDUCATION FACILITY</option>
+        <option value="CORRECTIVE SERVICES">CORRECTIVE SERVICES</option>
+        <option value="CATERING SERVICES">CATERING SERVICES</option>
+        <option value="OTHER">OTHER</option>
+        <option value="HOME BAKER">HOME BAKER</option>
+        </select><br>
+        
+        <label for="company">Company</label><input id="company" maxlength="80" name="company" size="20" type="text"><br>
+        
+        <label>Postcode:</label><input id="00NMn00000G3zbp" maxlength="20" name="00NMn00000G3zbp" size="20" type="text"><br>
+        
+        <label>Suburb:</label><input id="00NMn00000G3zbq" maxlength="40" name="00NMn00000G3zbq" size="20" type="text"><br>
+        
+        <label>State:</label><select id="00NMn00000G3zas" name="00NMn00000G3zas" title="Web State"><option value="">--None--</option><option value="NSW">NSW</option>
+        <option value="QLD">QLD</option>
+        <option value="SA">SA</option>
+        <option value="TAS">TAS</option>
+        <option value="VIC">VIC</option>
+        <option value="WA">WA</option>
+        <option value="ACT">ACT</option>
+        </select><br>
+        
+        <label>How Can We Help You?</label>
+        <div id="helpCheckboxContainer">
+            <label><input type="checkbox" name="helpCheckbox" value="SET UP A BUSINESS ACCOUNT WITH MAURI"> SET UP A BUSINESS ACCOUNT WITH MAURI</label>
+            <label><input type="checkbox" name="helpCheckbox" value="FIND A LOCAL SUPPLIER NEAR ME"> FIND A LOCAL SUPPLIER NEAR ME</label>
+            <label><input type="checkbox" name="helpCheckbox" value="REQUEST PRODUCT INFORMATION"> REQUEST PRODUCT INFORMATION</label>
+            <label><input type="checkbox" name="helpCheckbox" value="REQUEST TECHNICAL BAKING SUPPORT"> REQUEST TECHNICAL BAKING SUPPORT</label>
+            <label><input type="checkbox" name="helpCheckbox" value="GENERAL FEEDBACK / OTHER …"> GENERAL FEEDBACK / OTHER …</label>
+        </div>
+        
+        <input type="hidden" id="00NMn00000G3zbn" name="00NMn00000G3zbn"><br>
+        
+        <label>What Products Are You Interested In?</label>
+        <div id="productsCheckboxContainer">
+            <label><input type="checkbox" name="productsCheckbox" value="Flour"> Flour</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Bread Mixes"> Bread Mixes</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Cakes & Pastry Mixes"> Cakes & Pastry Mixes</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Wellness Bread Concentrates"> Wellness Bread Concentrates</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Gluten Free"> Gluten Free</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Grains, Meals & Seeds"> Grains, Meals & Seeds</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Specialty Flour"> Specialty Flour</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Sustainable, Organic & Stoneground Flour"> Sustainable, Organic & Stoneground Flour</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Pies, Toppings & Bases"> Pies, Toppings & Bases</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Yeast"> Yeast</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Bread Improvers & Conditioners"> Bread Improvers & Conditioners</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Dry & Fruit Ingredients"> Dry & Fruit Ingredients</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Fats & Oils"> Fats & Oils</label>
+        </div>
+        <input type="hidden" id="00NMn00000G3zbr" name="00NMn00000G3zbr">
+        
+        <label for="description">Please include specific details of enquiry</label><textarea name="description" cols="40" rows="10"></textarea>
+        
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
+        
+        <input type="submit" name="submit">
+        
+        </form>
+
+    </body>
+</html>
