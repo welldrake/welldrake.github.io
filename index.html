@@ -503,7 +503,7 @@
                 </div>
 
                 <label id='postCodeLabel' for='postCodeQuality'>Your Post Code</label>
-                <input id='postCodeQuality' maxlength='10' name='00N5j00000Gq8XO' type='text' >
+                <input id='postCodeQuality' maxlength='10' pattern="[0-9]*" name='00N5j00000Gq8XO' type='number' >
             
                 <label id='countryLabel' for='countryQuality'>Your Country</label> <!-- gets display:none by javascript unless varShowCountryField in config is set to true -->
                 <select id='countryQuality' name='00N5j00000Gq8XM'> <!-- This is a plain text field, so new options can be added/removed safely, max 56 characters -->
