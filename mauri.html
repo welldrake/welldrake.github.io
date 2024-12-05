@@ -1,8 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-AU">
     
     <title>title</title>
-    
     <head>
+
         <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
         
         <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -18,14 +19,15 @@
             }
             setInterval(timestamp, 500); 
         </script>
-    </head>
+</head>
 
 <body>
 
-    <form id="msff" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&amp;orgId=00D900000010aKL" method="POST">
-    
-        <input type="hidden" name="captcha_settings" value="{'keyname':'6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI','fallback':'true','orgId':'00D900000010aKL','ts':'1733371099967'}">
-        <input type="hidden" name="orgid" value="00D900000010aKL">
+    <form id="msff" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D900000010aKL" method="POST">
+
+<input type=hidden name='captcha_settings' value='{"keyname":"GooglePublicTestKeys","fallback":"true","orgId":"00D900000010aKL","ts":""}'>
+<input type=hidden name="orgid" value="00D900000010aKL">
+        
         <input type="hidden" id="subject" name="subject" value="">
         <!-- Hidden field for Business Unit with default value -->
         <input type="hidden" id="00NMn00000G3zaf" name="00NMn00000G3zaf" value="AU Bakery Ingredient">
@@ -36,14 +38,13 @@
         <!-- Change to the Success page -->
         <input type="hidden" name="retURL" value="https://www.mauri.com.au/contact/">
         
-        <!--  ----------------------------------------------------------------------  -->
+
         <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
         <!--  these lines if you wish to test in debug mode.                          -->
     <input type="hidden" name="debug" value=1>
     <input type="hidden" name="debugEmail" value="alex.wilson@gwf.com.au">
-        <!--  ----------------------------------------------------------------------  -->
         
-        <label>First Name 3:</label><input id="00NMn00000G3zbm" maxlength="40" name="00NMn00000G3zbm" size="20" type="text"><br>
+        <label>First Name 4:</label><input id="00NMn00000G3zbm" maxlength="40" name="00NMn00000G3zbm" size="20" type="text"><br>
         
         <label>Last Name:</label><input id="00NMn00000G3zbo" maxlength="80" name="00NMn00000G3zbo" size="20" type="text"><br>
         
@@ -92,23 +93,24 @@
         <div id="productsCheckboxContainer">
             <label><input type="checkbox" name="productsCheckbox" value="Flour"> Flour</label>
             <label><input type="checkbox" name="productsCheckbox" value="Bread Mixes"> Bread Mixes</label>
-            <label><input type="checkbox" name="productsCheckbox" value="Cakes &amp; Pastry Mixes"> Cakes &amp; Pastry Mixes</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Cakes & Pastry Mixes"> Cakes & Pastry Mixes</label>
             <label><input type="checkbox" name="productsCheckbox" value="Wellness Bread Concentrates"> Wellness Bread Concentrates</label>
             <label><input type="checkbox" name="productsCheckbox" value="Gluten Free"> Gluten Free</label>
-            <label><input type="checkbox" name="productsCheckbox" value="Grains, Meals &amp; Seeds"> Grains, Meals &amp; Seeds</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Grains, Meals & Seeds"> Grains, Meals & Seeds</label>
             <label><input type="checkbox" name="productsCheckbox" value="Specialty Flour"> Specialty Flour</label>
-            <label><input type="checkbox" name="productsCheckbox" value="Sustainable, Organic &amp; Stoneground Flour"> Sustainable, Organic &amp; Stoneground Flour</label>
-            <label><input type="checkbox" name="productsCheckbox" value="Pies, Toppings &amp; Bases"> Pies, Toppings &amp; Bases</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Sustainable, Organic & Stoneground Flour"> Sustainable, Organic & Stoneground Flour</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Pies, Toppings & Bases"> Pies, Toppings & Bases</label>
             <label><input type="checkbox" name="productsCheckbox" value="Yeast"> Yeast</label>
-            <label><input type="checkbox" name="productsCheckbox" value="Bread Improvers &amp; Conditioners"> Bread Improvers &amp; Conditioners</label>
-            <label><input type="checkbox" name="productsCheckbox" value="Dry &amp; Fruit Ingredients"> Dry &amp; Fruit Ingredients</label>
-            <label><input type="checkbox" name="productsCheckbox" value="Fats &amp; Oils"> Fats &amp; Oils</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Bread Improvers & Conditioners"> Bread Improvers & Conditioners</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Dry & Fruit Ingredients"> Dry & Fruit Ingredients</label>
+            <label><input type="checkbox" name="productsCheckbox" value="Fats & Oils"> Fats & Oils</label>
         </div>
         <input type="hidden" id="00NMn00000G3zbr" name="00NMn00000G3zbr">
         
         <label for="description">Please include specific details of enquiry</label><textarea name="description" cols="40" rows="10"></textarea>
         
-        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-5ch2fgdnhusd" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfVnCYTAAAAAB4x9xlkeTsV8CO6np5UMhNjRNNZ&amp;co=aHR0cHM6Ly93d3cubWF1cmkuY29tLmF1OjQ0Mw..&amp;hl=en&amp;v=pPK749sccDmVW_9DSeTMVvh2&amp;size=normal&amp;cb=if3cbaflunch"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><br>
+        
         <input type="submit" name="submit">
         
         </form>
