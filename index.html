@@ -673,6 +673,9 @@
                 <input type="hidden" name='00N5j00000Gq8XG' value='Enquiry' > <!-- Case Type -->
                 <input type="hidden" name="00N5j00000GqBxu" value='Tip Top' > <!-- Business Unit -->
                 <input type="hidden" name="00N5j00000GqZEj" value='Customer' > <!-- Contact Type Description -->
+
+                <label for="name">Customer Number <span style="color:red;">(to do:point at correct field)</span></label>
+                <input id="sapId" maxlength="80" name="00NRF0000010YMS" type="text">
                 
                 <label for="name">Contact Name</label>
                 <input id="name" maxlength="80" name="name" type="text">
@@ -688,7 +691,7 @@
                 <label for="subject">Subject</label>
                 <input id="subject" maxlength="255" name="subject" type="text">
                 
-                <label for="description">Description</label>
+                <label for="description">Nature of Enquiry</label>
                 <textarea id="description" name="description"></textarea>
                 
                 <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
