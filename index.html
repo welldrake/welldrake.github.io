@@ -15,16 +15,16 @@
             var varIsSandbox = true;
             var varSandboxBaseUrl = 'https://gwf--uat.sandbox.my.salesforce.com/'; /* this is ignored if varIsSandbox is false, otherwise must include https:// and trailing slash */
             var varReturnUrl = 'https://welldrake.github.io/thanks.html'; /* where to send the user after they submit a form */
-            var varCaseOriginDetail = 'Golden NZ' /* valid values are: Abbotts, Bazaar, Big Ben NZ, Burgen, Burgen NZ, Dorset, Foodservice, Golden, Golden NZ, GWF, GWF Baking NZ, Jordans, Jordans Ryvita, Pataks, Ploughmans NZ, Retail, Ryvita, Tip Top, Tip Top NZ */
+            var varCaseOriginDetail = 'Tip Top Bakeries' /* valid values are: Abbotts, Bazaar, Big Ben NZ, Burgen, Burgen NZ, Dorset, Foodservice, Golden, Golden NZ, GWF, GWF Baking NZ, Jordans, Jordans Ryvita, Pataks, Ploughmans NZ, Retail, Ryvita, Tip Top, Tip Top NZ */
             var varPhoneCountries = ['nz', 'au']; /* phone number field will default to first one in the list, list can be just one item */
             var varShowCountryField = false; /* Usually false, might be true for Pataks as there is one website across both countries so need customer to tell us where they are */
             //Configure the reCPATCHA keyname and site key
-            var varKeyname = 'TestingKeyNoProtection';
-            var varSitekey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+            var varKeyname = 'TestingKeyNoProtection'; //must match the name in Salesforce
+            var varSitekey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; //must match the key in Google Admin and in Salesforce
             /* delete key pairs here: https://gwf--uat.sandbox.my.salesforce.com/0He */
             /* delete key pairs here: https://gwf.my.salesforce.com/0He */
             
-            /*
+            /* For reference
             AustraliaAll           : 6LdKMJ8fAAAAAENRalWR8ISyK94pLiQ73H08nH2K
             TipTopNZ               : 6LcD27sfAAAAAMhbJDIuNUawDBcExbb4Q-K9kfst
             BigBenNZ               : 6Le-2bsfAAAAALI4E4wAXBOelAZHNqUZwju0e6S-
@@ -575,31 +575,22 @@
                 
                 <label for="last_name">Last Name</label>
                 <input id="last_name" maxlength="80" name="last_name" type="text">
-                
-                <label for="first_name_local">First Name (Local)</label>
-                <input id="first_name_local" maxlength="40" name="first_name_local" type="text">
-                
-                <label for="last_name_local">Last Name (Local)</label>
-                <input id="last_name_local" maxlength="40" name="last_name_local" type="text">
-                
-                <label for="company_local">Company Name (Local)</label>
-                <input id="company_local" maxlength="40" name="company_local" type="text">
-                
-                <label for="emailBecome">Email</label>
+                                
+                <label for="emailBecome">Contact Email</label>
                 <input id="emailBecome" name="email" type="email" placeholder='first.last@example.com' required>
-                
-                <label for="company">Company</label>
+
+                <label for="MobilePhoneBecome">Contact Mobile Phone</label>
+                <div class="intlTelWrapper">
+                    <input id="MobilePhoneBecome" maxlength="20" name="MobilePhone" type="tel" required>
+                </div>
+
+                <label for="company">Trading Name</label>
                 <input id="company" maxlength="40" name="company" type="text">
                 
                 <label for="city">City</label>
                 <input id="city" maxlength="40" name="city" type="text">
-                
-                <label for="country_code">Country</label>
-                <select id="country_code" name="country_code">
-                    <option value="">--None--</option>
-                    <option value="AU">AU</option>
-                    <option value="NZ">NZ</option>
-                </select>
+
+                <!-- @Ivan - perhaps some smarts coule be applied here to populate country from state, or at least disallow mismatching values, e.g. NI in AU, or NSW in NZ -->
                 
                 <label for="state_code">State/Province</label>
                 <select id="state_code" name="state_code">
@@ -615,7 +606,16 @@
                     <option value="VIC">VIC</option>
                     <option value="WA">WA</option>
                 </select>
+
+                <!-- @Ivan - if we can set the coutnry based on state, then you can simply hide the country field, and set it in the background -->
                 
+                <label for="country_code">Country</label>
+                <select id="country_code" name="country_code">
+                    <option value="">--None--</option>
+                    <option value="AU">AU</option>
+                    <option value="NZ">NZ</option>
+                </select>
+                                
                 <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaBecome"></div>
     
@@ -679,16 +679,20 @@
                 <input type="hidden" name="00N5j00000GqBxu" value='Tip Top' > <!-- Business Unit -->
                 <input type="hidden" name="00N5j00000GqZEj" value='Customer' > <!-- Contact Type Description -->
 
-                <label for="name">Customer Number <span style="color:red;">(to do:point at correct field)</span></label>
-                <input id="sapId" maxlength="80" name="00NRF0000010YMS" type="text">
-                
+                <!-- Alex could do some automation in Salesforce - if customer number matches a known SAP ID, then populate AccountId field -->
+                <label for="ExistingSuppliedCompany">Customer Number</label>
+                <input id="ExistingSuppliedCompany" maxlength="7" name="SuppliedCompany" type="text" placeholder='1234567' required>
+                    
+                <label for="ExistingNonCustomerName">Customer Name</label>
+                <input id="ExistingNonCustomerName" maxlength="80" name="00NRF0000010YMS" type="text" required>
+                    
                 <label for="name">Contact Name</label>
-                <input id="name" maxlength="80" name="name" type="text">
+                <input id="name" maxlength="80" name="name" type="text" required>
                 
-                <label for="emailExisting">Email</label>
+                <label for="emailExisting">Contact Email</label>
                 <input id="emailExisting" name="email" type="email" placeholder='first.last@example.com' required>
                 
-                <label for="phoneExisting">Phone</label>
+                <label for="phoneExisting">Contact Phone</label>
                 <div class="intlTelWrapper">
                     <input id="phoneExisting" maxlength="20" name="phone" type="tel">
                 </div>
