@@ -684,9 +684,9 @@
                 <input type="hidden" name="00N5j00000GqZEj" value='Customer' > <!-- Contact Type Description -->
 
                 <!-- SuppliedCompany is used as there is Flow automation that populates AccountId if a valid SAP Id is entered -->
-                <span style="color:red">Bug to fix: SuppliedCompany is not populating for some reason</span>
+                <!-- <span style="color:red">Bug to fix: SuppliedCompany is not populating for some reason</span> -->
                 <label for="ExistingSuppliedCompany">Customer Number</label>
-                <input id="ExistingSuppliedCompany" maxlength="7" name="SuppliedCompany" type="text" placeholder='1234567' required>
+                <input id="ExistingSuppliedCompany" maxlength="7" name="company" type="text" placeholder='1234567' pattern='^1\d{6}$' required>
                     
                 <label for="ExistingNonCustomerName">Customer Name</label>
                 <input id="ExistingNonCustomerName" maxlength="80" name="00NRF0000010YMS" type="text" required>
@@ -774,9 +774,9 @@
                 <input type='hidden' name="00N5j00000I8ar0" id="SuppliedMailingAddressCrate" value='' > <!-- Web Mail Address : SuppliedMailingAddress__c -->
 
                 <!-- SuppliedCompany is used as there is Flow automation that populates AccountId if a valid SAP Id is entered -->
-                <span style="color:red">Bug to fix: SuppliedCompany is not populating for some reason</span>
+                <!--<span style="color:red">Bug to fix: SuppliedCompany is not populating for some reason</span>-->
                 <label for="SuppliedCompanyCrates">Customer Number</label>
-                <input id="SuppliedCompanyCrates" maxlength="7" name="SuppliedCompany" type="text" placeholder='1234567' required>
+                <input id="SuppliedCompanyCrates" maxlength="7" name="company" type="text" placeholder='1234567' pattern='^1\d{6}$' required>
                     
                 <label for="NonCustomerNameCrates">Customer Name</label>
                 <input id="NonCustomerNameCrates" maxlength="80" name="00NRF0000010YMS" type="text" required>
@@ -1212,17 +1212,6 @@
                 countryLabel.innerHTML = 'Store Purchased From Country';
             }});
         </script>
-
-        <!--
-        <br><br><br>
-        <footer><pre style="color:darkgrey">
-        <i>For more info, see email dated:</i>
-        From: Wilson, Alex <no-reply@gwf.com.au>
-        Date: Wednesday, 3 July 2024 at 9:36 AM
-        To: Wilson, Alex <no-reply@gwf.com.au>
-        Subject: Fixing Contact us Pages
-        </pre></footer>
-        -->
 
     </body>
 
