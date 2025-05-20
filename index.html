@@ -679,7 +679,7 @@
                 <input type="hidden" name="00N5j00000GqBxu" value='Tip Top' > <!-- Business Unit -->
                 <input type="hidden" name="00N5j00000GqZEj" value='Customer' > <!-- Contact Type Description -->
 
-                <!-- Alex could do some automation in Salesforce - if customer number matches a known SAP ID, then populate AccountId field -->
+                <!-- SuppliedCompany is used as there is Flow automation that populates AccountId if a valid SAP Id is entered -->
                 <label for="ExistingSuppliedCompany">Customer Number</label>
                 <input id="ExistingSuppliedCompany" maxlength="7" name="SuppliedCompany" type="text" placeholder='1234567' required>
                     
@@ -735,7 +735,7 @@
                     Crates and Dollies Collection
                 </span>
                 <span class="summaryDescription">
-                    If you need Tip Top crates and/or dollies collected
+                    Let us know if you need Tip Top Crates/Dollies collected
                 </span>
                 
             </summary>
@@ -768,23 +768,64 @@
                 <input type='hidden' name="00N5j00000GqBxu" value='Tip Top' > <!-- Business Unit -->
                 <input type='hidden' name="00N5j00000I8ar0" id="SuppliedMailingAddressCrate" value='' > <!-- Web Mail Address : SuppliedMailingAddress__c -->
 
-                <label for="name">Contact Name 4</label>
-                <input id="name" maxlength="80" name="name" type="text">
+                <!-- SuppliedCompany is used as there is Flow automation that populates AccountId if a valid SAP Id is entered -->
+                <label for="SuppliedCompanyCrates">Customer Number</label>
+                <input id="SuppliedCompanyCrates" maxlength="7" name="SuppliedCompany" type="text" placeholder='1234567' required>
+                    
+                <label for="NonCustomerNameCrates">Customer Name</label>
+                <input id="NonCustomerNameCrates" maxlength="80" name="00NRF0000010YMS" type="text" required>
                 
-                <label for="emailCrates">Email</label>
+                <label for="nameCrates">Contact Name</label>
+                <input id="nameCrates" maxlength="80" name="name" type="text">
+                
+                <label for="emailCrates">Contact Email</label>
                 <input id="emailCrates" name="email" type="email" placeholder='first.last@example.com' required>
                 
-                <label for="phoneCrates">Phone</label>
+                <label for="phoneCrates">Contact Phone</label>
                 <div class="intlTelWrapper">
                     <input id="phoneCrates" maxlength="20" name="phone" type="tel">
                 </div>
                 
-                <label for="subject">Subject</label>
-                <input id="subject" maxlength="80" name="subject" type="text">
+                <label for="subjectCrates">Subject</label>
+                <input id="subjectCrates" maxlength="80" name="subject" type="text" value="Crates &amp; Dollies">
                 
-                <label for="description">Description</label>
-                <textarea id="description" name="description"></textarea>
-                    
+                <label for="descriptionCrates">Message</label>
+                <textarea id="descriptionCrates" name="description"></textarea>
+
+                <label for="locationDescriptionCrates">Crates/Dollies Location Description</label>
+                <input id="locationDescriptionCrates" maxlength="180" name="00NRF0000010YMM" size="20" type="text" />
+
+                <label for="quantityCratesCrates">Crates Quantity</label>
+                <input id="quantityCratesCrates" name="00NRF0000010YMN" size="20" type="text" />
+
+                <label for="quantityDolliesCrates">Dollies Quantity</label>
+                <input id="quantityDolliesCrates" name="00NRF0000010YMO" size="20" type="text" />
+
+                <label for="colourCrates">Crates Colour</label>
+                <select  id="colourCrates" name="00NRF0000010YM7" title="Crates Colour">
+                    <option value="">--None--</option>
+                    <option value="Orange">Orange</option>
+                    <option value="Red">Red</option>
+                    <option value="Both">Both</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+                
+                <label for="accessRestrictionsCrates">Crates/Dollies Access Restrictions</label>
+                <input id="accessRestrictionsCrates" maxlength="180" name="00NRF0000010YMJ" size="20" type="text" />
+
+                <label for="truckAccessibleCrates">Crates/Dollies Accessible By Truck</label>
+                <select id="truckAccessibleCrates" name="00NRF0000010YM5" title="Crates/Dollies Accessible By Truck">
+                    <option value="">--None--</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                
+                <label for="collectionHoursCrates">Crates/Dollies Collection Hours</label>
+                <input id="collectionHoursCrates" maxlength="180" name="00NRF0000010YML" size="20" type="text" />
+
+                <span>Please Note: Crates must be stacked neatly for pick up</span>
+                <input id="stackingResponseCrates" name="00NRF0000010YM8" value="Agreed to stack" hidden>
+                
                 <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaCrates"></div>
     
