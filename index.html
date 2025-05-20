@@ -3,7 +3,7 @@
     
     <head>
         
-        <title>Contact Us 24</title>
+        <title>Contact Us 25</title>
         
         <meta http-equiv="Content-type" content="text/html; charset=UTF-8" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -334,12 +334,14 @@
                 margin-right: -3px; /* compensate for original radio button taking up 3px more than specified width */
                 opacity: 0; /* hide the original radio buttons */
             }
-            .radio-toolbar label {
+            .radio-toolbar label, a.button {
                 background-color: lightgrey;
                 color:black;
                 padding: 10px 24px;
                 display: inline-block; /* ensures each button won't wrap around the line on narrow screen*/
                 cursor: pointer;
+                max-width: 186px;
+                text-align: center; /* only applies to button, not label, but does no harm */
             }
             .radio-toolbar input[type="radio"]:checked+label {
                 background-color: #ffbb00;
@@ -787,22 +789,22 @@
                 </div>
                 
                 <label for="subjectCrates">Subject</label>
-                <input id="subjectCrates" maxlength="80" name="subject" type="text" value="Crates &amp; Dollies">
+                <input id="subjectCrates" maxlength="80" name="subject" type="text" value="Crates &amp; Dollies " required>
                 
                 <label for="descriptionCrates">Message</label>
-                <textarea id="descriptionCrates" name="description"></textarea>
+                <textarea id="descriptionCrates" maxlength="32000" name="description"></textarea>
 
                 <label for="locationDescriptionCrates">Crates/Dollies Location Description</label>
-                <input id="locationDescriptionCrates" maxlength="180" name="00NRF0000010YMM" size="20" type="text" />
+                <input id="locationDescriptionCrates" maxlength="180" name="00NRF0000010YMM" type="text" >
 
                 <label for="quantityCratesCrates">Crates Quantity</label>
-                <input id="quantityCratesCrates" name="00NRF0000010YMN" size="20" type="text" />
+                <input id="quantityCratesCrates" name="00NRF0000010YMN" type="number" min="0" max="9999" required>
 
                 <label for="quantityDolliesCrates">Dollies Quantity</label>
-                <input id="quantityDolliesCrates" name="00NRF0000010YMO" size="20" type="text" />
+                <input id="quantityDolliesCrates" name="00NRF0000010YMO" type="number" min="0" max="999" >
 
                 <label for="colourCrates">Crates Colour</label>
-                <select  id="colourCrates" name="00NRF0000010YM7" title="Crates Colour">
+                <select  id="colourCrates" name="00NRF0000010YM7" title="Crates Colour" required>
                     <option value="">--None--</option>
                     <option value="Orange">Orange</option>
                     <option value="Red">Red</option>
@@ -811,7 +813,7 @@
                 </select>
                 
                 <label for="accessRestrictionsCrates">Crates/Dollies Access Restrictions</label>
-                <input id="accessRestrictionsCrates" maxlength="180" name="00NRF0000010YMJ" size="20" type="text" />
+                <input id="accessRestrictionsCrates" maxlength="180" name="00NRF0000010YMJ" type="text">
 
                 <label for="truckAccessibleCrates">Crates/Dollies Accessible By Truck</label>
                 <select id="truckAccessibleCrates" name="00NRF0000010YM5" title="Crates/Dollies Accessible By Truck">
@@ -821,10 +823,10 @@
                 </select>
                 
                 <label for="collectionHoursCrates">Crates/Dollies Collection Hours</label>
-                <input id="collectionHoursCrates" maxlength="180" name="00NRF0000010YML" size="20" type="text" />
+                <input id="collectionHoursCrates" maxlength="180" name="00NRF0000010YML" type="text">
 
                 <span>Please Note: Crates must be stacked neatly for pick up</span>
-                <input id="stackingResponseCrates" name="00NRF0000010YM8" value="Agreed to stack" hidden>
+                <input type=hidden id="stackingResponseCrates" name="00NRF0000010YM8" value="Agreed to stack">
                 
                 <!-- The recaptcha will be inserted here. The id must be set as 'Recaptcha' + form.id -->
                 <div class="recaptchaWrapper" id="RecaptchaCrates"></div>
@@ -895,9 +897,11 @@
                 Tip Top bakeries is a division of <b>George Weston Foods</b> (GWF), one of Australia and New Zealand's largest food manufacturers employing over 6,000 people across 40 sites.
                 Check out our George Weston Foods Careers Page to search and apply for one of our current vacancies.
 
-                <a href="https://careers.gwf.com.au" class="button">Search and apply for roles in Australia</a>
-
-                <a href="https://gwf.currentjobs.co/Job" class="button">Search and apply for roles in New Zealand</a>
+                <p>
+                    <a href="https://careers.gwf.com.au" class="button">Search and apply for roles in Australia</a>
+                    <a href="https://gwf.currentjobs.co/Job" class="button">Search and apply for roles in New Zealand</a>
+                </p>
+                
             </div>
             
         </details>
@@ -991,10 +995,8 @@
             </div>
             
         </details>
-    
-        <p>OUR ADDRESS<p>
-        <p>Tip Top P.O. BOX 555 Enfield NSW 213</p>
-    
+
+        
         <script>
             //Add country flags to all elements with the class intlTel
 
