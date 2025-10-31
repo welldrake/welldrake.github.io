@@ -1,0 +1,470 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<div>
+	<meta http-equiv='Content-type' content='text/html; charset=UTF-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css' />
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js'></script>
+
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script>function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500);</script>
+
+	<style>
+		textarea {
+			resize: vertical;
+		}
+		input, textarea, select {
+			width: 100%;
+          	color: #727272;
+			padding:8px;
+			margin-bottom:20px;
+          	}
+		select, input#phone-raw {
+			width: 100%!important;
+		} 
+		select {
+    		padding-top: 15px;
+    		padding-bottom: 15px;
+    		height: auto;
+    		border-radius: 2px;
+          	border-color: #cbcbc8;
+    		-webkit-box-shadow: 0 1px 1px 0 #cbcbc8;
+    		box-shadow: 0 1px 1px 0 #cbcbc8;
+		}
+		input:focus, textarea:focus, select:focus {
+			outline: none;
+		}
+		input#phone-raw {
+            padding-left:50px;
+        }
+		input.formDate {
+    		padding-top: 25px;
+    		padding-bottom: 25px;
+          	border-radius: 2px;
+          	border-color: #cbcbc8;
+			-webkit-box-shadow: 0 1px 1px 0 #cbcbc8;
+   			box-shadow: 0 1px 1px 0 #cbcbc8;
+		}
+		.button {
+			background-color: #DAC680;
+			color: white;
+			width:40%;
+			margin-left:30%;
+			margin-top:20px;
+			padding:18px;
+			border-color: #FEFEF9;
+          	border-radius: 6px;
+		}
+		.button:hover, .button:focus {
+			background-color: #BAA86D;
+          	color: white
+		}
+		label {
+			color: #202120;
+			font-size: 12px;
+		}
+		.iti__country-name, .iti__dial-code {
+			font-size: 13.333px;
+		}
+		.iti__country-list {
+			width:250px;
+		}
+		p {
+			color: #727272;
+			font-size: 17px;
+		}
+		.center {
+			text-align: center;
+		}
+		.red {
+		color: #f00;
+		}
+		.warning {
+			text-align: center;
+			color: white;
+			background-color: red;
+			padding:10px;
+		}
+		.radio-toolbar input[type="radio"] {
+            width: 1px;
+            margin-left:139px;
+		}
+		.radio-toolbar label {
+   			padding:8px 16px;
+			color: white;
+			margin-left:-148px; /* -(1px + 139px + 8px) */
+			display: inline-block;
+			background-color: #DAC680;
+			font-size: 12px;
+			cursor: pointer;
+			margin-bottom:20px;
+			margin-right: 5px;
+    		transition: all .2s;
+    		font-size: 16px !important;
+    		border-radius: 4px !important;
+    		padding: 17px 20px !important;
+    		min-width: 140px;
+    		text-align: center;
+    		font-family: var(--button_typography-font-family);
+
+		}
+		.radio-toolbar input[type="radio"]:checked+label {
+			background-color: var(--button_gradient_top_color_hover)!important;
+			color: white!important;
+		}
+		.radio-toolbar input[type="radio"]:focus+label {
+			background-color: var(--button_gradient_top_color);
+			color: #202120;
+		}
+		#rcMessage {
+			width:1px; 
+			height:1px; 
+			opacity:0;
+		}
+		.rcMessageContainer {
+			margin-top:-20px;
+			margin-left:20px;
+		}
+select:focus, input.formDate:focus {
+  border-color: #cbcbc8;
+  border-radius: 2px;
+}
+
+input::placeholder, textarea::placeholder, select::placeholder {
+  color: #999;
+  border-radius: 2px;
+}
+
+input, textarea, select, input[type="date"] {
+  color: #727272;
+  border-color: #cbcbc8
+  font-size:17px;
+  border-radius: 2px;
+}
+
+	</style>
+	
+	<!-- START - ADD THIS TO THE BODY TAG - START -->
+	
+	<form id='login' action='https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8' method='POST' >
+	
+		<!--[if IE]>
+		<p class="warning">This form may not work correctly in Internet Explorer. Please use a modern browser such as Chrome, Firefox, or Edge.</p>
+		<![endif]-->
+
+		<!-- CUSTOMISE 1 - reCAPTCHA - UPDATE 'keyname' -->
+		<input id='rcSettings' type=hidden name='captcha_settings' value='{"keyname":"AustraliaAll","fallback":"true","orgId":"00D28000000fCy5","ts":""}'>
+		<!-- Valid values for 'keyname' are:
+		AustraliaAll
+		TipTopNZ
+		BigBenNZ
+		PloughmansNZ
+		BurgenNZ
+		GoldenNZ
+		GWFNZ
+		FoodserviceNZ
+		+ To add more values, create/manage keys in Google (add domains), record the key pair in Salesforce, add keys to script section of this file
+		+ AU key managed though Google Account for no-reply@gwf.com.au
+		+ NZ keys managed by Simon Dixon
+		-->	
+
+		<input type='hidden' name='external' id='external' value='1' />
+		<input type='hidden' name='orgid' value='00D28000000fCy5'>
+		<input type='hidden' name='retURL' value='https://www.thebakersson.co.nz/'> <!-- *** CUSTOMISE 2 - to return the user some where sensible *** -->
+
+		<!-- NOTE: These fields are optional DEBUGGING elements. Please uncomment    -->
+		<!-- these lines if you wish to test in debug mode.                          -->
+		<!-- <input type="hidden" name="debug" value=1>							 	 -->
+		<!-- <input type="hidden" name="debugEmail" value="no-reply@gwf.com.au">	 -->
+		<!-- END DEBUG -->
+
+		<input type='hidden' name='00N5j00000Gq8XC' value='https://www.thebakersson.co.nz/contact-us/'> <!-- *** CUSTOMISE 3 - to store the URL on the case *** -->
+		<!-- <input type='hidden' name='OwnerID' value='00G5j000000uA39'> --> <!-- this is set by 'Case Assignment Rule' in setup -->
+		<!-- <input type='hidden' name='Origin' value='Web'> --> <!-- this is set by default value in web-to-case settings -->
+		<input type='hidden' name='00N5j00000Gq8XF' value='CIC'> <!-- case function -->
+		<input type='hidden' name='00N5j00000Gq8XJ' value='Unit'> <!-- unit of measure -->
+		<input type='hidden' name='00N5j00000Gq8XI' value='1'> <!-- quantity -->
+		<input type='hidden' name='00N5j00000GqQaq' value='N/A' /> <!-- severity -->
+		<input type='hidden' name="status" value='New' />
+
+		<input type='hidden' name='00N5j00000GqBxu' value='Bakery NZ'> <!-- *** CUSTOMISE 4 *** --> 
+		<!-- Business Unit - If 00N5j00000Gq8XF = 'CIC' then valid values 00N5j00000GqBxu are only:
+		ABWF
+		Bakery Aus
+		Bakery NZ
+		GF
+		JRC
+		-->	
+
+		<input type='hidden' name='00N5j00000Gq8XB' value='The Bakers Son NZ'> <!-- *** CUSTOMISE 5 *** -->
+		<!-- Case Origin Detail - Valid values for 00N1s0000025Rbc are only:
+		GWF Baking NZ
+		Burgen
+		Tip Top
+		Abbotts
+		Foodservice
+		Foodservice NZ		- to be added to picklist in Salesforce
+		Golden NZ			- to be added to picklist in Salesforce
+		Ploughmans NZ		- to be added to picklist in Salesforce
+		GWF					- to be added to picklist in Salesforce
+		Jordans Ryvita		- to be added to picklist in Salesforce
+		Connect CCS 		- to be added to picklist in Salesforce (Origin has to be 'Web' for web-to-case)	
+		Pataks
+		Big Ben NZ
+		Burgen NZ
+		Tip Top NZ
+		Ryvita
+		Jordans
+		-->
+
+		<label for='name'>Contact Name<span class='red'>*</span></label>
+		<input id='name' maxlength='80' name='name' type='text' placeholder='First name and last name' required/>
+
+		<label for='email'>Email<span class='red'>*</span></label>
+		<input id='email' name='email' type='email' required/>
+
+		<label for='phone-raw'>Phone</label>
+		<!-- temporary phone number for user input with validation -->
+		<input id='phone-raw' type='tel' name='phone-raw' size='999' maxlength='18' /> <!-- ideally store this in Salesforce too as a separate field just in case -->
+		<!-- hidden field to hold correctly formatted phone number -->
+		<input id='phone' type='hidden' name='phone'/>
+		<br><br>
+
+		<label for='Enquiry'>Reason to Contact<span class='red'>*</span></label>
+		<div class="radio-toolbar">
+			<input type="radio" id="Enquiry" name="00N5j00000Gq8XG" value="Enquiry" required>
+			<label for="Enquiry">Enquiry</label>
+			<input type="radio" id="Complaint" name="00N5j00000Gq8XG" value="Complaint">
+			<label for="Complaint">Product Feedback</label>
+		</div>
+	
+		<label for='subject'>Subject<span class='red'>*</span></label>
+		<input id='subject' maxlength='80' name='subject' type='text' placeholder='Reason for contacting us' required/>
+
+		<label for='description'>Description</label>
+		<textarea id= 'description' name='description' rows='8' maxlength='32000' placeholder='Tell us in a few words what your enquiry or experience is so we can help you'></textarea>
+
+		<div hidden id='extendedForm'>
+		
+			<label for='00N5j00000Gq8XD'>Product Name<span class='red'>*</span></label> <!-- *** CUSTOMISE 6 USE ALTERNATIVE PRESENTATION FOR PLAIN TEXT ENTRY - FOR NON-NZ SITES -->
+			<!-- Alternative Presentation:
+			<input id='00N5j00000Gq8XD' maxlength='80' name='00N5j00000Gq8XD' type='text' />
+			-->
+			<select id='00N5j00000Gq8XD' name='00N5j00000Gq8XD' title='Product Name'>
+				<option value=''>--None--</option>
+				<option value='The Bakers Son Angus Mince &amp; Cheese'>The Bakers Son Angus Mince &amp; Cheese</option>
+				<option value='The Bakers Son Angus Steak &amp; Cheese'>The Bakers Son Angus Steak &amp; Cheese</option>
+				<option value='The Bakers Son Angus Creamy Chicken'>The Bakers Son Creamy Chicken</option>
+				<option value='The Bakers Son Vegan Buttery Chicken'>The Bakers Son Vegan Buttery Chicken&amp; Cheese</option>
+				<option value='Other'>Other</option>
+			</select>
+			
+			<label for='dateBestBefore'>Best Before Date (DD/MM/YYYY)</label>
+			<!-- temporary date for user input with validation -->
+			<input class="formDate" id='dateBestBefore' name='dateBestBefore' type='date' /> 
+			<!-- hidden field to hold correctly formatted purchased date -->
+			<input  id='00N5j00000Gq8XE' type='hidden' name='00N5j00000Gq8XE' />
+	
+			<label for='00N5j00000Gq8XA'>Batch Code (Found on the tag e.g. AK1 113 0527)</label> <!-- *** CUSTOMISE 7 FOR AU VS NZ *** -->
+			<input id='00N5j00000Gq8XA' maxlength='20' name='00N5j00000Gq8XA' type='text' />
+
+			<label for='00N5j00000Gq8X9'>Barcode (e.g. 9415382000110)</label>
+			<input id='00N5j00000Gq8X9' maxlength='20' name='00N5j00000Gq8X9' type='text' />
+
+			<label for='datePurchased'>Date Purchased (DD/MM/YYYY)</label>
+			<!-- temporary date for user input with validation -->
+			<input class="formDate" id='datePurchased' name='datePurchased' type='date' /> 
+			<!-- hidden field to hold correctly formatted purchased date -->
+			<input id='00N5j00000Gq8XH' type='hidden' name='00N5j00000Gq8XH' />
+		
+			<!-- *** CUSTOMISE 8 USE ALTERNATIVE PRESENTATION FOR PLAIN TEXT ENTRY - FOR NON-NZ SITES -->
+			<!--<label for='00N5j00000Gq8XN'>Store Purchased From Name</label> 
+				<input id='00N5j00000Gq8XN' maxlength='200' name='00N5j00000Gq8XN' type='text' />-->
+			<label for='00N5j00000Gq8XN'>Store Purchased From Name</label> 
+			<select id='00N5j00000Gq8XN' name='00N5j00000Gq8XN' title='Store Purchased From Name'>
+				<option value=''>--None--</option>
+				<option value='Countdown'>Countdown</option>
+				<option value='New World '>New World </option>
+				<option value='Pak N Save'>Pak N Save</option>
+				<option value='Four Square'>Four Square</option>
+				<option value='Caltex'>Caltex</option>
+				<option value='BP'>BP</option>
+				<option value='Z '>Z </option>
+				<option value='Night & Day'>Night &amp; Day</option>
+				<option value='Mobil'>Mobil</option>
+				<option value='Dairy'>Dairy</option>
+				<option value='Café'>Café</option>
+				<option value='Other'>Other</option>
+			</select>			
+					
+			<label for='00N5j00000Gq8XL'>Store Purchased From Suburb</label>
+			<input id='00N5j00000Gq8XL' maxlength='85' name='00N5j00000Gq8XL' type='text' />
+		
+			<label for='00N5j00000Gq8XK'>Store Purchased From City</label>  <!-- *** CUSTOMISE 9 FOR AU STATE VS NZ CITY *** -->
+			<input id='00N5j00000Gq8XK' maxlength='85' name='00N5j00000Gq8XK' type='text' />
+		
+		</div>
+
+		<label id='postCodeLabel' for='00N5j00000Gq8XO'>Your Post Code</label>
+		<input id='00N5j00000Gq8XO' maxlength='10' name='00N5j00000Gq8XO' type='text' />
+	
+		<label hidden id='countryLabel' for='00N5j00000Gq8XM'>Your Country</label> <!-- *** CUSTOMISE 10 REMOVE HIDDEN FOR PATAKS *** -->
+		<input id='00N5j00000Gq8XM' name='00N5j00000Gq8XM' type='hidden' value='New Zealand'/> <!-- *** CUSTOMISE 11 HARDCODE VALUE FOR MOST AU / NZ SITES. FOR PATAKS: REMOVE type='hidden' ADD type='text' maxlength='56' value='' *** -->
+
+		<p><span class='red'>*</span> Required Fields</p>	
+		<br>	
+		
+		<div id='grecDiv' class='g-recaptcha' data-sitekey='dummy-filled-by-script'></div>
+		<!-- CUSTOMISE 11
+			if the reCAPTCHA fails, please insert this key in place of the dummy-filled-by-script' for Big Ben NZ
+			6Le-2bsfAAAAALI4E4wAXBOelAZHNqUZwju0e6S-
+		-->
+
+		<div class='rcMessageContainer'>
+			<input id='rcMessage' tabindex='-1'>
+		</div>
+		<br>
+		
+		<input class='button' type='submit' name='submit' onclick='process(event);'>
+
+		<p class="center"><b>Attachments:</b> You will receive an automated confirmation email once you
+		submit your enquiry. Please reply to this message with any relevant photos /
+		documents to add them to your enquiry.</p>
+
+	</form>
+
+	<script>
+
+		/* Look up site key for the Google reCAPTCHA */
+		/* CUSTOMISE 12 reCAPTCHA - Add more keys if needed */
+		/* delete key pairs here: https://gwf--uat.my.salesforce.com/0He */
+		/* delete key pairs here: https://gwf.my.salesforce.com/0He */
+		var rcSettings = '[' + document.getElementById('rcSettings').value + ']';
+		var siteKeyName = JSON.parse(rcSettings)[0]['keyname'];
+		var rcSiteKeys = '[{ \
+			"AustraliaAll"	: "6LdKMJ8fAAAAAENRalWR8ISyK94pLiQ73H08nH2K", \
+			"TipTopNZ"		: "6LcD27sfAAAAAMhbJDIuNUawDBcExbb4Q-K9kfst", \
+			"BigBenNZ"		: "6Le-2bsfAAAAALI4E4wAXBOelAZHNqUZwju0e6S-", \
+			"PloughmansNZ"	: "6LfT27sfAAAAABC98SgcHLiQcwsW3SZ8oXKLqGBM", \
+			"BurgenNZ"		: "6LdA3LsfAAAAAGBLLrK_frB6NCoeljKwYDihJaPt", \
+			"GoldenNZ"		: "6Lex3LsfAAAAAORE8n6Pe-ASsnLx2wXca6H9Y1s5", \
+			"GWFNZ"			: "6LeA3bsfAAAAAPdCAL4P3nqR0XH5IZMUhz_lvKQl", \
+			"FoodserviceNZ"	: "6Lfu3bsfAAAAAGGOkkcNRaVzagaK1B3PSim6VozZ"  \
+		}]';
+		var siteKeyValue = JSON.parse(rcSiteKeys)[0][siteKeyName]	
+		document.getElementById('grecDiv').setAttribute('data-sitekey', siteKeyValue);
+		
+		/* calculate min and max values for date purchased field */
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+
+		today = yyyy+'-'+mm+'-'+dd;
+		yearago = yyyy-1+'-'+mm+'-'+dd;
+		usebymax = yyyy+1+'-'+mm+'-'+dd;
+		document.getElementById('datePurchased').setAttribute('max', today);
+		document.getElementById('datePurchased').setAttribute('min', yearago);
+		document.getElementById('dateBestBefore').setAttribute('max', usebymax);
+		document.getElementById('dateBestBefore').setAttribute('min', yearago);
+
+		/* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
+		const phoneInputField = document.querySelector('#phone-raw');
+		const phoneInput = window.intlTelInput(phoneInputField, {
+			initialCountry: 'nz', /* *** CUSTOMISE 13 *** */
+			/* preferredCountries: ['au', 'nz', 'uk'], */
+			onlyCountries: ['nz', 'au'], /* ['nz', 'au'] *** CUSTOMISE 14 *** */
+			utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js',
+		});
+
+		/* clear validation warning on phone number whenever user changes value */
+		const phoneField = document.getElementById('phone-raw');
+		phoneField.oninput = function(){
+			phoneField.setCustomValidity('');
+		};
+
+		/* show or hide the extended form based on case type selection */
+		var enquiryRadio = document.getElementById('Enquiry');
+		var complaintRadio = document.getElementById('Complaint');
+		var extendedFormDiv = document.getElementById('extendedForm');
+		var productNameField = document.getElementById('00N5j00000Gq8XD');
+		var postCodeLabel = document.getElementById('postCodeLabel');
+		var countryLabel = document.getElementById('countryLabel');
+	
+		enquiryRadio.addEventListener('change', function(){
+		if(enquiryRadio.id === 'Enquiry'){
+			extendedFormDiv.style.display = 'none';
+			productNameField.removeAttribute('required');
+			postCodeLabel.innerHTML = 'Your Post Code';
+			countryLabel.innerHTML = 'Your Country';
+		}});
+
+		complaintRadio.addEventListener('change', function(){
+		if(complaintRadio.id === 'Complaint'){
+			extendedFormDiv.style.display = 'block';
+			productNameField.setAttribute('required', '');
+			postCodeLabel.innerHTML = 'Store Purchased From Post Code';
+			countryLabel.innerHTML = 'Store Purchased From Country';
+		}});
+		
+		/* format values correctly and run validation when user clicks submit */
+		function process(event) {
+			
+			/* this reformats the date purchased as Salesforce needs dd/mm/yyyy not yyyy-mm-dd */
+			const dateBB = document.getElementById('dateBestBefore').value;
+			const [yearBB, monthBB, dayBB] = dateBB.split('-');
+			const formattedDateBestBefore = [dayBB, monthBB, yearBB].join('/')
+			document.getElementById('00N5j00000Gq8XE').value = `${formattedDateBestBefore}`;
+
+			/* this reformats the best before date as Salesforce needs dd/mm/yyyy not yyyy-mm-dd */
+			const dateP = document.getElementById('datePurchased').value;
+			const [yearP, monthP, dayP] = dateP.split('-');
+			const formattedDatePurchased = [dayP, monthP, yearP].join('/')
+			document.getElementById('00N5j00000Gq8XH').value = `${formattedDatePurchased}`;
+
+			/* Based on https://www.twilio.com/blog/international-phone-number-input-html-javascript */
+			const phoneNumber = phoneInput.getNumber();
+			/* set the value of the hidden phone number field to the processed phone number so it can be sent to Salesforce */
+			document.getElementById('phone').value = `${phoneNumber}`;
+
+			/* Assuming phone number is not mandatory, then need to allow 0 OR valid E.164 numbers - this regex is additional capped in length)*/	
+			/* needs to allow for +61 1300 123 456 which is the longest in AU / NZ	*/
+			let re = /^\+[1-9]\d{1,11}$/; 
+			if (phoneNumber.length == 0 || re.test(phoneNumber)) {
+				phoneField.setCustomValidity('');
+				/* for testing, set the return to false and uncomment the alert below */
+				/* alert(phoneNumber); */
+				/* phoneField.value = `${phoneNumber}`; */
+				return checkCAPTCHA();
+			} else {
+				phoneField.setCustomValidity('Invalid phone number.');
+				return false;
+			}
+		}
+		
+		function checkCAPTCHA() {
+			var response = grecaptcha.getResponse().length;
+			var rcMesssage = document.getElementById('rcMessage');
+			if (response === 0) {
+				rcMesssage.setCustomValidity('Please complete the reCAPTCHA');
+				return false;
+			} else {
+				rcMesssage.setCustomValidity('');
+				return true;
+			}
+		}
+
+	</script>
+	
+	<!-- END - ADD THIS TO THE BODY TAG - END -->
+
+</div>
+	
+</body>
+</html>
